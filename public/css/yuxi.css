@@ -1,0 +1,116 @@
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+
+.intro-section {
+    height: auto;
+    background-color: #c2d4de;
+    background-image: url("http://www.transparenttextures.com/patterns/subtle-zebra-3d.png");
+    padding: 0 0 30px 0;
+}
+
+.tophalf{
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #7b4353;
+    background-image: url("http://www.transparenttextures.com/patterns/skulls.png");
+    -webkit-box-shadow: 0 3px 9px 3px rgba(0,0,0,0.3) ;
+    box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.3);
+}
+
+.textphoto{
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    padding: 20px 0;
+}
+
+.textphoto .left{
+    margin: 0 auto;
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 3px 1px 5px rgba(0,0,0,0.2) ;
+
+}
+
+.textphoto .left h1{
+    font-weight: 900;
+    font-size:36px;
+    padding-top: 20px;
+
+}
+
+.textphoto .left h3{
+    font-size:30px;
+    color: rgb(240, 240, 240);
+
+}
+
+
+.textphoto .right .myphoto{
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-image: url("../image/IMG_61451.jpg");
+    background-size: cover;
+}
+
+
+.btmhalf{
+    list-style: none;
+    position: relative;
+    padding: 50px 0 0 0;
+    display: table;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.btmhalf li{
+    padding: 30px 20px 0 20px;
+    display: inline-block;
+}
+
+.btn{
+    padding: 30px 60px;
+    background-color: #ffffff;
+    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+    text-align: center;
+    font-size:26px;
+    border: 6px  #7b4353 solid ;
+    border-radius: 5px;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.btmhalf a{
+    text-decoration: none;
+    color:  #7b4353 ;
+}
+
+.btmhalf a:hover .btn{
+    color:  #7b4353 ;
+    background-color: #d6b2ca;
+}
+
+
+@media(min-width:767px) {
+    .intro-section {
+        height: 100%;
+        padding: 0;
+    }
+}
