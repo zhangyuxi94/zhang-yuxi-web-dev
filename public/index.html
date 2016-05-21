@@ -1,52 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>Yuxi_Web Dev Course Page</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/yuxi.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cuprum" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Monoton" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation"  id="topnavbar">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top"  style="color: white">Yuxi Zhang</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top" style="color: white"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#page2" style="color: white">Assignments</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#page3" style="color: white">Project</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#page4" style="color: white">Contact Me</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
 
-<section id="intro" class="intro-section">
-    <div class="tophalf">
-        <div class="container textphoto">
-            <div class="row" style="height: 100%">
-                <div class="col-sm-8 left">
-                    <h1>WEB DEV COURSE HOME PAGE</h1>
-                    <h3>YUXI ZHANG</h3>
-                </div>
-                <div class="col-sm-4 right">
-                    <div class="myphoto"></div>
-                </div>
+<section id="page1" class="page1">
+    <div class="centername">
+        <h1>Web Dev  Course  Home  Page</h1>
+        <h3>YUXI ZHANG | CS 5610</h3>
+        <div class="btn-group" role="group">
+            <a href="https://github.com/zhangyuxi94/zhang-yuxi-web-dev.git"><button type="button" class="btn btn-default"><img src="image/github.png">GitHub</button></a>
+        </div>
+    </div>
+</section>
+
+<section id="page2" class="page2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 pageleft">
+                <h1>Assignments</h1>
+                <ul class="list-group">
+                    <a href="test/index.html"><li class="list-group-item black">Test MongoDB</li></a>
+                    <a href="assignment/login.html"><li class="list-group-item">Assignment 2</li></a>
+                    <a href="assignment/index.html"><li class="list-group-item black">Assignment 3</li></a>
+                    <a href="assignment/index.html"><li class="list-group-item">Assignment 4</li></a>
+                    <a href="assignment/index.html"><li class="list-group-item black">Assignment 5</li></a>
+                    <a href="assignment/index.html"><li class="list-group-item">Assignment 6</li></a>
+                </ul>
+            </div>
+            <div class="col-md-6 pageright">
+                <a href="assignment/login.html"><img src="image/assignment.png"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="page3" class="page2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 pageleft">
+                <a href="project/index.html" ><img src="image/bostonmac.png"></a>
+            </div>
+            <div class="col-md-6 pageright">
+                <h1>Project</h1>
+                <a class="btn" href="project/index.html" role="button">Enter</a>
             </div>
         </div>
     </div>
 
-    <ul class="btmhalf">
-        <li>
-            <a href="project/index.html"><div class="btn">Project</div></a>
-        </li>
-        <li>
-            <a href="assignment/index.html"><div class="btn">Assignment</div></a>
-        </li>
-        <li>
-            <a href="test/index.html"><div class="btn">MongoDB Test</div></a>
-        </li>
-        <li>
-            <a href="https://github.com/zhangyuxi94/zhang-yuxi-web-dev.git"><div class="btn">GitHub</div></a>
-        </li>
-
-    </ul>
-
 </section>
+
+<section id="page4" class="page2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 pageleft">
+                <h1>Contact Me</h1>
+                <img src="image/IMG_61451.jpg">
+            </div>
+            <div class="col-md-6 pageright">
+                <ul>
+                    <a href="https://github.com/zhangyuxi94/zhang-yuxi-web-dev.git"><li class="list-group-item black"><img src="image/github2.png">GitHub</li></a>
+                    <a href="https://www.linkedin.com/in/yuxizhang321"><li class="list-group-item"><img src="image/linkedin.png">LinkedIn</li></a>
+                    <a href="https://www.facebook.com/yuxizhang321"><li class="list-group-item black"><img src="image/facebook.png">Facebook</li></a>
+                    <a href="mailto:zhang.yuxi1@husky.neu.edu"><li class="list-group-item"><img src="image/mail.png">zhang.yuxi1@husky.neu.edu</li></a>
+                   <li class="list-group-item black"><img src="image/mobile.png">(702)857-0160</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="js/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/mainpage.js"></script>
 </body>
 </html>

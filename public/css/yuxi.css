@@ -2,6 +2,7 @@
 body {
     width: 100%;
     height: 100%;
+    font-family: Cuprum;
 }
 
 html {
@@ -9,87 +10,221 @@ html {
     height: 100%;
 }
 
+html a{
+    color: black;
+}
 
-.intro-section {
+html a:hover{
+    text-decoration: none;
+
+}
+
+
+.navbar{
+    background-color: rgba(21, 39, 3, 0.86);
+    color: white;
+    border: 0;
+}
+
+.navbar .navbar-brand{
+    font-size: 26px;
+}
+
+.navbar .nav{
+    font-size: 20px;
+    float: left;
+}
+
+.navbar a{
+    color: white;
+}
+
+/*===========================navbar btn==========================================*/
+
+.navbar .navbar-toggle{
+    background-color: transparent;
+    color: white;
+    border: 0;
+}
+
+.navbar .navbar-toggle .icon-bar{
+    background-color: white;
+}
+
+/*===========================navbar hover==========================================*/
+
+
+.navbar-default .navbar-nav > .active > a {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus{
+    background-color:transparent;
+}
+
+#topnavbar .navbar-nav > .active > a:hover{
+    background-color: transparent;
+}
+
+#topnavbar .navbar-nav > .active > a:focus{
+    background-color: transparent;
+}
+
+.navbar .navbar-toggle:focus{
+    background-color: transparent;
+}
+/*=====================================================================*/
+
+
+.top-nav-collapse {
+    background-color: rgba(203, 89, 92, 0.94);
+}
+
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+        background-color: rgba(29, 29, 29, 0.33);
+
+    }
+    .navbar .navbar-brand{
+        font-size: 30px;
+    }
+    .top-nav-collapse {
+        padding: 0;
+        background-color: rgba(203, 89, 92, 0.94);
+    }
+
+    .navbar .nav{
+        float: right;
+    }
+
+
+}
+
+/*===============================page1=======================================*/
+
+.page1{
     height: auto;
-    background-color: #c2d4de;
-    background-image: url("http://www.transparenttextures.com/patterns/subtle-zebra-3d.png");
-    padding: 0 0 30px 0;
-}
-
-.tophalf{
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    background-color: #7b4353;
-    background-image: url("http://www.transparenttextures.com/patterns/skulls.png");
-    -webkit-box-shadow: 0 3px 9px 3px rgba(0,0,0,0.3) ;
-    box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.3);
-}
-
-.textphoto{
-    position: relative;
-    margin: 0 auto;
-    width: 80%;
-    padding: 20px 0;
-}
-
-.textphoto .left{
-    margin: 0 auto;
-    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-    position: relative;
-    text-align: center;
-    color: #ffffff;
-    text-shadow: 3px 1px 5px rgba(0,0,0,0.2) ;
-
-}
-
-.textphoto .left h1{
-    font-weight: 900;
-    font-size:36px;
-    padding-top: 20px;
-
-}
-
-.textphoto .left h3{
-    font-size:30px;
-    color: rgb(240, 240, 240);
-
-}
-
-
-.textphoto .right .myphoto{
-    margin: 0 auto;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    background-image: url("../image/IMG_61451.jpg");
+    padding: 40px;
+    background: url("../image/bk1.jpg") left center;
     background-size: cover;
 }
 
-
-.btmhalf{
-    list-style: none;
+.centername{
+    text-align: center;
     position: relative;
-    padding: 50px 0 0 0;
-    display: table;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
+    top: 10%;
+    padding: 0;
 }
 
-.btmhalf li{
-    padding: 30px 20px 0 20px;
-    display: inline-block;
+
+.centername h1{
+    font-family: Monoton;
+    font-weight: 500;
+    font-size: 30px;
+
+    color: white;
 }
 
-.btn{
-    padding: 30px 60px;
-    background-color: #ffffff;
-    font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+.centername h3{
+    padding-top: 20px;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.82);
+    font-family: Oswald;
+    font-size: 24px;
+    color: white;
+}
+
+.centername .btn-group{
+    margin-top: 40px;
+}
+
+.centername .btn{
+    padding: 10px 30px;
+    font-size: 20px;
+}
+
+.centername .btn img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+
+@media(min-width:767px){
+    .page1{
+        height: 100%;}
+
+    .centername{
+        top: 30%;}
+
+    .centername h1 {
+        font-size: 54px;
+    }
+
+    .centername h3{
+        font-size: 40px;
+    }
+    }
+/*==============================page2============================================*/
+.page2{
+    height: auto;
+    padding: 40px 0;
+}
+
+.pageleft{
     text-align: center;
-    font-size:26px;
-    border: 6px  #7b4353 solid ;
+}
+
+.page2 h1{
+    font-family: Monoton;
+    font-size: 30px;
+    color: #cb595c;
+}
+
+.page2 .pageleft ul{
+    padding-top: 20px;
+    font-size: 18px;
+    border: 0;
+    padding-bottom: 20px;
+}
+
+.pageleft li{
+    border: 0;
+}
+
+.pageleft ul .black{
+    background-color: #cb595c;
+    color: white;
+}
+
+.pageright{
+    padding-top: 20px;
+    text-align: center;
+}
+
+.pageright img{
+    width: 90%;
+}
+/*==============================page3============================================*/
+#page3{
+    padding: 100px 20px;
+    background-color: #f9e0c5;
+}
+
+
+#page3 .btn{
+    margin-top: 20px;
+    padding: 10px 40px;
+    text-align: center;
+    font-size:30px;
+    background-color: #cb595c;
+    color: white;
+    border: 3px  #ffffff solid ;
     border-radius: 5px;
     -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
     -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -97,20 +232,43 @@ html {
     transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-.btmhalf a{
-    text-decoration: none;
-    color:  #7b4353 ;
+#page3 .btn:hover{
+    background-color: #ffffff;
+    color: #cb595c;
+    border: 3px  #cb595c solid ;
 }
 
-.btmhalf a:hover .btn{
-    color:  #7b4353 ;
-    background-color: #d6b2ca;
+#page3 img{
+    width: 100%;
 }
 
+/*==============================page4============================================*/
+#page4{
+    padding: 40px 0;
+    background-color: #cb595c;
+    background-image: url("http://www.transparenttextures.com/patterns/black-linen.png");
+}
 
-@media(min-width:767px) {
-    .intro-section {
-        height: 100%;
-        padding: 0;
-    }
+#page4 h1{
+    color: white;
+}
+
+#page4 .pageleft img{
+    margin-top: 20px;
+    width: 40%;
+    border: 6px #ffffff solid;
+    border-radius: 50%;
+}
+
+#page4 .pageright ul li{
+    border:0;
+    text-align: left;
+    font-size: 18px;
+    background-color: transparent;
+    color: white;
+}
+
+#page4 .pageright li img{
+    width: 24px;
+    margin-right: 10px;
 }
