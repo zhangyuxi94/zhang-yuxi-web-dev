@@ -21,24 +21,11 @@
             "deleteUser":"deleteUser"
         };
         return api;
-        function createUser(user){
-
-        }
-        function findUserById(id){
-
-        }
-        function findUserByUsername(username){
-
-        }
-        function findUserByCredentials(username,password){
-
-        }
-        function updateUser(userId,user){
-
-        }
-        function deleteUser(userId){
-
-        }
-
+        function createUser(user){}
+        function findUserById(id){}
+        function findUserByUsername(username){}
+        function findUserByCredentials(username,password){}
+        function updateUser(userId,user){}
+        function deleteUser(userId){}
     }
 })();
