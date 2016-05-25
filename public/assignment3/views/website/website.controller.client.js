@@ -7,7 +7,13 @@
         .controller("WebsiteListController",WebsiteListController)
         .controller("NewWebsiteController",NewWebsiteController)
         .controller("EditWebsiteController",EditWebsiteController);
-    function WebsiteListController(){}
-    function NewWebsiteController(){}
-    function EditWebsiteController(){}
+    function WebsiteListController(){
+        var vm=this;
+    }
+    function NewWebsiteController(){
+        var vm=this;
+    }
+    function EditWebsiteController(){
+        var vm=this;
+    }
 })();

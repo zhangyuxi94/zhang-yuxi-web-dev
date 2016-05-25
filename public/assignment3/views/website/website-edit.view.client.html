@@ -8,11 +8,11 @@
                   </span>
                 </a>
             </p>
-            <a class="navbar-brand" href="/assignment/website/website-edit.html">
+            <a class="navbar-brand" href="#/user/:uid/website/:wid">
                 Edit Website
             </a>
             <p class="navbar-text pull-right">
-                <a href="website-list.view.client.html" class="navbar-link">
+                <a href="#/user/:uid/website" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -30,6 +30,7 @@
                        class="form-control"
                        id="website-name"
                        value="Blogging"
+                       ng-model="model.website.wname"
                        placeholder="Google">
             </div>
             <div class="form-group">
@@ -37,24 +38,25 @@
                 <textarea rows="4"
                           id="website-description"
                           class="form-control"
+                          ng-model="model.website.wdescription"
                           placeholder="Description">People are changing their lives daily with blogging, whether it be through personal stories, building resources for others or using a blog to generate some extra money on the side. Not only have I experienced the power of blogging first hand, but I’ve also helped thousands of others discover the same. Now it’s your turn!</textarea>
             </div>
         </form>
 
         <a class="btn btn-danger  btn-block"
-           href="website-list.view.client.html">Delete</a>
+           href="#/user/:uid/website">Delete</a>
     </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
         <div class="pull-left">
-            <a href="/assignment/website/website-list.html">
+            <a href="#/user/:uid/website">
                 <span class="glyphicon glyphicon-share-alt"></span>
             </a>
         </div>
 
         <div class="pull-right">
-            <a href="/assignment/user/profile.html">
+            <a href="#/user/:uid">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
