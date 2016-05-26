@@ -22,7 +22,7 @@
         };
         return api;
         function createUser(user){}
-        function findUserById(id){}
+        function findUserById(userId){}
         function findUserByUsername(username){}
         function findUserByCredentials(username,password){}
         function updateUser(userId,user){}
