@@ -5,7 +5,7 @@
     angular.module("WebAppMaker")
         .factory("WebsiteService",WebsiteService);
     function WebsiteService(){
-        var websites=[
+        var website=[
             { "_id": "123", "name": "Facebook", "developerId": "456" },
             { "_id": "234", "name": "Tweeter", "developerId": "456" },
             { "_id": "456", "name": "Gizmodo", "developerId": "456" },
