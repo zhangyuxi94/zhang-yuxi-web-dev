@@ -8,13 +8,16 @@
         .controller("LoginController",LoginController)
         .controller("RegisterController",RegisterController)
         .controller("ProfileController",ProfileController);
+
     function LoginController($location){
         var vm=this;
-        vm.login=function(username,password){
+        vm.login=login;
+        function login(username,password){
             for(var i in users){
                 if(users[i].username === username && users[i].password===password){
                     $location.url("/user/"+users[i]._id);
-                }else{
+                }
+                else{
                     vm.error="User Not Found";
                 }
             }
@@ -36,7 +39,6 @@
     // }
     function RegisterController(){
         var vm=this;
-
     }
 
     var users=[
