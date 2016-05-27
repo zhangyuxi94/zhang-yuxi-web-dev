@@ -23,10 +23,6 @@
         }
     }
 
-    function RegisterController(){
-        var vm=this;
-    }
-    
     function ProfileController($routeParams,UserService){
         var vm=this;
         vm.updateUser=updateUser;
@@ -42,22 +38,20 @@
             UserService.updateUser(userId,user);
             vm.save="Success! Your profile was saved."
         }
-        // vm.updateUser=updateUser;
-        // var userId = $routeParams.uid;
-        // var index=-1;
-        // for(var i in users){
-        //     if(users[i]._id===userId){
-        //         vm.user=users[i];
-        //         index=i;
-        //     }
-        // }
-        //
-        // function updateUser(newUser) {
-        //     console.log(newUser);
-        //     users[index].firstName=newUser.firstName;
-        //     users[index].lastName=newUser.lastName;
-        // }
     }
 
+    function RegisterController($location,UserService){
+        var vm=this;
+        vm.register=register;
+        function register(user,password){
+            var user=UserService.createUser(user,password);
+            console.log(user);
+            console.log(user._id);
+            $location.url("/user/"+user._id);
+
+            // console.log(password);
+
+        }
+    }
     
 })();

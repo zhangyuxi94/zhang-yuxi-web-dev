@@ -7,16 +7,16 @@
         .factory("UserService",UserService);
     function UserService(){
      var users=[
-         {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder" },
-         {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley" },
-         {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia" },
-         {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi" }
+         {_id: "1", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder" },
+         {_id: "2", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley" },
+         {_id: "3", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia" },
+         {_id: "4", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi" }
      ];
         var api = {
             findUserByCredentials:findUserByCredentials,
             findUserById:findUserById,
             updateUser:updateUser,
-            "createUser":"createUser",
+            createUser:createUser,
             "findUserByUsername":"findUserByUsername",
             "deleteUser":"deleteUser"
         };
@@ -51,8 +51,18 @@
             return false;
         }
 
-
-        function createUser(user){}
+        function createUser(user,password){
+            var length=users.length-1;
+            var uid=users[length]._id;
+            uid=parseInt(uid);
+            uid+=1;
+            uid=uid.toString();
+            var uname=user;
+            var upwd=password;
+            var userarry={_id: uid,username: uname, password: upwd};
+            users.push(userarry);
+            return users[length+1];
+        }
 
 
         function findUserByUsername(username){}
