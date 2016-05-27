@@ -29,9 +29,19 @@
     
     function ProfileController($routeParams,UserService){
         var vm=this;
+        vm.updateUser=updateUser;
+
         var userId=$routeParams.uid;
-        var user=UserService.findUserById(userId);
-        vm.user=user;
+        function init(){
+            var user=UserService.findUserById(userId);
+            vm.user=user;
+        }
+        init();
+
+        function updateUser(user){
+            UserService.updateUser(userId,user);
+            vm.save="Success! Your profile was saved."
+        }
         // vm.updateUser=updateUser;
         // var userId = $routeParams.uid;
         // var index=-1;
@@ -48,4 +58,6 @@
         //     users[index].lastName=newUser.lastName;
         // }
     }
+
+    
 })();
