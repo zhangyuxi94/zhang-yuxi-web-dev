@@ -45,12 +45,9 @@
         vm.register=register;
         function register(user,password){
             var user=UserService.createUser(user,password);
-            console.log(user);
-            console.log(user._id);
+            // console.log(user);
+            // console.log(user._id);
             $location.url("/user/"+user._id);
-
-            // console.log(password);
-
         }
     }
     

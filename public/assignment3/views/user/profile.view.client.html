@@ -42,7 +42,7 @@
         </form>
 
         <a class="btn btn-primary btn-block"
-           href="#/user/:uid/website">Websites</a>
+           href="#/user/{{model.user._id}}/website">Websites</a>
         <a class="btn btn-danger  btn-block"
            href="#/login">Logout</a>
     </div>
@@ -50,7 +50,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
             <div class="pull-right">
-                <a href="#/profile">
+                <a href="#/user/{{model.user._id}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

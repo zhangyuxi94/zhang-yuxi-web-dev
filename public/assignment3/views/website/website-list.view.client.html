@@ -15,51 +15,23 @@
     </div>
 </nav>
 
-{{model.websites}}
     <div class="container">
         <ul class="list-group">
-            <li class="list-group-item">
-                <a href="#/user/:uid/website/:wid/page">
-                    Blogging
+            <li class="list-group-item"  ng-repeat="website in model.websites">
+                <a href="#/user/{{website.developerId}}/website/{{website._id}}/page">
+                    {{website.name}}
                 </a>
-                <a href="#/user/:uid/website/:wid" class="pull-right">
+                <a href="#/user/{{website.developerId}}/website/{{website._id}}" class="pull-right">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
             </li>
-            <!--<li class="list-group-item">-->
-                <!--<a href="#/user/:uid/website/:wid/page">-->
-                    <!--Address Book-->
-                <!--</a>-->
-                <!--<a href="#/user/:uid/website/:wid" class="pull-right">-->
-                    <!--<span class="glyphicon glyphicon-cog"></span>-->
-                <!--</a>-->
-            <!--</li>-->
-            <!--<li class="list-group-item">-->
-                <!--<a href="#/user/:uid/website/:wid/page">-->
-                    <!--Script Testing Website-->
-                <!--</a>-->
-                <!--<a href="#/user/:uid/website/:wid" class="pull-right">-->
-                    <!--<span class="glyphicon glyphicon-cog"></span>-->
-                <!--</a>-->
-            <!--</li>-->
-            <!--<li class="list-group-item">-->
-                <!--<a href="#/user/:uid/website/:wid/page">-->
-                    <!--Blogger-->
-                <!--</a>-->
-                <!--<a href="#/user/:uid/website/:wid" class="pull-right">-->
-                    <!--<span class="glyphicon glyphicon-cog"></span>-->
-                <!--</a>-->
-            <!--</li>-->
         </ul>
     </div>
-<div class="container" ng-repeat="website in model.websites" style="background-color: #feba04">
-{{website.name}}
-</div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
         <div class="pull-right">
-            <a href="#/user/:uid">
+            <a href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
