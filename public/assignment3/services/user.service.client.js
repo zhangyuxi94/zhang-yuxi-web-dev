@@ -13,19 +13,41 @@
          {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi" }
      ];
         var api = {
+            findUserByCredentials:findUserByCredentials,
+            findUserById:findUserById,
             "createUser":"createUser",
-            "findUserById":"findUserById",
             "findUserByUsername":"findUserByUsername",
-            "findUserByCredentials":"findUserByCredentials",
             "updateUser":"updateUser",
             "deleteUser":"deleteUser"
         };
         return api;
+
+        function findUserByCredentials(username,password){
+            for(var i in users){
+                if(users[i].username === username && users[i].password === password){
+                    return users[i];
+                }
+            }
+            return null;
+        }
+
+        function findUserById(userId){
+            for(var i in users){
+                if(users[i]._id===userId){
+                    return users[i];
+                }
+            }
+            return null;
+        }
+
         function createUser(user){}
-        function findUserById(userId){}
+
+
         function findUserByUsername(username){}
-        function findUserByCredentials(username,password){}
-        function updateUser(userId,user){}
+
+        function updateUser(userId,user){
+
+        }
         function deleteUser(userId){}
     }
 })();

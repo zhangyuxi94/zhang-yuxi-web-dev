@@ -15,6 +15,7 @@
     </div>
 </nav>
 
+{{model.websites}}
     <div class="container">
         <ul class="list-group">
             <li class="list-group-item">
@@ -25,30 +26,30 @@
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
             </li>
-            <li class="list-group-item">
-                <a href="#/user/:uid/website/:wid/page">
-                    Address Book
-                </a>
-                <a href="#/user/:uid/website/:wid" class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="#/user/:uid/website/:wid/page">
-                    Script Testing Website
-                </a>
-                <a href="#/user/:uid/website/:wid" class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="#/user/:uid/website/:wid/page">
-                    Blogger
-                </a>
-                <a href="#/user/:uid/website/:wid" class="pull-right">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-            </li>
+            <!--<li class="list-group-item">-->
+                <!--<a href="#/user/:uid/website/:wid/page">-->
+                    <!--Address Book-->
+                <!--</a>-->
+                <!--<a href="#/user/:uid/website/:wid" class="pull-right">-->
+                    <!--<span class="glyphicon glyphicon-cog"></span>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="list-group-item">-->
+                <!--<a href="#/user/:uid/website/:wid/page">-->
+                    <!--Script Testing Website-->
+                <!--</a>-->
+                <!--<a href="#/user/:uid/website/:wid" class="pull-right">-->
+                    <!--<span class="glyphicon glyphicon-cog"></span>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="list-group-item">-->
+                <!--<a href="#/user/:uid/website/:wid/page">-->
+                    <!--Blogger-->
+                <!--</a>-->
+                <!--<a href="#/user/:uid/website/:wid" class="pull-right">-->
+                    <!--<span class="glyphicon glyphicon-cog"></span>-->
+                <!--</a>-->
+            <!--</li>-->
         </ul>
     </div>
 <div class="container" ng-repeat="website in model.websites" style="background-color: #feba04">
