@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/public/assignment3/views/page/page-edit.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -40,31 +40,31 @@
       <file leaf-file-name="website.controller.client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assignment3/views/website/website.controller.client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-475">
-              <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+            <state relative-caret-position="398">
+              <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="website.service.client.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="website.service.client.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assignment3/services/website.service.client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+            <state relative-caret-position="-590">
+              <caret line="8" column="100" selection-start-line="8" selection-start-column="100" selection-end-line="8" selection-end-column="100" />
               <folding>
-                <element signature="e#925#1135#0" expanded="false" />
-                <element signature="e#1190#1548#0" expanded="false" />
+                <element signature="e#1093#1303#0" expanded="false" />
+                <element signature="e#1358#1716#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.controller.client.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page.controller.client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assignment3/views/page/page.controller.client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+            <state relative-caret-position="379">
+              <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -73,8 +73,8 @@
       <file leaf-file-name="page.service.client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assignment3/services/page.service.client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+            <state relative-caret-position="113">
+              <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -150,9 +150,9 @@
         <option value="$PROJECT_DIR$/public/assignment3/views/website/website-edit.view.client.html" />
         <option value="$PROJECT_DIR$/public/assignment3/views/website/website.controller.client.js" />
         <option value="$PROJECT_DIR$/public/assignment3/views/page/page-edit.view.client.html" />
-        <option value="$PROJECT_DIR$/public/assignment3/services/website.service.client.js" />
-        <option value="$PROJECT_DIR$/public/assignment3/services/page.service.client.js" />
         <option value="$PROJECT_DIR$/public/assignment3/views/page/page.controller.client.js" />
+        <option value="$PROJECT_DIR$/public/assignment3/services/page.service.client.js" />
+        <option value="$PROJECT_DIR$/public/assignment3/services/website.service.client.js" />
       </list>
     </option>
   </component>
@@ -163,8 +163,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="208" />
-    <option name="y" value="66" />
+    <option name="x" value="41" />
+    <option name="y" value="164" />
     <option name="width" value="1295" />
     <option name="height" value="780" />
   </component>
@@ -492,15 +492,15 @@
       <workItem from="1464277039296" duration="32992000" />
       <workItem from="1464359716289" duration="1929000" />
       <workItem from="1464370772280" duration="29847000" />
-      <workItem from="1464446575599" duration="12790000" />
+      <workItem from="1464446575599" duration="13657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165988000" />
+    <option name="totallyTimeSpent" value="166855000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="208" y="66" width="1295" height="780" extended-state="0" />
+    <frame x="41" y="164" width="1295" height="780" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2275215" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -834,18 +834,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment3/views/website/website-edit.view.client.html">
+    <entry file="file://$PROJECT_DIR$/public/assignment3/views/website/website.controller.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="46" column="42" selection-start-line="46" selection-start-column="42" selection-end-line="46" selection-end-column="42" />
+        <state relative-caret-position="398">
+          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment3/services/page.service.client.js">
+    <entry file="file://$PROJECT_DIR$/public/assignment3/views/website/website-edit.view.client.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+        <state relative-caret-position="152">
+          <caret line="14" column="96" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="96" />
           <folding />
         </state>
       </provider>
@@ -853,35 +853,35 @@
     <entry file="file://$PROJECT_DIR$/public/assignment3/views/page/page-edit.view.client.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment3/views/website/website.controller.client.js">
+    <entry file="file://$PROJECT_DIR$/public/assignment3/views/page/page.controller.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-475">
-          <caret line="8" column="67" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+        <state relative-caret-position="379">
+          <caret line="51" column="64" selection-start-line="51" selection-start-column="64" selection-end-line="51" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assignment3/services/page.service.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assignment3/services/website.service.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+        <state relative-caret-position="-590">
+          <caret line="8" column="100" selection-start-line="8" selection-start-column="100" selection-end-line="8" selection-end-column="100" />
           <folding>
-            <element signature="e#925#1135#0" expanded="false" />
-            <element signature="e#1190#1548#0" expanded="false" />
+            <element signature="e#1093#1303#0" expanded="false" />
+            <element signature="e#1358#1716#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment3/views/page/page.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>

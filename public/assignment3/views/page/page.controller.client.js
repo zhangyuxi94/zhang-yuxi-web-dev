@@ -34,7 +34,7 @@
         vm.websiteId=websiteId;
     }
 
-    function EditPageController($routeParams,PageService){
+    function EditPageController($location,$routeParams,PageService){
         var vm=this;
         function init(){
             var websiteId=$routeParams.wid;
@@ -45,6 +45,12 @@
             vm.websiteId=websiteId;
             vm.userId=userId;
             vm.pageId=pageId;
+
+            vm.updatePage=updatePage;
+            function updatePage(name,title){
+                var updatePage=PageService.updatePage(pageId,page);
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+            }
         }
         init();
     }

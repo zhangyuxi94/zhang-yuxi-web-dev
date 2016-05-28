@@ -6,15 +6,15 @@
         .factory("PageService",PageService);
     function PageService(){
         var pages=[
-            { "_id": "321", "name": "Post 1", "websiteId": "456" },
-            { "_id": "432", "name": "Post 2", "websiteId": "456" },
-            { "_id": "543", "name": "Post 3", "websiteId": "456" }
+            { "_id": "321", "name": "Post 1", "websiteId": "456" ,"title": "This is Post 1" },
+            { "_id": "432", "name": "Post 2", "websiteId": "456","title": "This is Post 2" },
+            { "_id": "543", "name": "Post 3", "websiteId": "456","title": "This is Post 2" }
         ];
         var api={
             findPageByWebsiteId:findPageByWebsiteId,
             createPage:createPage,
-            findPageById:findPageById
-            // updatePage:updatePage
+            findPageById:findPageById,
+            updatePage:updatePage
 
             // "deletePage":"deletePage"
 
@@ -56,7 +56,16 @@
             }
             return null;
         }
-        // function updatePage(pageId,page){}
+        function updatePage(pageId,page){
+            for(var i in pages){
+                if(pages[i]._id===pageId){
+                    pages[i].name=page.name;
+                    pages[i].title=page.title;
+                    return true;
+                }
+            }
+            return false;
+        }
         // function deletePage(pageId){}
     }
 })();

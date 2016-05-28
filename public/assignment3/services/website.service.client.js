@@ -6,12 +6,12 @@
         .factory("WebsiteService",WebsiteService);
 function WebsiteService(){
     var websites=[
-        { "_id": "123", "name": "Facebook",	"developerId": "456" },
+        { "_id": "123", "name": "Facebook",	"developerId": "456","description":"This is Facebook" },
         { "_id": "234", "name": "Tweeter", 	"developerId": "456","description":"This is Tweeter" },
-        { "_id": "456", "name": "Gizmodo", 	"developerId": "456" },
-        { "_id": "567", "name": "Tic Tac Toe", "developerId": "123" },
-        { "_id": "678", "name": "Checkers",	"developerId": "123" },
-        { "_id": "789", "name": "Chess",   	"developerId": "234" }
+        { "_id": "456", "name": "Gizmodo", 	"developerId": "456","description":"This is Gizmodo"  },
+        { "_id": "567", "name": "Tic Tac Toe", "developerId": "123","description":"This is Tic Tac Toe"  },
+        { "_id": "678", "name": "Checkers",	"developerId": "123" ,"description":"This is Checkers" },
+        { "_id": "789", "name": "Chess",   	"developerId": "234" ,"description":"This is Chess" }
     ];
     var api={
         findWebsitesByUser:findWebsitesByUser,
@@ -58,6 +58,7 @@ function WebsiteService(){
         for(var i in websites){
             if(websites[i]._id===websiteId){
                 websites[i].description=website.description;
+                websites[i].name=website.name;
                 return true;
             }
         }
