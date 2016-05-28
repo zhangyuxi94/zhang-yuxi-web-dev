@@ -42,12 +42,18 @@
 
     function RegisterController($location,UserService){
         var vm=this;
+
+
         vm.register=register;
-        function register(user,password){
+        function register(user,password,verifypassword){
             var user=UserService.createUser(user,password);
             // console.log(user);
             // console.log(user._id);
-            $location.url("/user/"+user._id);
+            if(password===verifypassword){
+                $location.url("/user/"+user._id);
+            }else{
+                vm.alert="Password does not match!";
+            }
         }
     }
     
