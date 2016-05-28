@@ -42,8 +42,6 @@
 
     function RegisterController($location,UserService){
         var vm=this;
-
-
         vm.register=register;
         function register(user,password,verifypassword){
             var user=UserService.createUser(user,password);
