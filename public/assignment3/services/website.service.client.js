@@ -15,7 +15,8 @@ function WebsiteService(){
     ];
     var api={
         findWebsitesByUser:findWebsitesByUser,
-        createWebsite:createWebsite
+        createWebsite:createWebsite,
+        findWebsiteById:findWebsiteById
 
     };
     return api;
@@ -42,7 +43,14 @@ function WebsiteService(){
         websites.push(newWebsite);
         return websites;
     }
-    
+    function findWebsiteById(websiteId){
+        for(i in websites){
+            if(websites[i]._id===websiteId){
+                return websites[i];
+            }
+        }
+        return null;
+    }
 }
 
 })();
@@ -58,16 +66,7 @@ function WebsiteService(){
 //         };
 //         return api;
 //        
-//         function findWebsitesByUser(userId){
-//             var resultSet=[];
-//             for(var i in websites){
-//                 if(websites[i].developerId===userId){
-//                     resultSet.push(websites[i]);
-//                 }
-//             }
-//             return resultSet;
 //
-//         }
 //         function findWebsiteById(websiteId){}
 //         function updateWebsite(websiteId,website){}
 //         function deleteWebsite(websiteId){}
