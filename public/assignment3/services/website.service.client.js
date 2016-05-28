@@ -14,7 +14,9 @@ function WebsiteService(){
         { "_id": "789", "name": "Chess",   	"developerId": "234" }
     ];
     var api={
-        findWebsitesByUser:findWebsitesByUser
+        findWebsitesByUser:findWebsitesByUser,
+        createWebsite:createWebsite
+
     };
     return api;
 
@@ -27,6 +29,20 @@ function WebsiteService(){
         }
         return resultSet;
     }
+    function createWebsite(userId,website,description){ var length=websites.length-1;
+        var wid=websites[length]._id;
+        wid=parseInt(wid);
+        wid+=1;
+        wid=wid.toString();
+        var newWebsite={
+            "_id":wid,
+            "name": website,
+            "developerId": userId,
+            "description":description};
+        websites.push(newWebsite);
+        return websites;
+    }
+    
 }
 
 })();
@@ -41,7 +57,7 @@ function WebsiteService(){
 //             "deleteWebsite":"deleteWebsite"
 //         };
 //         return api;
-//         function createWebsite(userId,website){}
+//        
 //         function findWebsitesByUser(userId){
 //             var resultSet=[];
 //             for(var i in websites){

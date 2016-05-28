@@ -4,7 +4,8 @@
 
 (function(){
     angular.module("WebAppMaker")
-        .controller("WebsiteListController",WebsiteListController);
+        .controller("WebsiteListController",WebsiteListController)
+        .controller("NewWebsiteController",NewWebsiteController);
 
     function WebsiteListController($routeParams,WebsiteService){
         var vm=this;
@@ -16,7 +17,20 @@
         }
         init();
     }
-        // .controller("NewWebsiteController",NewWebsiteController);
+
+    function NewWebsiteController($location,$routeParams,WebsiteService){
+        var vm=this;
+        function init(){
+            vm.createWebsite=createWebsite;
+            var userId=$routeParams.uid;
+            function createWebsite(website,description){
+                var newWebsite=WebsiteService.createWebsite(userId,website,description);
+                $location.url("/user/"+userId+"/website");
+            }
+            vm.userId=userId;
+        }
+        init();
+    }
         // .controller("EditWebsiteController",EditWebsiteController);
     // function WebsiteListController($routeParams,WebsiteService){
     //     var vm=this;
