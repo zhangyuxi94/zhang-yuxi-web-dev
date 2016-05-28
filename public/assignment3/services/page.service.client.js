@@ -12,9 +12,10 @@
         ];
         var api={
             findPageByWebsiteId:findPageByWebsiteId,
-            createPage:createPage
+            createPage:createPage,
+            findPageById:findPageById
             // updatePage:updatePage
-            // "findPageById":"findPageById",
+
             // "deletePage":"deletePage"
 
         };
@@ -47,7 +48,14 @@
             return newPage;
 
         }
-        // function findPageById(pageId){}
+        function findPageById(pageId){
+            for(var i in pages){
+                if(pages[i]._id===pageId){
+                    return pages[i];
+                }
+            }
+            return null;
+        }
         // function updatePage(pageId,page){}
         // function deletePage(pageId){}
     }

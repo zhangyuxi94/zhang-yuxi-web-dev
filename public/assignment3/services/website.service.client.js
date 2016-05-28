@@ -47,7 +47,7 @@ function WebsiteService(){
         return websites;
     }
     function findWebsiteById(websiteId){
-        for(i in websites){
+        for(var i in websites){
             if(websites[i]._id===websiteId){
                 return websites[i];
             }

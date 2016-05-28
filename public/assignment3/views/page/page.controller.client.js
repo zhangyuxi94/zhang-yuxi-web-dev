@@ -5,8 +5,8 @@
 (function(){
     angular.module("WebAppMaker")
         .controller("PageListController",PageListController)
-        .controller("NewPageController",NewPageController);
-        // .controller("EditPageController",EditPageController);
+        .controller("NewPageController",NewPageController)
+        .controller("EditPageController",EditPageController);
     function PageListController($routeParams,PageService){
         var vm=this;
         function init(){
@@ -34,13 +34,18 @@
         vm.websiteId=websiteId;
     }
 
-//     function EditPageController($routeParams,PageService){
-//         var vm=this;
-//         vm.pageId=$routeParams["pageId"];
-//         function init(){
-//             vm.page=PageService.findPageById(vm.pageId);
-//         }
-//         init();
-//
-//     }
+    function EditPageController($routeParams,PageService){
+        var vm=this;
+        function init(){
+            var websiteId=$routeParams.wid;
+            var userId=$routeParams.uid;
+            var pageId=$routeParams.pid;
+            var page=PageService.findPageById(pageId);
+            vm.page=page;
+            vm.websiteId=websiteId;
+            vm.userId=userId;
+            vm.pageId=pageId;
+        }
+        init();
+    }
 })();
