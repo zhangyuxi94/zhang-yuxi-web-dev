@@ -3,16 +3,16 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="#/user/:uid/website/:wid/page" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.website}}/page" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
             </p>
-            <a class="navbar-brand" href="#/user/:uid/website/:wid/page/:pid/widget">
+            <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.website}}/page/{{model.page}}/widget">
                 Widgets
             </a>
             <p class="navbar-text pull-right">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/new" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.website}}/page/{{model.page}}/widget/new" class="navbar-link">
                   <span class="glyphicon glyphicon-plus">
                   </span>
                 </a>
@@ -22,77 +22,40 @@
 </nav>
 
     <div class="container">
-
-        <div class="jga-widget">
+        <div class="jga-widget" ng-repeat="widget in model.widgets">
             <div class="jga-widget-tool">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
+                <a href="#/user/{{model.userId}}/website/{{model.website}}/page/{{model.page}}/widget/{{widget._id}}">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <span class="glyphicon glyphicon-align-justify"></span>
             </div>
-            <h1>GIZMODO</h1>
-        </div>
 
-        <div class="jga-widget">
-            <div class="jga-widget-tool">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <h4>Two Problems With the New York Times Facebook Live Pitch Meeting</h4>
-        </div>
 
-        <div class="jga-widget">
-            <div class="jga-widget-tool">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <img width="100%" src="http://blogs-images.forbes.com/sap/files/2016/04/Tesla-Motors-Model-3-Mainstream-04-08-2016-C-1200x800.jpg"/>
-        </div>
 
-        <div class="jga-widget">
-            <div class="jga-widget-tool">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-                <span class="glyphicon glyphicon-align-justify"></span>
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADER" ng-switch="widget.size">
+                    <h1 ng-switch-when="1">{{widget.text}}</h1>
+                    <h2 ng-switch-when="2">{{widget.text}}</h2>
+                    <h3 ng-switch-when="3">{{widget.text}}</h3>
+                    <h4 ng-switch-when="4">{{widget.text}}</h4>
+                    <h5 ng-switch-when="5">{{widget.text}}</h5>
+                    <h6 ng-switch-when="6">{{widget.text}}</h6>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <img ng-src="{{widget.url}}" width="{{widget.width}}">
+                </div>
+                <div ng-switch-when="HTML">
+                    <div ng-bind-html="model.getSafeHtml(widget)"></div>
+                </div>
+                <div ng-switch-when="YOUTUBE"  class="embed-responsive embed-responsive-16by9">
+                    <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div ng-switch-default>
+                    Unable to render widget.
+                </div>
             </div>
-            <p class="first-text">This afternoon, in a scene plucked from one of my work-related anxiety dreams, <em>New York Times</em> reporters Nick Corasaniti, Maggie Haberman, and Thomas Kaplan <a href="https://www.facebook.com/nytimes/videos/10150812214919999/" rel="noopener" target="_blank">pitched stories to politics editor Carolyn Ryan on Facebook Live</a> while thousands of people watched it happen.</p>
         </div>
 
-        <div class="jga-widget">
-            <div class="jga-widget-tool">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <h4>BRAND NEW 2017 NISSAN GTR!! </h4>
-        </div>
-
-        <div class="jga-widget">
-            <div class="jga-widget-tool">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <div class="embed-responsive embed-responsive-4by3">
-            <iframe width="100%" src="https://www.youtube.com/embed/BmTcmz6lh00" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="jga-widget">
-            <div class="jga-widget-tool">
-                <a href="#/user/:uid/website/:wid/page/:pid/widget/:wgid">
-                    <span class="glyphicon glyphicon-cog"></span>
-                </a>
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-            <p class="first-text">As you guys know I bought myself a Nissan GTR black edition back in May 2015, 12 months later Nissan have announced the new upgraded 2017 Nissan GTR including including a complete bodykit facelift and a massive interior upgrade as well as 20 more BHP!</p>
-        </div>
 
 
     </div>
@@ -112,7 +75,7 @@
         </div>
 
         <div class="pull-right">
-            <a href="#/user/:uid">
+            <a href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>

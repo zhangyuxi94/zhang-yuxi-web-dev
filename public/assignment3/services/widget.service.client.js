@@ -5,29 +5,37 @@
     angular.module("WebAppMaker")
         .factory("WidgetService",WidgetService);
     function WidgetService(){
-        var widget=[
+        var widgets=[
             { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
             { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
             { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
                 "url": "http://lorempixel.com/400/200/"},
-            { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
-            { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+            { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p><a href='https://www.youtube.com/watch?time_continue=550&v=KPe-WY2eghY'>A rally in Fresno, California</a> today, newfound irrigation expert Donald Trump finally revealed the solution to the drought that’s been crippling California for the past five years: Turn the water back on, idiots.</p>"},
+            { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "California's Drought: Start Opening Up the Water"},
             { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Fortunately for California, when Donald Trump becomes president, he plans to “start opening up the water so that you can have your farmers survive so that your job market will get better”—a position that is genuinely hard to argue with, though not for the usual reasons.</p>"},
         ];
         var api={
-            "createWidget":"createWidget",
-            "findWidgetsByPageId":"findWidgetsByPageId",
-            "findWidgetById":"findWidgetById",
-            "updateWidget":"updateWidget",
-            "deleteWidget":"deleteWidget"
+            // "createWidget":"createWidget",
+            findWidgetsByPageId:findWidgetsByPageId
+            // "findWidgetById":"findWidgetById",
+            // "updateWidget":"updateWidget",
+            // "deleteWidget":"deleteWidget"
         };
         return api;
-        function createWidget(pageId, widget){}
-        function findWidgetsByPageId(pageId){}
-        function findWidgetById(widgetId){}
-        function updateWidget(widgetId, widget){}
-        function deleteWidget(widgetId){}
+        // function createWidget(pageId, widget){}
+        function findWidgetsByPageId(pageId){
+            var resultSet=[];
+            for(var i in widgets){
+                if(widgets[i].pageId===pageId){
+                    resultSet.push(widgets[i]);
+                }
+            }
+            return resultSet;
+        }
+        // function findWidgetById(widgetId){}
+        // function updateWidget(widgetId, widget){}
+        // function deleteWidget(widgetId){}
     }
 })();

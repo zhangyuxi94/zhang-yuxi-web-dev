@@ -15,7 +15,6 @@
             vm.userId=userId;
         }
         init();
-
     }
         // .controller("NewWebsiteController",NewWebsiteController);
         // .controller("EditWebsiteController",EditWebsiteController);
