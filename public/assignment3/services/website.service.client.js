@@ -17,7 +17,9 @@ function WebsiteService(){
         findWebsitesByUser:findWebsitesByUser,
         createWebsite:createWebsite,
         findWebsiteById:findWebsiteById,
-        updateWebsite:updateWebsite
+        updateWebsite:updateWebsite,
+        deleteWebsite:deleteWebsite
+
 
     };
     return api;
@@ -61,14 +63,18 @@ function WebsiteService(){
         }
         return false;
     }
+    function deleteWebsite(websiteId){
+        for(var i in websites){
+            if(websites[i]._id===websiteId){
+                websites.splice(i,1);
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 })();
 
-//         var api={
-//             "deleteWebsite":"deleteWebsite"
-//         };
-//         return api;
 //        
 //
-//         function deleteWebsite(websiteId){}

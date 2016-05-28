@@ -48,6 +48,12 @@
                 var updateWebsite=WebsiteService.updateWebsite(websiteId,website);
                 $location.url("/user/"+userId+"/website");
             }
+
+            vm.deleteWebsite=deleteWebsite;
+            function deleteWebsite(){
+                var deleteWebsite=WebsiteService.deleteWebsite(websiteId);
+                $location.url("/user/"+userId+"/website");
+            }
         }
         init();
 
