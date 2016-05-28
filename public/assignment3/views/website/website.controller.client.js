@@ -33,7 +33,7 @@
         init();
     }
 
-    function EditWebsiteController($routeParams,WebsiteService){
+    function EditWebsiteController($location,$routeParams,WebsiteService){
         var vm=this;
         function init(){
             var websiteId=$routeParams.wid;
@@ -42,7 +42,16 @@
             vm.website=website;
             vm.websiteId=websiteId;
             vm.userId=userId;
+
+            vm.updateWebsite=updateWebsite;
+            function updateWebsite(name,description){
+                var updateWebsite=WebsiteService.updateWebsite(websiteId,website);
+                $location.url("/user/"+userId+"/website");
+            }
         }
         init();
+
+
+
     }
 })();
