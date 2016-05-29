@@ -16,17 +16,40 @@
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
             { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Fortunately for California, when Donald Trump becomes president, he plans to “start opening up the water so that you can have your farmers survive so that your job market will get better”—a position that is genuinely hard to argue with, though not for the usual reasons.</p>"},
         ];
+
+        var widgetFilter=[
+            { "_id": "123", "widgetType": "HEADER"},
+            { "_id": "345", "widgetType": "IMAGE"},
+            { "_id": "789", "widgetType": "HTML"},
+            { "_id": "678", "widgetType": "YOUTUBE"}
+        ];
         var api={
-            // "createWidget":"createWidget",
-            findWidgetsByPageId:findWidgetsByPageId
-            // "findWidgetById":"findWidgetById",
+            findWidgetsByPageId:findWidgetsByPageId,
+            widgetChooser:widgetChooser,
+            createWidget:createWidget
+            // findWidgetById:findWidgetById
             // "updateWidget":"updateWidget",
             // "deleteWidget":"deleteWidget"
         };
         return api;
-        // function createWidget(pageId, widget){}
+
         function findWidgetsByPageId(pageId){
             var resultSet=[];
+            for(var i in widgets){
+                if(widgets[i].pageId===pageId){
+                    resultSet.push(widgets[i]);
+                }
+            }
+            return resultSet;
+        }
+
+        function widgetChooser(){
+            return widgetFilter;
+        }
+
+        function createWidget(pageId, widget){
+            var resultSet=[];
+            var resultSet2=[];
             for(var i in widgets){
                 if(widgets[i].pageId===pageId){
                     resultSet.push(widgets[i]);
