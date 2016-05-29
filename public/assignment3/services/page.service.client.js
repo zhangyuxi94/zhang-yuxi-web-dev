@@ -14,10 +14,8 @@
             findPageByWebsiteId:findPageByWebsiteId,
             createPage:createPage,
             findPageById:findPageById,
-            updatePage:updatePage
-
-            // "deletePage":"deletePage"
-
+            updatePage:updatePage,
+            deletePage:deletePage
         };
         return api;
 
@@ -66,6 +64,14 @@
             }
             return false;
         }
-        // function deletePage(pageId){}
+        function deletePage(pageId){
+            for(var i in pages){
+                if(pages[i]._id===pageId){
+                    pages.splice(i,1);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 })();

@@ -51,6 +51,12 @@
                 var updatePage=PageService.updatePage(pageId,page);
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page");
             }
+
+            vm.deletePage=deletePage;
+            function deletePage(){
+                var deletePage=PageService.deletePage(pageId);
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+            }
         }
         init();
     }
