@@ -12,7 +12,7 @@
                 Widget Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="widget-list.html" class="navbar-link">
+                <a ng-click="model.updateWidget(model.widget.widgetType,model.widget.text,model.widget.size)" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -30,7 +30,7 @@
                    class="form-control"
                    id="widget-name"
                    placeholder="name"
-                   ng-model="model.widget.widgetType"
+                   ng-model="model.widget.name"
             >
         </div>
         <div class="form-group">
@@ -55,7 +55,7 @@
     </form>
 
     <a class="btn btn-danger  btn-block"
-       href="widget-list.html">Delete</a>
+       ng-click="model.deleteWidget()">Delete</a>
 
 </div>
 

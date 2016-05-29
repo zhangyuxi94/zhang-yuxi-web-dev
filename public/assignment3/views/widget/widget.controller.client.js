@@ -53,7 +53,7 @@
 
     }
 
-    function EditWidgetController($routeParams,WidgetService) {
+    function EditWidgetController($location,$routeParams,WidgetService) {
         var vm=this;
         function init(){
             var widgetId=$routeParams.wgid;
@@ -66,6 +66,18 @@
             vm.websiteId=websiteId;
             vm.userId=userId;
             vm.widgetId=widgetId;
+
+            vm.updateWidget=updateWidget;
+            function updateWidget(name,text,size){
+                var updateWidget=WidgetService.updateWidget(widgetId,widget);
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            }
+
+            vm.deleteWidget=deleteWidget;
+            function deleteWidget(){
+                var deleteWidget=WidgetService.deleteWidget(widgetId);
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            }
         }
         init();
     }

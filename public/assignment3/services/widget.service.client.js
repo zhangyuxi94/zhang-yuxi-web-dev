@@ -26,10 +26,10 @@
         var api={
             findWidgetsByPageId:findWidgetsByPageId,
             widgetChooser:widgetChooser,
+            findWidgetById:findWidgetById,
+            updateWidget:updateWidget,
+            deleteWidget:deleteWidget
             // createWidget:createWidget
-            findWidgetById:findWidgetById
-            // "updateWidget":"updateWidget",
-            // "deleteWidget":"deleteWidget"
         };
         return api;
 
@@ -56,6 +56,26 @@
             return null;
         }
 
+        function updateWidget(widgetId, widget){
+            for(var i in widgets){
+                if(widgets[i]._id===widgetId){
+                    widgets[i].text=widget.text;
+                    widgets[i].size=widget.size;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function deleteWidget(widgetId){
+            for(var i in widgets){
+                if(widgets[i]._id===widgetId){
+                    widgets.splice(i,1);
+                    return true;
+                }
+            }
+            return false;
+        }
 
         // function createWidget(pageId, widget){
         //     var resultSet=[];
@@ -67,7 +87,6 @@
         //     }
         //     return resultSet;
         // }
-        // function updateWidget(widgetId, widget){}
-        // function deleteWidget(widgetId){}
+
     }
 })();
