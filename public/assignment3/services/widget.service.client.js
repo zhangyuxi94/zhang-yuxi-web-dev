@@ -26,8 +26,8 @@
         var api={
             findWidgetsByPageId:findWidgetsByPageId,
             widgetChooser:widgetChooser,
-            createWidget:createWidget
-            // findWidgetById:findWidgetById
+            // createWidget:createWidget
+            findWidgetById:findWidgetById
             // "updateWidget":"updateWidget",
             // "deleteWidget":"deleteWidget"
         };
@@ -47,17 +47,26 @@
             return widgetFilter;
         }
 
-        function createWidget(pageId, widget){
-            var resultSet=[];
-            var resultSet2=[];
+        function findWidgetById(widgetId){
             for(var i in widgets){
-                if(widgets[i].pageId===pageId){
-                    resultSet.push(widgets[i]);
+                if(widgets[i]._id===widgetId){
+                    return widgets[i];
                 }
             }
-            return resultSet;
+            return null;
         }
-        // function findWidgetById(widgetId){}
+
+
+        // function createWidget(pageId, widget){
+        //     var resultSet=[];
+        //     var resultSet2=[];
+        //     for(var i in widgets){
+        //         if(widgets[i].pageId===pageId){
+        //             resultSet.push(widgets[i]);
+        //         }
+        //     }
+        //     return resultSet;
+        // }
         // function updateWidget(widgetId, widget){}
         // function deleteWidget(widgetId){}
     }

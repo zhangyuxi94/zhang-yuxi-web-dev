@@ -4,7 +4,8 @@
 (function(){
     angular.module("WebAppMaker")
         .controller("WidgetListController",WidgetListController)
-        .controller("NewWidgetController",NewWidgetController);
+        .controller("NewWidgetController",NewWidgetController)
+        .controller("EditWidgetController",EditWidgetController);
 
 
     function WidgetListController($sce,$routeParams,WidgetService){
@@ -50,5 +51,22 @@
         }
         init();
 
+    }
+
+    function EditWidgetController($routeParams,WidgetService) {
+        var vm=this;
+        function init(){
+            var widgetId=$routeParams.wgid;
+            var pageId=$routeParams.pid;
+            var widget=WidgetService.findWidgetById(widgetId);
+            var websiteId=$routeParams.wid;
+            var userId=$routeParams.uid;
+            vm.widget=widget;
+            vm.pageId=pageId;
+            vm.websiteId=websiteId;
+            vm.userId=userId;
+            vm.widgetId=widgetId;
+        }
+        init();
     }
 })();
