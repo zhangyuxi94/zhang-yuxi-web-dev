@@ -17,8 +17,8 @@
 
 <div class="container">
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="widget in model.widgets">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+        <li class="list-group-item" ng-repeat="widget in model.widget">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new/{{widget.typeId}}">
                 {{widget.widgetType}}
             </a>
         </li>

@@ -43,11 +43,28 @@
             var websiteId=$routeParams.wid;
             var pageId=$routeParams.pid;
 
-            var widgets=WidgetService.widgetChooser();
+            var widget=WidgetService.widgetChooser();
             vm.userId=userId;
             vm.websiteId=websiteId;
             vm.pageId=pageId;
-            vm.widgets=widgets;
+            vm.widget=widget;
+
+            var widgetTypeId=$routeParams.tpid;
+            var widgetName=WidgetService.findWidgetByType(widgetTypeId);
+            vm.widgetName=widgetName;
+
+            vm.createWidget=createWidget;
+            function createWidget(text,size,url){
+                console.log(text);
+                // console.log(widgetName.widgetType);
+                var widgetType=widgetName.widgetType;
+                console.log(widgetType);
+
+                var newWidget=WidgetService.createWidget(pageId,widgetType,widgetTypeId,text,size,url);
+                console.log(newWidget);
+
+            }
+
         }
         init();
 
@@ -68,7 +85,7 @@
             vm.widgetId=widgetId;
 
             vm.updateWidget=updateWidget;
-            function updateWidget(name,text,size){
+            function updateWidget(text,size,url){
                 var updateWidget=WidgetService.updateWidget(widgetId,widget);
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
             }
@@ -78,6 +95,7 @@
                 var deleteWidget=WidgetService.deleteWidget(widgetId);
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
             }
+
 
         }
         init();

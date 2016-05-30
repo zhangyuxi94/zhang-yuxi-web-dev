@@ -18,18 +18,19 @@
         ];
 
         var widgetFilter=[
-            { "_id": "123", "widgetType": "HEADER"},
-            { "_id": "345", "widgetType": "IMAGE"},
-            { "_id": "789", "widgetType": "HTML"},
-            { "_id": "678", "widgetType": "YOUTUBE"}
+            {"widgetType": "HEADER","typeId": "1"},
+            {"widgetType": "IMAGE","typeId": "2"},
+            {"widgetType": "HTML","typeId": "3"},
+            {"widgetType": "YOUTUBE","typeId": "4"}
         ];
         var api={
             findWidgetsByPageId:findWidgetsByPageId,
             widgetChooser:widgetChooser,
             findWidgetById:findWidgetById,
             updateWidget:updateWidget,
-            deleteWidget:deleteWidget
-            // createWidget:createWidget
+            deleteWidget:deleteWidget,
+            findWidgetByType:findWidgetByType,
+            createWidget:createWidget
         };
         return api;
 
@@ -61,6 +62,7 @@
                 if(widgets[i]._id===widgetId){
                     widgets[i].text=widget.text;
                     widgets[i].size=widget.size;
+                    widgets[i].url=widget.url;
                     return true;
                 }
             }
@@ -77,7 +79,46 @@
             return false;
         }
 
-        // function createWidget(pageId, widget){
+        function createWidget(pageId,widgetType,widgetTypeId,text,size,url){
+            var newWidget={};
+            for(var i in widgets){
+                if(widgets[i].pageId===pageId){
+                    if(widgetTypeId=1){
+                        newWidget= { "_id": "888", "widgetType": widgetType, "pageId": pageId, "size": size, "text": text};
+                        widgets.push(newWidget);
+                    }
+                    else if(widgetTypeId=2){
+                        newWidget= { "_id": "888", "widgetType": widgetType, "pageId": pageId, "url": url};
+                        widgets.push(newWidget);
+                    }
+                    else if(widgetTypeId=3){
+                        newWidget= { "_id": "888", "widgetType": widgetType, "pageId": pageId, "size": size, "text": text};
+                        widgets.push(newWidget);
+                    }
+                    else if(widgetTypeId=4){
+                        newWidget= { "_id": "888", "widgetType": widgetType, "pageId": pageId, "url": url};
+                        widgets.push(newWidget);
+                    }
+                    else{
+                        return null;
+                    }
+
+                }
+            }
+            return newWidget;
+
+            
+        }
+
+        function findWidgetByType(widgetTypeId){
+            for(var i in widgetFilter){
+                if(widgetFilter[i].typeId===widgetTypeId){
+                    return widgetFilter[i];
+                }
+            }
+            return null;
+
+        }
         //     var resultSet=[];
         //     var resultSet2=[];
         //     for(var i in widgets){

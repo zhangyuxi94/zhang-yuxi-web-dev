@@ -74,21 +74,11 @@
                 controller:"EditWidgetController",
                 controllerAs:"model"
             })
-            // .when("/user/:uid/website/:wid/page/:pid/widget/123", {
-            //     templateUrl: "views/widget/widget-header.view.client.html",
-            //     controller:"EditWidgetController",
-            //     controllerAs:"model"
-            // })
-            // .when("/user/:uid/website/:wid/page/:pid/widget/345", {
-            //     templateUrl: "views/widget/widget-image.view.client.html",
-            //     controller:"EditWidgetController",
-            //     controllerAs:"model"
-            // })
-            // .when("/user/:uid/website/:wid/page/:pid/widget/678", {
-            //     templateUrl: "views/widget/widget-youtube.view.client.html",
-            //     controller:"EditWidgetController",
-            //     controllerAs:"model"
-            // })
+            .when("/user/:uid/website/:wid/page/:pid/widget/new/:tpid", {
+                templateUrl: "views/widget/widget-new.view.client.html",
+                controller:"NewWidgetController",
+                controllerAs:"model"
+            })
             .otherwise({
                 redirectTo:'/'
             });
