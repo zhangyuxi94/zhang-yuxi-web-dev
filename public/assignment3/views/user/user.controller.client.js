@@ -23,9 +23,8 @@
         }
     }
 
-    function ProfileController($routeParams,UserService){
+    function ProfileController($location,$routeParams,UserService){
         var vm=this;
-        vm.updateUser=updateUser;
 
         var userId=$routeParams.uid;
         function init(){
@@ -34,11 +33,19 @@
         }
         init();
 
+        vm.updateUser=updateUser;
         function updateUser(user){
             UserService.updateUser(userId,user);
             vm.save="Success! Your profile was saved."
         }
+        
+        vm.deleteUser=deleteUser;
+        function deleteUser(){
+            var deleteUser=UserService.deleteUser(userId);
+            $location.url("/login");
+        }
     }
+    
 
     function RegisterController($location,UserService){
         var vm=this;
