@@ -54,6 +54,8 @@
                 var deleteWebsite=WebsiteService.deleteWebsite(websiteId);
                 $location.url("/user/"+userId+"/website");
             }
+
+         
         }
         init();
 

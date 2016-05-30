@@ -79,8 +79,6 @@
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
             }
 
-            var widgetList=WidgetService.widgetChooser();
-            vm.widgetList=widgetList;
         }
         init();
     }

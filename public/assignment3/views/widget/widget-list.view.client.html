@@ -37,6 +37,7 @@
                     <h4 ng-switch-when="4">{{widget.text}}</h4>
                     <h5 ng-switch-when="5">{{widget.text}}</h5>
                     <h6 ng-switch-when="6">{{widget.text}}</h6>
+                    <h2 ng-switch-default>{{widget.text}}Size should between 1~6.</h2>
                 </div>
                 <div ng-switch-when="IMAGE">
                     <img ng-src="{{widget.url}}" width="{{widget.width}}">
@@ -44,8 +45,8 @@
                 <div ng-switch-when="HTML">
                     <div ng-bind-html="model.getSafeHtml(widget)"></div>
                 </div>
-                <div ng-switch-when="YOUTUBE"  class="embed-responsive embed-responsive-16by9">
-                    <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
+                <div ng-switch-when="YOUTUBE" >
+                        <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div ng-switch-default>
                     Unable to render widget.
