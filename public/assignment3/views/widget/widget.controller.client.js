@@ -36,7 +36,7 @@
         }
     }
 
-    function NewWidgetController($routeParams,WidgetService){
+    function NewWidgetController($location,$routeParams,WidgetService){
         var vm=this;
         function init(){
             var userId=$routeParams.uid;
@@ -54,15 +54,16 @@
             vm.widgetName=widgetName;
 
             vm.createWidget=createWidget;
-            function createWidget(text,size,url){
-                console.log(text);
-                // console.log(widgetName.widgetType);
+            function createWidget(text,size,url,width){
                 var widgetType=widgetName.widgetType;
-                console.log(widgetType);
 
-                var newWidget=WidgetService.createWidget(pageId,widgetType,widgetTypeId,text,size,url);
-                console.log(newWidget);
+                var newWidget=WidgetService.createWidget(pageId,widgetType,widgetTypeId,text,size,url,width);
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            }
 
+            vm.deleteWidget=deleteNewWidget;
+            function deleteNewWidget(){
+                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
             }
 
         }
@@ -95,8 +96,6 @@
                 var deleteWidget=WidgetService.deleteWidget(widgetId);
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
             }
-
-
         }
         init();
     }
