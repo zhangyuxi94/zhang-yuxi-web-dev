@@ -1,9 +1,53 @@
-.loginpage{
-    padding: 30px;
-    background-color: #feba04;
-
+body{
+    width: 100%;
+    height: 100%;
+    font-family: Abel;
 }
 
-body{
-    padding-top: 100px;
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.login{
+    padding-top: 80px;
+    height: 100%;
+    background: url("../image/state1.jpg") no-repeat center;
+    background-size: cover;
+}
+
+a{
+    color: white;
+}
+
+.loginpage{
+    padding: 30px;
+    color: white;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: rgba(25, 25, 25, 0.64);
+}
+
+.login legend{
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.loginpage .loginbtn{
+    width: 100%;
+}
+
+@media(min-width:767px) {
+    .login{
+        padding-top: 150px;
+        background: url("../image/state.jpg") no-repeat center;
+    }
+
+    .loginpage{
+        width: 60%;
+    }
 }
