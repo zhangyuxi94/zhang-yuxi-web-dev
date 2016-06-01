@@ -71,6 +71,7 @@ a{
 @media(min-width:767px) {
     .login{
         padding: 60px 0;
+        height: 100%;
         background: url("../image/state.jpg") no-repeat center;
     }
 

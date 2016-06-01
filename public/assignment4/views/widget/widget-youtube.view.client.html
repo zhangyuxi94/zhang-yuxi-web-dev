@@ -1,0 +1,34 @@
+<form >
+
+    <div class="form-group" >
+        <label for="widget-name">Name</label>
+        <input disabled type="text"
+               class="form-control"
+               id="widget-name"
+               placeholder="name"
+               ng-model="model.widget.widgetType"
+        >
+    </div>
+    <div class="form-group">
+        <label for="widget-url">URL</label>
+        <input type="url"
+               class="form-control"
+               id="widget-url"
+               ng-model="model.widget.url"
+               placeholder="http://www.google.com"
+               value="https://www.youtube.com/embed/BmTcmz6lh00"
+        >
+    </div>
+    <div class="form-group">
+        <label for="widget-width">Width</label>
+        <input type="text"
+               class="form-control"
+               ng-model="model.widget.width"
+               placeholder="100%"
+               id="widget-width"
+        >
+    </div>
+    <a class="btn btn-danger  btn-block"
+       ng-click="model.deleteWidget()">Delete</a>
+</form>
+
