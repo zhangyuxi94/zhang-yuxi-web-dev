@@ -11,11 +11,10 @@ module.exports=function(app){
     ];
     app.get("/api/user",getUsers);
     app.get("/api/user/:userId",findUserById);
+    app.post("/api/user",createUser);
     function getUsers(req,res){
         var username=req.query['username'];
         var password=req.query['password'];
-        console.log(username);
-        console.log(password);
     if(username&&password){
             findUserByCredentials(username,password,res);
         }
@@ -56,5 +55,12 @@ module.exports=function(app){
             }
         }
         res.send({});
+    }
+
+    function createUser(req,res){
+        var user = req.body;
+        user._id=(new Date()).getTime()+"";
+        users.push(user);
+        res.send(user);
     }
 };

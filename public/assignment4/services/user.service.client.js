@@ -14,9 +14,9 @@
      ];
         var api = {
             findUserByCredentials:findUserByCredentials,
-            findUserById:findUserById
+            findUserById:findUserById,
             // updateUser:updateUser,
-            // createUser:createUser,
+            createUser:createUser
             // deleteUser:deleteUser
         };
         return api;
@@ -42,18 +42,23 @@
         //     return false;
         // }
         //
-        // function createUser(user,password){
-        //     var length=users.length-1;
-        //     var uid=users[length]._id;
-        //     uid=parseInt(uid);
-        //     uid+=1;
-        //     uid=uid.toString();
-        //     var uname=user;
-        //     var upwd=password;
-        //     var userarry={_id: uid,username: uname, password: upwd};
-        //     users.push(userarry);
-        //     return users[length+1];
-        // }
+        function createUser(user,password){
+            var user={
+                username:user,
+                password:password
+            };
+            return $http.post("/api/user",user);
+            // var length=users.length-1;
+            // var uid=users[length]._id;
+            // uid=parseInt(uid);
+            // uid+=1;
+            // uid=uid.toString();
+            // var uname=user;
+            // var upwd=password;
+            // var userarry={_id: uid,username: uname, password: upwd};
+            // users.push(userarry);
+            // return users[length+1];
+        }
         //
         // function deleteUser(userId){
         //     for(var i in users){
