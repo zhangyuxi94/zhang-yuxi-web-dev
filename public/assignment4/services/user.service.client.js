@@ -16,8 +16,8 @@
             findUserByCredentials:findUserByCredentials,
             findUserById:findUserById,
             updateUser:updateUser,
-            createUser:createUser
-            // deleteUser:deleteUser
+            createUser:createUser,
+            deleteUser:deleteUser
         };
         return api;
 
@@ -54,14 +54,10 @@
             // return users[length+1];
         }
         //
-        // function deleteUser(userId){
-        //     for(var i in users){
-        //         if(users[i]._id===userId){
-        //             users.splice(i,1);
-        //             return true;
-        //         }
-        //     }
-        //     return false;
-        // }
+        function deleteUser(userId){
+            var url="/api/user/"+userId;
+            return $http.delete(url);
+           
+        }
     }
 })();

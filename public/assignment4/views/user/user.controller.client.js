@@ -48,21 +48,26 @@
                         },
                         function (error) {
                             vm.error="Unable to update"
-
                     });
-
+            }
+            vm.deleteUser=deleteUser;
+            function deleteUser(){
+                UserService
+                    .deleteUser(userId)
+                    .then(
+                        function(response){
+                            $location.url("/login");
+                        },
+                        function(error){
+                            vm.error="Unable to remove user"
+                        }
+                    );
             }
 
         }
         init();
 
 
-        //
-        // vm.deleteUser=deleteUser;
-        // function deleteUser(){
-        //     var deleteUser=UserService.deleteUser(userId);
-        //     $location.url("/login");
-        // }
     }
 
 
