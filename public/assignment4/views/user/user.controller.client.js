@@ -38,14 +38,25 @@
                     vm.user=user;
                 });
 
+            vm.updateUser=updateUser;
+            function updateUser(newUser){
+                UserService
+                    .updateUser(userId,newUser)
+                    .then(
+                        function(response){
+                            vm.save="Success! Your profile was saved."
+                        },
+                        function (error) {
+                            vm.error="Unable to update"
+
+                    });
+
+            }
+
         }
         init();
 
-        // vm.updateUser=updateUser;
-        // function updateUser(user){
-        //     UserService.updateUser(userId,user);
-        //     vm.save="Success! Your profile was saved."
-        // }
+
         //
         // vm.deleteUser=deleteUser;
         // function deleteUser(){

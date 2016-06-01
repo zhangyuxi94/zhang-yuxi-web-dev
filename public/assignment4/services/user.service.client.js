@@ -15,7 +15,7 @@
         var api = {
             findUserByCredentials:findUserByCredentials,
             findUserById:findUserById,
-            // updateUser:updateUser,
+            updateUser:updateUser,
             createUser:createUser
             // deleteUser:deleteUser
         };
@@ -31,17 +31,11 @@
             return $http.get(url);
         }
 
-        // function updateUser(userId,user){
-        //     for(var i in users){
-        //         if(users[i]._id===userId){
-        //             users[i].firstName=user.firstName;
-        //             users[i].lastName=user.lastName;
-        //             return true;
-        //         }
-        //     }
-        //     return false;
-        // }
-        //
+        function updateUser(userId,newUser){
+            var url="/api/user/"+userId;
+            return $http.put(url,newUser);
+        }
+
         function createUser(user,password){
             var user={
                 username:user,
