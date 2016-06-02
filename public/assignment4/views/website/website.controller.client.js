@@ -48,16 +48,33 @@
         function init(){
             var websiteId=$routeParams.wid;
             var userId=$routeParams.uid;
-            var website=WebsiteService.findWebsiteById(websiteId);
-            vm.website=website;
+            WebsiteService
+                .findWebsiteById(websiteId)
+                .then(function (response){
+                    var website=response.data;
+                    vm.website=website;
+                });
+            
             vm.websiteId=websiteId;
             vm.userId=userId;
 
             vm.updateWebsite=updateWebsite;
             function updateWebsite(name,description){
-                var updateWebsite=WebsiteService.updateWebsite(websiteId,website);
+                WebsiteService.updateWebsite(websiteId,website);
                 $location.url("/user/"+userId+"/website");
             }
+
+            // function updateUser(newUser){
+            //     UserService
+            //         .updateUser(userId,newUser)
+            //         .then(
+            //             function(response){
+            //                 vm.save="Success! Your profile was saved."
+            //             },
+            //             function (error) {
+            //                 vm.error="Unable to update"
+            //             });
+            // }
 
             vm.deleteWebsite=deleteWebsite;
             function deleteWebsite(){

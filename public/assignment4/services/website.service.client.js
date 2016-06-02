@@ -34,12 +34,14 @@ function WebsiteService($http){
         return $http.post("/api/user/"+userId+"/website",newWebsite);
     }
     function findWebsiteById(websiteId){
-        for(var i in websites){
-            if(websites[i]._id===websiteId){
-                return websites[i];
-            }
-        }
-        return null;
+        var url="/api/website/"+websiteId;
+        return $http.get(url);
+        // for(var i in websites){
+        //     if(websites[i]._id===websiteId){
+        //         return websites[i];
+        //     }
+        // }
+        // return null;
     }
     function updateWebsite(websiteId,website){
         for(var i in websites){

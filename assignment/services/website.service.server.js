@@ -36,7 +36,16 @@ module.exports=function(app){
         }
         res.json(result);
     }
-    function findWebsiteById(req,res){}
+    function findWebsiteById(req,res){
+        var websiteId=req.params.websiteId;
+        for(var w in websites){
+            if(websites[w]._id===websiteId){
+                res.send(websites[w]);
+                return;
+            }
+        }
+        res.send({});
+    }
     function updateWebsite(req,res){}
     function deleteWebsite(req,res){}
 };
