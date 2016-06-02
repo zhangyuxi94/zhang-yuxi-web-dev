@@ -31,21 +31,20 @@
             };
             return $http.post("/api/website/"+websiteId+"/page",newPage);
         }
-        
+
         function findPageById(pageId){
             var url="/api/page/"+pageId;
             return $http.get(url);
         }
-        function updatePage(pageId,page){
-            for(var i in pages){
-                if(pages[i]._id===pageId){
-                    pages[i].name=page.name;
-                    pages[i].title=page.title;
-                    return true;
-                }
-            }
-            return false;
+        function updatePage(pageId,name,title){
+            var url="/api/page/"+pageId;
+            var updatedPage={
+                name:name,
+                title:title
+            };
+            return $http.put(url,updatedPage);
         }
+        
         function deletePage(pageId){
             for(var i in pages){
                 if(pages[i]._id===pageId){

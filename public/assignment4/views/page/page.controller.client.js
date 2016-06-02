@@ -66,9 +66,13 @@
                 });
 
             vm.updatePage=updatePage;
+
             function updatePage(name,title){
-                var updatePage=PageService.updatePage(pageId,page);
-                $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+                PageService
+                    .updatePage(pageId,name,title)
+                    .then(function(response){
+                        $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+                    });
             }
 
             vm.deletePage=deletePage;

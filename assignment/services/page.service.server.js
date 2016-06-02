@@ -22,7 +22,7 @@ module.exports=function(app){
         pages.push(newPage);
         res.send(newPage);
     }
-    
+
     function findAllPagesForWebsite(req,res){
         var websiteId=req.params.websiteId;
         var result=[];
@@ -43,6 +43,18 @@ module.exports=function(app){
         }
         res.send({});
     }
-    function updatePage(req,res){}
+    function updatePage(req,res){
+        var pageId=req.params.pageId;
+        var page=req.body;
+        for(var p in pages){
+            if(pages[p]._id===pageId){
+                pages[p].name=page.name;
+                pages[p].title=page.title;
+                res.send(200);
+                return;
+            }
+        }
+        res.send(400);
+    }
     function deletePage(req,res){}
 };
