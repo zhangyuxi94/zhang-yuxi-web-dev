@@ -4,12 +4,12 @@
 (function(){
     angular.module("WebAppMaker")
         .factory("PageService",PageService);
-    function PageService(){
-        var pages=[
-            { "_id": "321", "name": "Post 1", "websiteId": "456" ,"title": "This is Post 1" },
-            { "_id": "432", "name": "Post 2", "websiteId": "456","title": "This is Post 2" },
-            { "_id": "543", "name": "Post 3", "websiteId": "456","title": "This is Post 2" }
-        ];
+    function PageService($http){
+        // var pages=[
+        //     { "_id": "321", "name": "Post 1", "websiteId": "456" ,"title": "This is Post 1" },
+        //     { "_id": "432", "name": "Post 2", "websiteId": "456","title": "This is Post 2" },
+        //     { "_id": "543", "name": "Post 3", "websiteId": "456","title": "This is Post 2" }
+        // ];
         var api={
             findPageByWebsiteId:findPageByWebsiteId,
             createPage:createPage,
@@ -20,13 +20,16 @@
         return api;
 
         function findPageByWebsiteId(websiteId){
-            var resultSet=[];
-            for(var i in pages){
-                if(pages[i].websiteId===websiteId){
-                    resultSet.push(pages[i]);
-                }
-            }
-            return resultSet;
+            var url="/api/website/"+websiteId+"/page";
+            return $http.get(url);
+            //
+            // var resultSet=[];
+            // for(var i in pages){
+            //     if(pages[i].websiteId===websiteId){
+            //         resultSet.push(pages[i]);
+            //     }
+            // }
+            // return resultSet;
         }
 
         function createPage(websiteId,page,pageTitle){

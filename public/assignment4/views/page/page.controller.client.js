@@ -12,10 +12,15 @@
         function init(){
             var userId=$routeParams.uid;
             var websiteId=$routeParams.wid;
-            var page=PageService.findPageByWebsiteId(websiteId);
-            vm.pages=page;
             vm.userId=userId;
             vm.websiteId=websiteId;
+
+            PageService
+                .findPageByWebsiteId(websiteId)
+                .then(function (response){
+                    var page=response.data;
+                    vm.pages=page;
+                });
         }
         init();
     }
