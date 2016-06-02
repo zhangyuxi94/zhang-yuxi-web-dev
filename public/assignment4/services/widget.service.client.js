@@ -29,7 +29,7 @@
             findWidgetById:findWidgetById,
             updateWidget:updateWidget,
             deleteWidget:deleteWidget,
-            findWidgetByType:findWidgetByType,
+            // findWidgetByType:findWidgetByType,
             createWidget:createWidget
         };
         return api;
@@ -39,20 +39,14 @@
             return $http.get(url);
         }
 
-        function widgetChooser(){
-            return widgetFilter;
+        function widgetChooser(pageId){
+            var url="/api/page/"+pageId+"/widget/new";
+            return $http.get(url);
         }
 
         function findWidgetById(widgetId){
             var url="/api/widget/"+widgetId;
             return $http.get(url);
-
-            // for(var i in widgets){
-            //     if(widgets[i]._id===widgetId){
-            //         return widgets[i];
-            //     }
-            // }
-            // return null;
         }
 
         function updateWidget(widgetId, widget){
@@ -108,15 +102,15 @@
             return widgets;
         }
 
-        function findWidgetByType(widgetTypeId){
-            for(var i in widgetFilter){
-                if(widgetFilter[i].typeId===widgetTypeId){
-                    return widgetFilter[i];
-                }
-            }
-            return null;
-
-        }
+        // function findWidgetByType(widgetTypeId){
+        //     for(var i in widgetFilter){
+        //         if(widgetFilter[i].typeId===widgetTypeId){
+        //             return widgetFilter[i];
+        //         }
+        //     }
+        //     return null;
+        //
+        // }
         
     }
 })();

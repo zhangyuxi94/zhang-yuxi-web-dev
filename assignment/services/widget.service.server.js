@@ -22,9 +22,14 @@ module.exports=function(app){
 
     app.post("/api/page/:pageId/widget",createWidget);
     app.get("/api/page/:pageId/widget",findAllWidgetsForPage);
+    app.get("/api/page/:pageId/widget/new",widgetChooser);
     app.get("/api/widget/:widgetId",findWidgetById);
     app.put("/api/widget/:widgetId",updateWidget);
     app.delete("/api/widget/:widgetId",deleteWidget);
+
+    function widgetChooser(req,res){
+        res.send(widgetFilter);
+    }
 
     function createWidget(req,res){
         // var websiteId=req.params.websiteId;

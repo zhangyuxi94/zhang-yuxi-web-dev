@@ -47,16 +47,22 @@
             var userId=$routeParams.uid;
             var websiteId=$routeParams.wid;
             var pageId=$routeParams.pid;
-
-            var widget=WidgetService.widgetChooser();
+            var widgetTypeId=$routeParams.tpid;
             vm.userId=userId;
             vm.websiteId=websiteId;
             vm.pageId=pageId;
-            vm.widget=widget;
 
-            var widgetTypeId=$routeParams.tpid;
-            var widgetName=WidgetService.findWidgetByType(widgetTypeId);
-            vm.widgetName=widgetName;
+            WidgetService
+                .widgetChooser(pageId)
+                .then(function (response){
+                    console.log(response);
+                    var widget=response.data;
+                    vm.widget=widget;
+                });
+
+
+            // var widgetName=WidgetService.findWidgetByType(widgetTypeId);
+            // vm.widgetName=widgetName;
 
             vm.createWidget=createWidget;
             function createWidget(text,size,url,width){
@@ -87,7 +93,7 @@
             vm.websiteId=websiteId;
             vm.userId=userId;
             vm.widgetId=widgetId;
-            
+
 
             WidgetService
                 .findWidgetById(widgetId)
