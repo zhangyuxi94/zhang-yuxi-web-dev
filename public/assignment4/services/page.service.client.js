@@ -25,22 +25,13 @@
         }
 
         function createPage(websiteId,page,pageTitle){
-            var length=pages.length-1;
-            var pid=pages[length]._id;
-            pid=parseInt(pid);
-            pid+=1;
-            pid=pid.toString();
             var newPage={
-                "_id": pid,
-                "name": page,
-                "title":pageTitle,
-                "websiteId":websiteId
-
+                name:page,
+                title:pageTitle
             };
-            pages.push(newPage);
-            return newPage;
-
+            return $http.post("/api/website/"+websiteId+"/page",newPage);
         }
+        
         function findPageById(pageId){
             var url="/api/page/"+pageId;
             return $http.get(url);

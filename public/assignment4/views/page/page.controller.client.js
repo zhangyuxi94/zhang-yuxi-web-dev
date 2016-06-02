@@ -27,16 +27,25 @@
 
     function NewPageController($location,$routeParams,PageService){
         var vm=this;
-        vm.createPage=createPage;
-        var userId=$routeParams.uid;
-        var websiteId=$routeParams.wid;
 
-        function createPage(page,pageTitle){
-            var newPage=PageService.createPage(websiteId,page,pageTitle);
-            $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+        function init(){
+            vm.createPage=createPage;
+            var userId=$routeParams.uid;
+            var websiteId=$routeParams.wid;
+            function createPage(page,pageTitle){
+                PageService
+                    .createPage(websiteId,page,pageTitle)
+                    .then(function(response){
+                        var newPage=response.data;
+                        if(newPage){
+                            $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+                        }
+                    });
+            }
+            vm.userId=userId;
+            vm.websiteId=websiteId;
         }
-        vm.userId=userId;
-        vm.websiteId=websiteId;
+        init();
     }
 
     function EditPageController($location,$routeParams,PageService){

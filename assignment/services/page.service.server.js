@@ -14,7 +14,15 @@ module.exports=function(app){
     app.put("/api/page/:pageId",updatePage);
     app.delete("/api/page/:pageId",deletePage);
 
-    function createPage(req,res){}
+    function createPage(req,res){
+        var websiteId=req.params.websiteId;
+        var newPage=req.body;
+        newPage._id=(new Date()).getTime()+"";
+        newPage.websiteId=websiteId;
+        pages.push(newPage);
+        res.send(newPage);
+    }
+    
     function findAllPagesForWebsite(req,res){
         var websiteId=req.params.websiteId;
         var result=[];
