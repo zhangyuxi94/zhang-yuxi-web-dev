@@ -66,7 +66,6 @@
                 });
 
             vm.updatePage=updatePage;
-
             function updatePage(name,title){
                 PageService
                     .updatePage(pageId,name,title)

@@ -48,13 +48,6 @@
         function deletePage(pageId){
             var url="/api/page/"+pageId;
             return $http.delete(url);
-            // for(var i in pages){
-            //     if(pages[i]._id===pageId){
-            //         pages.splice(i,1);
-            //         return true;
-            //     }
-            // }
-            // return false;
         }
     }
 })();

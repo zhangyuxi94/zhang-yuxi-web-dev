@@ -17,11 +17,16 @@
             var pageId=$routeParams.pid;
             var userId=$routeParams.uid;
             var website=$routeParams.wid;
-            var widget=WidgetService.findWidgetsByPageId(pageId);
-            vm.widgets=widget;
             vm.userId=userId;
             vm.website=website;
             vm.page=pageId;
+
+            WidgetService
+                .findWidgetsByPageId(pageId)
+                .then(function (response){
+                    var widget=response.data;
+                    vm.widgets=widget;
+                });
         }
         init();
 
@@ -76,14 +81,20 @@
         function init(){
             var widgetId=$routeParams.wgid;
             var pageId=$routeParams.pid;
-            var widget=WidgetService.findWidgetById(widgetId);
             var websiteId=$routeParams.wid;
             var userId=$routeParams.uid;
-            vm.widget=widget;
             vm.pageId=pageId;
             vm.websiteId=websiteId;
             vm.userId=userId;
             vm.widgetId=widgetId;
+            
+
+            WidgetService
+                .findWidgetById(widgetId)
+                .then(function (response){
+                    var widget=response.data;
+                    vm.widget=widget;
+                });
 
             vm.updateWidget=updateWidget;
             function updateWidget(text,size,url){
