@@ -55,7 +55,7 @@
                 $location.url("/user/"+userId+"/website");
             }
 
-         
+
         }
         init();
 

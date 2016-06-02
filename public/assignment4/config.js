@@ -19,6 +19,11 @@
                 controller:"LoginController",
                 controllerAs:"model"
             })
+            .when("/flickr", {
+                templateUrl: "views/widget/widget-flickr-search.view.client.html",
+                controller:"FlickrImageSearchController",
+                controllerAs:"model"
+            })
             .when("/register", {
                 templateUrl: "views/user/register.view.client.html",
                 controller:"RegisterController",
@@ -28,7 +33,7 @@
                 templateUrl: "views/user/profile.view.client.html",
                 controller:"ProfileController",
                 controllerAs:"model"
-    })
+            })
             .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html",
                 controller:"WebsiteListController",
