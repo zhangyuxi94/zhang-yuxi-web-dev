@@ -22,14 +22,6 @@
         function findPageByWebsiteId(websiteId){
             var url="/api/website/"+websiteId+"/page";
             return $http.get(url);
-            //
-            // var resultSet=[];
-            // for(var i in pages){
-            //     if(pages[i].websiteId===websiteId){
-            //         resultSet.push(pages[i]);
-            //     }
-            // }
-            // return resultSet;
         }
 
         function createPage(websiteId,page,pageTitle){
@@ -50,12 +42,8 @@
 
         }
         function findPageById(pageId){
-            for(var i in pages){
-                if(pages[i]._id===pageId){
-                    return pages[i];
-                }
-            }
-            return null;
+            var url="/api/page/"+pageId;
+            return $http.get(url);
         }
         function updatePage(pageId,page){
             for(var i in pages){

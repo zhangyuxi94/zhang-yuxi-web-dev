@@ -45,11 +45,16 @@
             var websiteId=$routeParams.wid;
             var userId=$routeParams.uid;
             var pageId=$routeParams.pid;
-            var page=PageService.findPageById(pageId);
-            vm.page=page;
             vm.websiteId=websiteId;
             vm.userId=userId;
             vm.pageId=pageId;
+
+            PageService
+                .findPageById(pageId)
+                .then(function (response){
+                    var page=response.data;
+                    vm.page=page;
+                });
 
             vm.updatePage=updatePage;
             function updatePage(name,title){

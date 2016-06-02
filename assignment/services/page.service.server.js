@@ -5,7 +5,7 @@ module.exports=function(app){
     var pages=[
         { "_id": "321", "name": "Post 1", "websiteId": "456" ,"title": "This is Post 1" },
         { "_id": "432", "name": "Post 2", "websiteId": "456","title": "This is Post 2" },
-        { "_id": "543", "name": "Post 3", "websiteId": "456","title": "This is Post 2" }
+        { "_id": "543", "name": "Post 3", "websiteId": "456","title": "This is Post 3" }
     ];
 
     app.post("/api/website/:websiteId/page",createPage);
@@ -25,7 +25,16 @@ module.exports=function(app){
         }
         res.json(result);
     }
-    function findPageById(req,res){}
+    function findPageById(req,res){
+        var pageId=req.params.pageId;
+        for(var p in pages){
+            if(pages[p]._id===pageId){
+                res.send(pages[p]);
+                return;
+            }
+        }
+        res.send({});
+    }
     function updatePage(req,res){}
     function deletePage(req,res){}
 };
