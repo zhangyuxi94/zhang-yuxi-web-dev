@@ -4,7 +4,7 @@
 (function(){
     angular.module("WebAppMaker")
         .factory("WebsiteService",WebsiteService);
-function WebsiteService(){
+function WebsiteService($http){
     var websites=[
         { "_id": "123", "name": "Facebook",	"developerId": "456","description":"This is Facebook" },
         { "_id": "234", "name": "Tweeter", 	"developerId": "456","description":"This is Tweeter" },
@@ -23,13 +23,8 @@ function WebsiteService(){
     return api;
 
     function findWebsitesByUser(userId){
-        var resultSet=[];
-        for(var i in websites){
-            if(websites[i].developerId===userId){
-                resultSet.push(websites[i]);
-            }
-        }
-        return resultSet;
+        var url="/api/user/"+userId+"/website";
+        return $http.get(url);
     }
     function createWebsite(userId,website,description){ var length=websites.length-1;
         var wid=websites[length]._id;
@@ -75,5 +70,3 @@ function WebsiteService(){
 
 })();
 
-//
-//
