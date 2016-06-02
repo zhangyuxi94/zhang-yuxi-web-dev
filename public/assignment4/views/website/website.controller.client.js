@@ -16,7 +16,6 @@
                 .findWebsitesByUser(userId)
                 .then(function (response){
                     var website=response.data;
-                    console.log(response);
                         vm.websites=website;
                         vm.userId=userId;
                 });
@@ -30,8 +29,14 @@
             vm.createWebsite=createWebsite;
             var userId=$routeParams.uid;
             function createWebsite(website,description){
-                var newWebsite=WebsiteService.createWebsite(userId,website,description);
-                $location.url("/user/"+userId+"/website");
+                WebsiteService
+                    .createWebsite(userId,website,description)
+                    .then(function(response){
+                        var newWebsite=response.data;
+                        if(newWebsite){
+                            $location.url("/user/"+userId+"/website");
+                        }
+                    });
             }
             vm.userId=userId;
         }

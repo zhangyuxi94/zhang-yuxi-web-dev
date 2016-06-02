@@ -17,7 +17,15 @@ module.exports=function(app){
     app.put("/api/website/:websiteId",updateWebsite);
     app.delete("/api/website/:websiteId",deleteWebsite);
 
-    function createWebsite(req,res){}
+    function createWebsite(req,res){
+        var userId=req.params.userId;
+        var newWebsite=req.body;
+        newWebsite._id=(new Date()).getTime()+"";
+        newWebsite.developerId=userId;
+        websites.push(newWebsite);
+        res.send(newWebsite);
+    }
+
     function findAllWebsitesForUser(req,res){
         var userId=req.params.userId;
         var result=[];
