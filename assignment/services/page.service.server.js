@@ -56,5 +56,15 @@ module.exports=function(app){
         }
         res.send(400);
     }
-    function deletePage(req,res){}
+    function deletePage(req,res){
+        var pageId=req.params.pageId;
+        for(var p in pages){
+            if(pages[p]._id===pageId){
+                pages.splice(p,1);
+                res.send(200);
+                return;
+            }
+        }
+        res.send(400);
+    }
 };

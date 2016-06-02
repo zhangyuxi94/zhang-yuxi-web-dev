@@ -77,8 +77,12 @@
 
             vm.deletePage=deletePage;
             function deletePage(){
-                var deletePage=PageService.deletePage(pageId);
-                $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+                PageService
+                    .deletePage(pageId)
+                    .then(
+                        function(response){
+                            $location.url("/user/"+userId+"/website/"+websiteId+"/page");
+                        });
             }
         }
         init();
