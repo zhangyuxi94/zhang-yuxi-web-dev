@@ -3,12 +3,12 @@
  */
 module.exports=function(app){
     var websites=[
-            { "_id": "123", "name": "Facebook",    "developerId": "456" },
-            { "_id": "234", "name": "Tweeter",     "developerId": "456" },
-            { "_id": "456", "name": "Gizmodo",     "developerId": "456" },
-            { "_id": "567", "name": "Tic Tac Toe", "developerId": "123" },
-            { "_id": "678", "name": "Checkers",    "developerId": "123" },
-            { "_id": "789", "name": "Chess",       "developerId": "234" }
+            { "_id": "123", "name": "Facebook",    "developerId": "456" ,"description":"This is Facebook"},
+            { "_id": "234", "name": "Tweeter",     "developerId": "456" ,"description":"This is Tweeter"},
+            { "_id": "456", "name": "Gizmodo",     "developerId": "456","description":"This is Gizmodo" },
+            { "_id": "567", "name": "Tic Tac Toe", "developerId": "123" ,"description":"This is Tic Tac Toe"},
+            { "_id": "678", "name": "Checkers",    "developerId": "123" ,"description":"This is Checkers"},
+            { "_id": "789", "name": "Chess",       "developerId": "234" ,"description":"This is Chess"}
         ];
 
     app.post("/api/user/:userId/website",createWebsite);
@@ -46,7 +46,19 @@ module.exports=function(app){
         }
         res.send({});
     }
-    function updateWebsite(req,res){}
+    function updateWebsite(req,res){
+        var websiteId=req.params.websiteId;
+        var website=req.body;
+        for(var w in websites){
+            if(websites[w]._id===websiteId){
+                websites[w].name=website.name;
+                websites[w].description=website.description;
+                res.send(200);
+                return;
+            }
+        }
+        res.send(400);
+    }
     function deleteWebsite(req,res){}
 };
 

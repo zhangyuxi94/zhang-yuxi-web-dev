@@ -54,27 +54,18 @@
                     var website=response.data;
                     vm.website=website;
                 });
-            
+
             vm.websiteId=websiteId;
             vm.userId=userId;
 
             vm.updateWebsite=updateWebsite;
             function updateWebsite(name,description){
-                WebsiteService.updateWebsite(websiteId,website);
-                $location.url("/user/"+userId+"/website");
+                WebsiteService
+                    .updateWebsite(websiteId,name,description)
+                    .then(function(response){
+                        $location.url("/user/"+userId+"/website");
+                    });
             }
-
-            // function updateUser(newUser){
-            //     UserService
-            //         .updateUser(userId,newUser)
-            //         .then(
-            //             function(response){
-            //                 vm.save="Success! Your profile was saved."
-            //             },
-            //             function (error) {
-            //                 vm.error="Unable to update"
-            //             });
-            // }
 
             vm.deleteWebsite=deleteWebsite;
             function deleteWebsite(){

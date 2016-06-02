@@ -36,22 +36,14 @@ function WebsiteService($http){
     function findWebsiteById(websiteId){
         var url="/api/website/"+websiteId;
         return $http.get(url);
-        // for(var i in websites){
-        //     if(websites[i]._id===websiteId){
-        //         return websites[i];
-        //     }
-        // }
-        // return null;
     }
-    function updateWebsite(websiteId,website){
-        for(var i in websites){
-            if(websites[i]._id===websiteId){
-                websites[i].description=website.description;
-                websites[i].name=website.name;
-                return true;
-            }
-        }
-        return false;
+    function updateWebsite(websiteId,name,description){
+        var url="/api/website/"+websiteId;
+        var updatedWebsite={
+            name:name,
+            description:description
+        };
+        return $http.put(url,updatedWebsite);
     }
     function deleteWebsite(websiteId){
         for(var i in websites){
