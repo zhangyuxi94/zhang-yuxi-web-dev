@@ -5,14 +5,6 @@
     angular.module("WebAppMaker")
         .factory("WebsiteService",WebsiteService);
 function WebsiteService($http){
-    // var websites=[
-    //     { "_id": "123", "name": "Facebook",	"developerId": "456","description":"This is Facebook" },
-    //     { "_id": "234", "name": "Tweeter", 	"developerId": "456","description":"This is Tweeter" },
-    //     { "_id": "456", "name": "Gizmodo", 	"developerId": "456","description":"This is Gizmodo"  },
-    //     { "_id": "567", "name": "Tic Tac Toe", "developerId": "123","description":"This is Tic Tac Toe"  },
-    //     { "_id": "678", "name": "Checkers",	"developerId": "123" ,"description":"This is Checkers" },
-    //     { "_id": "789", "name": "Chess",   	"developerId": "234" ,"description":"This is Chess" }
-    // ];
     var api={
         findWebsitesByUser:findWebsitesByUser,
         createWebsite:createWebsite,
@@ -46,13 +38,8 @@ function WebsiteService($http){
         return $http.put(url,updatedWebsite);
     }
     function deleteWebsite(websiteId){
-        for(var i in websites){
-            if(websites[i]._id===websiteId){
-                websites.splice(i,1);
-                return true;
-            }
-        }
-        return false;
+        var url="/api/website/"+websiteId;
+        return $http.delete(url);
     }
 }
 

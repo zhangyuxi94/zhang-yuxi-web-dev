@@ -59,6 +59,16 @@ module.exports=function(app){
         }
         res.send(400);
     }
-    function deleteWebsite(req,res){}
+    function deleteWebsite(req,res){
+        var websiteId=req.params.websiteId;
+        for(var w in websites){
+            if(websites[w]._id===websiteId){
+                websites.splice(w,1);
+                res.send(200);
+                return;
+            }
+        }
+        res.send(400);
+    }
 };
 

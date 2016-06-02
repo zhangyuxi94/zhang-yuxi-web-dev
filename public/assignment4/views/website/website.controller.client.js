@@ -48,15 +48,15 @@
         function init(){
             var websiteId=$routeParams.wid;
             var userId=$routeParams.uid;
+            vm.websiteId=websiteId;
+            vm.userId=userId;
+
             WebsiteService
                 .findWebsiteById(websiteId)
                 .then(function (response){
                     var website=response.data;
                     vm.website=website;
                 });
-
-            vm.websiteId=websiteId;
-            vm.userId=userId;
 
             vm.updateWebsite=updateWebsite;
             function updateWebsite(name,description){
@@ -69,15 +69,15 @@
 
             vm.deleteWebsite=deleteWebsite;
             function deleteWebsite(){
-                var deleteWebsite=WebsiteService.deleteWebsite(websiteId);
-                $location.url("/user/"+userId+"/website");
+                WebsiteService
+                    .deleteWebsite(websiteId)
+                    .then(
+                        function(response){
+                            $location.url("/user/"+userId+"/website");
+                        }
+                    );
             }
-
-
         }
         init();
-
-
-
     }
 })();
