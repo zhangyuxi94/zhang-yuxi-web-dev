@@ -29,7 +29,7 @@
             findWidgetById:findWidgetById,
             updateWidget:updateWidget,
             deleteWidget:deleteWidget,
-            // findWidgetByType:findWidgetByType,
+            findWidgetByType:findWidgetByType,
             createWidget:createWidget
         };
         return api;
@@ -71,46 +71,44 @@
             return false;
         }
 
-        function createWidget(pageId,widgetType,widgetTypeId,text,size,url,width){
+        function createWidget(pageId,widgetTypeId,text,size,url,width){
             var newWidget={};
-            var length=widgets.length-1;
-            var wgid=widgets[length]._id;
-            wgid=parseInt(wgid);
-            wgid+=1;
-            wgid=wgid.toString();
-            // for(var i in widgets){
-                // if(widgets[i].pageId===pageId){
-
-                    switch(widgetTypeId){
-                        case "1": newWidget= { "_id": wgid, "widgetType": widgetType, "pageId": pageId, "size": size, "text": text};
-                            widgets.push(newWidget);
-                            break;
-                        case "2":  newWidget= { "_id":wgid, "widgetType": widgetType, "pageId": pageId, "url": url,"width":width};
-                            widgets.push(newWidget);
-                            break;
-                        case "3": newWidget= { "_id": wgid, "widgetType": widgetType, "pageId": pageId, "text": text};
-                            widgets.push(newWidget);
-                            break;
-                        case "4":  newWidget= { "_id": wgid, "widgetType": widgetType, "pageId": pageId, "url": url,"width":width};
-                            widgets.push(newWidget);
-                            break;
-                        default:return null;
-                    // }
-
-                // }
+            switch (widgetTypeId){
+                case "1":
+                    newWidget={
+                        pageId: pageId,
+                        text:text,
+                        size:size
+                    };
+                    break;
+                case "2":
+                    newWidget={
+                        pageId: pageId,
+                        url: url,
+                        width:width
+                    };
+                    break;
+                case "3":
+                    newWidget={
+                        pageId: pageId,
+                        text:text
+                    };
+                    break;
+                case "4":
+                    newWidget={
+                        pageId: pageId,
+                        url: url,
+                        width:width
+                    };
+                    break;
+                default:return null;
             }
-            return widgets;
+            return $http.post("/api/page/"+pageId+"/widget/new/"+widgetTypeId,newWidget);
         }
 
-        // function findWidgetByType(widgetTypeId){
-        //     for(var i in widgetFilter){
-        //         if(widgetFilter[i].typeId===widgetTypeId){
-        //             return widgetFilter[i];
-        //         }
-        //     }
-        //     return null;
-        //
-        // }
-        
+        function findWidgetByType(pageId,widgetTypeId){
+            var url="/api/page/"+pageId+"/widget/new/"+widgetTypeId;
+            return $http.get(url);
+        }
     }
 })();

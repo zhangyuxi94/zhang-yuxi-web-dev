@@ -20,10 +20,11 @@ module.exports=function(app){
         {"widgetType": "YOUTUBE","typeId": "4"}
     ];
 
-    app.post("/api/page/:pageId/widget",createWidget);
+    app.post("/api/page/:pageId/widget/new/:widgetTypeId",createWidget);
     app.get("/api/page/:pageId/widget",findAllWidgetsForPage);
     app.get("/api/page/:pageId/widget/new",widgetChooser);
     app.get("/api/widget/:widgetId",findWidgetById);
+    app.get("/api/page/:pageId/widget/new/:widgetTypeId",findWidgetByType);
     app.put("/api/widget/:widgetId",updateWidget);
     app.delete("/api/widget/:widgetId",deleteWidget);
 
@@ -31,14 +32,30 @@ module.exports=function(app){
         res.send(widgetFilter);
     }
 
-    function createWidget(req,res){
-        // var websiteId=req.params.websiteId;
-        // var newPage=req.body;
-        // newPage._id=(new Date()).getTime()+"";
-        // newPage.websiteId=websiteId;
-        // pages.push(newPage);
-        // res.send(newPage);
+    function findWidgetByType(req,res){
+        var widgetTypeId=req.params.widgetTypeId;
+        for(var i in widgetFilter){
+            if(widgetFilter[i].typeId===widgetTypeId){
+                res.send(widgetFilter[i]);
+                return;
+            }
+        }
+        res.send({});
     }
+
+    function createWidget(req,res){
+        var pageId=req.params.pageId;
+        var widgetTypeId=req.params.widgetTypeId;
+        var i=parseInt(widgetTypeId);
+        var newWidget=req.body;
+        var widgetType=widgetFilter[i-1].widgetType;
+        newWidget._id=(new Date()).getTime()+"";
+        newWidget.pageId=pageId;
+        newWidget.widgetType=widgetType;
+        widgets.push(newWidget);
+        res.send(widgets);
+    }
+
     function findAllWidgetsForPage(req,res){
         var pageId=req.params.pageId;
         var result=[];

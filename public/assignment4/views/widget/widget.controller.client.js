@@ -55,28 +55,33 @@
             WidgetService
                 .widgetChooser(pageId)
                 .then(function (response){
-                    console.log(response);
                     var widget=response.data;
                     vm.widget=widget;
                 });
 
-
-            // var widgetName=WidgetService.findWidgetByType(widgetTypeId);
-            // vm.widgetName=widgetName;
+            WidgetService
+                .findWidgetByType(pageId,widgetTypeId)
+                .then(function (response){
+                    var widgetName=response.data;
+                    vm.widgetName=widgetName;
+                });
 
             vm.createWidget=createWidget;
             function createWidget(text,size,url,width){
-                var widgetType=widgetName.widgetType;
-
-                var newWidget=WidgetService.createWidget(pageId,widgetType,widgetTypeId,text,size,url,width);
-                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+                WidgetService
+                    .createWidget(pageId,widgetTypeId,text,size,url,width)
+                    .then(function(response){
+                        var newWidget=response.data;
+                        if(newWidget){
+                            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+                        }
+                    });
             }
 
             vm.deleteWidget=deleteNewWidget;
             function deleteNewWidget(){
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
             }
-
         }
         init();
 
