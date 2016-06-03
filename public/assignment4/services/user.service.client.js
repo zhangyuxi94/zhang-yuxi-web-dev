@@ -6,12 +6,6 @@
     angular.module("WebAppMaker")
         .factory("UserService",UserService);
     function UserService($http){
-     // var users=[
-     //     {_id: "123", username: "alice",	password: "alice",	firstName: "Alice",  lastName: "Wonder"  },
-     //     {_id: "234", username: "bob",  	password: "bob",  	firstName: "Bob",	lastName: "Marley"  },
-     //     {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-     //     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-     // ];
         var api = {
             findUserByCredentials:findUserByCredentials,
             findUserById:findUserById,
@@ -36,24 +30,14 @@
             return $http.put(url,newUser);
         }
 
-        function createUser(user,password){
+        function createUser(user,password,verifyPassword){
             var user={
                 username:user,
-                password:password
+                password:password,
+                verifyPassword:verifyPassword
             };
             return $http.post("/api/user",user);
-            // var length=users.length-1;
-            // var uid=users[length]._id;
-            // uid=parseInt(uid);
-            // uid+=1;
-            // uid=uid.toString();
-            // var uname=user;
-            // var upwd=password;
-            // var userarry={_id: uid,username: uname, password: upwd};
-            // users.push(userarry);
-            // return users[length+1];
         }
-        //
         function deleteUser(userId){
             var url="/api/user/"+userId;
             return $http.delete(url);

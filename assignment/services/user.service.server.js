@@ -61,9 +61,14 @@ module.exports=function(app){
 
     function createUser(req,res){
         var user = req.body;
-        user._id=(new Date()).getTime()+"";
-        users.push(user);
-        res.send(user);
+        if(user.password===user.verifyPassword){
+            user._id=(new Date()).getTime()+"";
+            users.push(user);
+            res.send(user);
+        }
+        else{
+            res.send(400);
+        }
     }
 
     function updateUser(req,res){

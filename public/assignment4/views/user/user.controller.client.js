@@ -76,18 +76,18 @@
         vm.register=register;
         function register(user,password,verifypassword){
             UserService
-                .createUser(user,password)
-                .then(function(response){
+                .createUser(user,password,verifypassword)
+                .then(
+                    function(response){
                     var user=response.data;
                     if(user){
                         $location.url("/user/"+user._id);
                     }
-                });
-            // if(password===verifypassword){
-            //     $location.url("/user/"+user._id);
-            // }else{
-            //     vm.alert="Password does not match!";
-            // }
+                },
+                    function(error){
+                        vm.alert="Password not match!"
+                    }
+                );
         }
     }
 })();
