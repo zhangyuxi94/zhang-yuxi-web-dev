@@ -91,5 +91,15 @@ module.exports=function(app){
         }
         res.send(400);
     }
-    function deleteWidget(req,res){}
+    function deleteWidget(req,res){
+        var widgetId=req.params.widgetId;
+        for(var i in widgets){
+            if(widgets[i]._id===widgetId){
+                widgets.splice(i,1);
+                res.send(widgets);
+                return;
+            }
+        }
+        res.send(400);
+    }
 };

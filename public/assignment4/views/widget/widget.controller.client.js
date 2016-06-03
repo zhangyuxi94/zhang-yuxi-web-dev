@@ -118,8 +118,13 @@
 
             vm.deleteWidget=deleteWidget;
             function deleteWidget(){
-                var deleteWidget=WidgetService.deleteWidget(widgetId);
-                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+                WidgetService
+                    .deleteWidget(widgetId)
+                    .then(
+                        function(response){
+                            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+                        }
+                    );
             }
         }
         init();
