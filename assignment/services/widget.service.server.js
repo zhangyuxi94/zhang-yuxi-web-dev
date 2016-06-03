@@ -76,6 +76,20 @@ module.exports=function(app){
         }
         res.send({});
     }
-    function updateWidget(req,res){}
+    function updateWidget(req,res){
+        var widgetId=req.params.widgetId;
+        var widget=req.body;
+        for(var i in widgets){
+            if(widgets[i]._id===widgetId){
+                widgets[i].text=widget.text;
+                widgets[i].size=widget.size;
+                widgets[i].width=widget.width;
+                widgets[i].url=widget.url;
+                res.send(200);
+                return;
+            }
+        }
+        res.send(400);
+    }
     function deleteWidget(req,res){}
 };

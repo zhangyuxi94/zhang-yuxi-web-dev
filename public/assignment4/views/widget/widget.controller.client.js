@@ -99,7 +99,6 @@
             vm.userId=userId;
             vm.widgetId=widgetId;
 
-
             WidgetService
                 .findWidgetById(widgetId)
                 .then(function (response){
@@ -108,9 +107,13 @@
                 });
 
             vm.updateWidget=updateWidget;
-            function updateWidget(text,size,url){
-                var updateWidget=WidgetService.updateWidget(widgetId,widget);
-                $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+            function updateWidget(text,size,width,widgetIdUrl){
+                WidgetService
+                    .updateWidget(widgetId,text,size,width,widgetIdUrl)
+                    .then(
+                        function(response){
+                            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+                        });
             }
 
             vm.deleteWidget=deleteWidget;

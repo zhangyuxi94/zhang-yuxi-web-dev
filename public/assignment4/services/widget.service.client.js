@@ -49,16 +49,15 @@
             return $http.get(url);
         }
 
-        function updateWidget(widgetId, widget){
-            for(var i in widgets){
-                if(widgets[i]._id===widgetId){
-                    widgets[i].text=widget.text;
-                    widgets[i].size=widget.size;
-                    widgets[i].url=widget.url;
-                    return true;
-                }
-            }
-            return false;
+        function updateWidget(widgetId,text,size,width,widgetIdUrl){
+            var url="/api/widget/"+widgetId;
+            var updatedWidget={
+                text:text,
+                size:size,
+                width:width,
+                url:widgetIdUrl
+            };
+            return $http.put(url,updatedWidget);
         }
 
         function deleteWidget(widgetId){
