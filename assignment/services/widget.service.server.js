@@ -19,14 +19,18 @@ module.exports=function(app){
         {"widgetType": "HTML","typeId": "3"},
         {"widgetType": "YOUTUBE","typeId": "4"}
     ];
+    var multer = require('multer'); 
+    var upload = multer({ dest: __dirname+'/../../public/uploads' });
 
     app.post("/api/page/:pageId/widget/new/:widgetTypeId",createWidget);
+    app.post ("/api/uploads", upload.single('myFile'), uploadImage);
     app.get("/api/page/:pageId/widget",findAllWidgetsForPage);
     app.get("/api/page/:pageId/widget/new",widgetChooser);
     app.get("/api/widget/:widgetId",findWidgetById);
     app.get("/api/page/:pageId/widget/new/:widgetTypeId",findWidgetByType);
     app.put("/api/widget/:widgetId",updateWidget);
     app.delete("/api/widget/:widgetId",deleteWidget);
+
 
     function widgetChooser(req,res){
         res.send(widgetFilter);
@@ -102,4 +106,30 @@ module.exports=function(app){
         }
         res.send(400);
     }
+
+    function uploadImage(req, res) {
+
+        var widgetId      = req.body.widgetId;
+        var pageId      = req.body.pageId;
+        var websiteId      = req.body.websiteId;
+        var userId      = req.body.userId;
+        var width         = req.body.width;
+        var myFile        = req.file;
+
+        var originalname  = myFile.originalname;
+        var filename      = myFile.filename;
+        var path          = myFile.path;
+        var destination   = myFile.destination;
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+
+        for(var i in widgets){
+            if(widgets[i]._id===widgetId){
+                widgets[i].url="/uploads/"+filename;
+            }
+        }
+            res.redirect("/assignment4/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+    }
+
 };
+
