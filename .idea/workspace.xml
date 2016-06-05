@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js" line="56" />
+    <bookmark url="file://$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js" line="59" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efeb887d-3151-4a61-b7c2-ced5bfef095f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assignment/services/widget.service.server.js" afterPath="$PROJECT_DIR$/assignment/services/widget.service.server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment4/views/widget/widget-image.view.client.html" afterPath="$PROJECT_DIR$/public/assignment4/views/widget/widget-image.view.client.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment4/index.html" afterPath="$PROJECT_DIR$/public/assignment4/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js" afterPath="$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js" />
     </list>
     <ignored path="homepageyx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,38 +29,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="widget-image.view.client.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget-image.view.client.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-              <folding>
-                <element signature="n#div#2;n#form#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#input#1;n#form#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#form#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#3;n#form#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#4;n#form#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#5;n#form#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="widget.controller.client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1102">
-              <caret line="103" column="42" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="42" />
+            <state relative-caret-position="172">
+              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="widget.service.server.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assignment/services/widget.service.server.js">
+      <file leaf-file-name="widget-edit.view.client.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget-edit.view.client.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1837">
-              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="226">
+              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assignment4/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/test/jquery.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -72,8 +75,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -88,7 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/project3/views/user/test.html" />
         <option value="$PROJECT_DIR$/public/project3/test.html" />
         <option value="$PROJECT_DIR$/public/project3/css/user.css" />
         <option value="$PROJECT_DIR$/public/project3/views/user/register.view.client.html" />
@@ -115,7 +117,6 @@
         <option value="$PROJECT_DIR$/public/assignment4/jsstyle.js" />
         <option value="$PROJECT_DIR$/public/assignment4/views/user/profile.view.client.html" />
         <option value="$PROJECT_DIR$/public/assignment4/config.js" />
-        <option value="$PROJECT_DIR$/public/assignment4/index.html" />
         <option value="$PROJECT_DIR$/public/assignment4/services/flickr.server.client.js" />
         <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget-flickr-search.controller.client.js" />
         <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget-flickr-search.view.client.html" />
@@ -127,10 +128,8 @@
         <option value="$PROJECT_DIR$/public/assignment4/views/page/page.controller.client.js" />
         <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget-header.view.client.html" />
         <option value="$PROJECT_DIR$/public/assignment/views/widget/widget-new.view.client.html" />
-        <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget-new.view.client.html" />
         <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget-edit.view.client.html" />
         <option value="$PROJECT_DIR$/public/assignment4/services/widget.service.client.js" />
-        <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js" />
         <option value="$PROJECT_DIR$/public/assignment4/services/page.service.client.js" />
         <option value="$PROJECT_DIR$/assignment/services/user.service.server.js" />
         <option value="$PROJECT_DIR$/public/assignment4/views/user/user.controller.client.js" />
@@ -138,7 +137,11 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/assignment/services/widget.service.server.js" />
+        <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget-new.view.client.html" />
         <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget-image.view.client.html" />
+        <option value="$PROJECT_DIR$/public/test/jquery.html" />
+        <option value="$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js" />
+        <option value="$PROJECT_DIR$/public/assignment4/index.html" />
       </list>
     </option>
   </component>
@@ -149,8 +152,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="131" />
-    <option name="y" value="52" />
+    <option name="x" value="109" />
+    <option name="y" value="62" />
     <option name="width" value="1143" />
     <option name="height" value="652" />
   </component>
@@ -466,15 +469,15 @@
       <workItem from="1464740091735" duration="11198000" />
       <workItem from="1464787519892" duration="32544000" />
       <workItem from="1464875887921" duration="33497000" />
-      <workItem from="1464975231489" duration="11151000" />
+      <workItem from="1464975231489" duration="13591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="330942000" />
+    <option name="totallyTimeSpent" value="333382000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="131" y="52" width="1143" height="652" extended-state="0" />
+    <frame x="109" y="62" width="1143" height="652" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2795031" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -521,13 +524,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/project3/services/mainpage.service.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project3/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -623,13 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment4/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assignment4/services/flickr.server.client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="356">
@@ -697,6 +686,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-855">
           <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -712,13 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="109" selection-start-line="5" selection-start-column="105" selection-end-line="5" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget-new.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -767,14 +750,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget-edit.view.client.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,26 +829,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="103" column="42" selection-start-line="103" selection-start-column="42" selection-end-line="103" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assignment/services/widget.service.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1837">
-          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget-image.view.client.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+        <state relative-caret-position="111">
+          <caret line="32" column="81" selection-start-line="32" selection-start-column="81" selection-end-line="32" selection-end-column="81" />
           <folding>
             <element signature="n#div#2;n#form#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#input#1;n#form#1;n#!!top" expanded="true" />
@@ -882,6 +841,54 @@
             <element signature="n#style#0;n#input#4;n#form#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#5;n#form#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assignment/services/widget.service.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="123" column="44" selection-start-line="123" selection-start-column="44" selection-end-line="123" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget-new.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/test/jquery.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget.controller.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assignment4/views/widget/widget-edit.view.client.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assignment4/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

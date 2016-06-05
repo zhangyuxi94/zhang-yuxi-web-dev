@@ -26,6 +26,9 @@
                 .then(function (response){
                     var widget=response.data;
                     vm.widgets=widget;
+                    $(".container").sortable({
+                        axis:'y'
+                    });
                 });
         }
         init();
