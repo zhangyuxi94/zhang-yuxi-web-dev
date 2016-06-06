@@ -19,6 +19,7 @@
                 controller:"LoginController",
                 controllerAs:"model"
             })
+
             .when("/register", {
                 templateUrl: "views/user/register.view.client.html",
                 controller:"RegisterController",
@@ -28,7 +29,7 @@
                 templateUrl: "views/user/profile.view.client.html",
                 controller:"ProfileController",
                 controllerAs:"model"
-    })
+            })
             .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html",
                 controller:"WebsiteListController",
@@ -72,6 +73,11 @@
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
                 templateUrl: "views/widget/widget-edit.view.client.html",
                 controller:"EditWidgetController",
+                controllerAs:"model"
+            })
+            .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/flickr", {
+                templateUrl: "views/widget/widget-flickr-search.view.client.html",
+                controller:"FlickrImageSearchController",
                 controllerAs:"model"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/new/:tpid", {

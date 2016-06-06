@@ -4,25 +4,7 @@
 (function(){
     angular.module("WebAppMaker")
         .factory("WidgetService",WidgetService);
-    function WidgetService(){
-        var widgets=[
-            { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
-            { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-                "url": "http://lorempixel.com/400/200/"},
-            { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p><a href='https://www.youtube.com/watch?time_continue=550&v=KPe-WY2eghY'>A rally in Fresno, California</a> today, newfound irrigation expert Donald Trump finally revealed the solution to the drought that’s been crippling California for the past five years: Turn the water back on, idiots.</p>"},
-            { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "California's Drought: Start Opening Up the Water"},
-            { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-                "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Fortunately for California, when Donald Trump becomes president, he plans to “start opening up the water so that you can have your farmers survive so that your job market will get better”—a position that is genuinely hard to argue with, though not for the usual reasons.</p>"},
-        ];
-
-        var widgetFilter=[
-            {"widgetType": "HEADER","typeId": "1"},
-            {"widgetType": "IMAGE","typeId": "2"},
-            {"widgetType": "HTML","typeId": "3"},
-            {"widgetType": "YOUTUBE","typeId": "4"}
-        ];
+    function WidgetService($http){
         var api={
             findWidgetsByPageId:findWidgetsByPageId,
             widgetChooser:widgetChooser,
@@ -35,90 +17,74 @@
         return api;
 
         function findWidgetsByPageId(pageId){
-            var resultSet=[];
-            for(var i in widgets){
-                if(widgets[i].pageId===pageId){
-                    resultSet.push(widgets[i]);
-                }
-            }
-            return resultSet;
+            var url="/api/page/"+pageId+"/widget";
+            return $http.get(url);
         }
 
-        function widgetChooser(){
-            return widgetFilter;
+        function widgetChooser(pageId){
+            var url="/api/page/"+pageId+"/widget/new";
+            return $http.get(url);
         }
 
         function findWidgetById(widgetId){
-            for(var i in widgets){
-                if(widgets[i]._id===widgetId){
-                    return widgets[i];
-                }
-            }
-            return null;
+            var url="/api/widget/"+widgetId;
+            return $http.get(url);
         }
 
-        function updateWidget(widgetId, widget){
-            for(var i in widgets){
-                if(widgets[i]._id===widgetId){
-                    widgets[i].text=widget.text;
-                    widgets[i].size=widget.size;
-                    widgets[i].url=widget.url;
-                    return true;
-                }
-            }
-            return false;
+        function updateWidget(widgetId,text,size,width,widgetIdUrl){
+            var url="/api/widget/"+widgetId;
+            var updatedWidget={
+                text:text,
+                size:size,
+                width:width,
+                url:widgetIdUrl
+            };
+            return $http.put(url,updatedWidget);
         }
 
         function deleteWidget(widgetId){
-            for(var i in widgets){
-                if(widgets[i]._id===widgetId){
-                    widgets.splice(i,1);
-                    return true;
-                }
-            }
-            return false;
+            var url="/api/widget/"+widgetId;
+            return $http.delete(url);
         }
 
-        function createWidget(pageId,widgetType,widgetTypeId,text,size,url,width){
+        function createWidget(pageId,widgetTypeId,text,size,url,width){
             var newWidget={};
-            var length=widgets.length-1;
-            var wgid=widgets[length]._id;
-            wgid=parseInt(wgid);
-            wgid+=1;
-            wgid=wgid.toString();
-            // for(var i in widgets){
-                // if(widgets[i].pageId===pageId){
-
-                    switch(widgetTypeId){
-                        case "1": newWidget= { "_id": wgid, "widgetType": widgetType, "pageId": pageId, "size": size, "text": text};
-                            widgets.push(newWidget);
-                            break;
-                        case "2":  newWidget= { "_id":wgid, "widgetType": widgetType, "pageId": pageId, "url": url,"width":width};
-                            widgets.push(newWidget);
-                            break;
-                        case "3": newWidget= { "_id": wgid, "widgetType": widgetType, "pageId": pageId, "text": text};
-                            widgets.push(newWidget);
-                            break;
-                        case "4":  newWidget= { "_id": wgid, "widgetType": widgetType, "pageId": pageId, "url": url,"width":width};
-                            widgets.push(newWidget);
-                            break;
-                        default:return null;
-                    // }
-
-                // }
+            switch (widgetTypeId){
+                case "1":
+                    newWidget={
+                        pageId: pageId,
+                        text:text,
+                        size:size
+                    };
+                    break;
+                case "2":
+                    newWidget={
+                        pageId: pageId,
+                        url: url,
+                        width:width
+                    };
+                    break;
+                case "3":
+                    newWidget={
+                        pageId: pageId,
+                        text:text
+                    };
+                    break;
+                case "4":
+                    newWidget={
+                        pageId: pageId,
+                        url: url,
+                        width:width
+                    };
+                    break;
+                default:return null;
             }
-            return widgets;
+            return $http.post("/api/page/"+pageId+"/widget/new/"+widgetTypeId,newWidget);
         }
 
-        function findWidgetByType(widgetTypeId){
-            for(var i in widgetFilter){
-                if(widgetFilter[i].typeId===widgetTypeId){
-                    return widgetFilter[i];
-                }
-            }
-            return null;
-
+        function findWidgetByType(pageId,widgetTypeId){
+            var url="/api/page/"+pageId+"/widget/new/"+widgetTypeId;
+            return $http.get(url);
         }
-        
     }
 })();

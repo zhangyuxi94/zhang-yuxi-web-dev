@@ -13,37 +13,61 @@
         var vm=this;
         vm.login=login;
         function login(username,password){
-            var user=UserService.findUserByCredentials(username,password);
-            if(user){
-                $location.url("/user/"+user._id);
-            }
-            else{
-                vm.alert="Unable to login";
-            }
+            UserService
+                .findUserByCredentials(username,password)
+                .then(function (response) {
+                    var user=response.data;
+                    if(user._id){
+                        $location.url("/user/"+user._id);
+                    }
+                    else{
+                        vm.alert="Unable to login";
+                    }
+            });
         }
     }
 
     function ProfileController($location,$routeParams,UserService){
         var vm=this;
-
         var userId=$routeParams.uid;
         function init(){
-            var user=UserService.findUserById(userId);
-            vm.user=user;
+            UserService
+                .findUserById(userId)
+                .then(function (response) {
+                    var user=response.data;
+                    vm.user=user;
+                });
+
+            vm.updateUser=updateUser;
+            function updateUser(newUser){
+                UserService
+                    .updateUser(userId,newUser)
+                    .then(
+                        function(response){
+                            vm.save="Success! Your profile was saved."
+                        },
+                        function (error) {
+                            vm.error="Unable to update"
+                    });
+            }
+            vm.deleteUser=deleteUser;
+            function deleteUser(){
+                UserService
+                    .deleteUser(userId)
+                    .then(
+                        function(response){
+                            $location.url("/login");
+                        },
+                        function(error){
+                            vm.error="Unable to remove user"
+                        }
+                    );
+            }
+
         }
         init();
 
-        vm.updateUser=updateUser;
-        function updateUser(user){
-            UserService.updateUser(userId,user);
-            vm.save="Success! Your profile was saved."
-        }
-        
-        vm.deleteUser=deleteUser;
-        function deleteUser(){
-            var deleteUser=UserService.deleteUser(userId);
-            $location.url("/login");
-        }
+
     }
 
 
@@ -51,12 +75,19 @@
         var vm=this;
         vm.register=register;
         function register(user,password,verifypassword){
-            var user=UserService.createUser(user,password);
-            if(password===verifypassword){
-                $location.url("/user/"+user._id);
-            }else{
-                vm.alert="Password does not match!";
-            }
+            UserService
+                .createUser(user,password,verifypassword)
+                .then(
+                    function(response){
+                    var user=response.data;
+                    if(user){
+                        $location.url("/user/"+user._id);
+                    }
+                },
+                    function(error){
+                        vm.alert="Password not match!"
+                    }
+                );
         }
     }
 })();

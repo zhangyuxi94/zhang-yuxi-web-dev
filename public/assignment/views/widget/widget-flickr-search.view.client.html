@@ -2,12 +2,12 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
             </p>
-            <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+            <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr">
                 Search Flickr
             </a>
         </div>
@@ -16,7 +16,7 @@
 
 <div class="container">
     <div class="input-group">
-        <input ng-model="searchText" type="text" class="form-control">
+        <input ng-model="searchText" type="text" class="form-control" placeholder="Search Images">
         <span class="input-group-btn">
             <a ng-click="model.searchPhotos(searchText)" class="btn btn-default" type="button">
                 <span class="glyphicon glyphicon-search"></span>
@@ -25,11 +25,12 @@
     </div>
     <div class="row">
         <div class="col-xs-4" ng-repeat="photo in model.photos.photo">
-        <img width="100%" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
-
+        <img width="100%" ng-click="model.selectPhoto(photo)" ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg" style="margin: 10px 0"/>
     </div>
-
+    </div>
 </div>
+
+    <input  name="url" value="{{model.url}}" style="display: none"/>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">

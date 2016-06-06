@@ -128,7 +128,7 @@ module.exports=function(app){
                 widgets[i].url="/uploads/"+filename;
             }
         }
-            res.redirect("/assignment4/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+            res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
     }
 
 };
