@@ -54,6 +54,7 @@
             vm.userId=userId;
             vm.websiteId=websiteId;
             vm.pageId=pageId;
+            vm.widgetTypeId=widgetTypeId;
 
             WidgetService
                 .widgetChooser(pageId)

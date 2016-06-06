@@ -25,6 +25,7 @@ module.exports=function(app){
 
     app.post("/api/page/:pageId/widget/new/:widgetTypeId",createWidget);
     app.post ("/api/uploads", upload.single('myFile'), uploadImage);
+    app.post ("/api/newUploads", upload.single('myFile'), uploadNewImage);
     app.get("/api/page/:pageId/widget",findAllWidgetsForPage);
     app.get("/api/page/:pageId/widget/new",widgetChooser);
     app.get("/api/widget/:widgetId",findWidgetById);
@@ -131,6 +132,28 @@ module.exports=function(app){
             }
         }
             res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+    }
+
+
+    function uploadNewImage(req, res) {
+
+        var widgetId      = req.body.widgetId;
+        var pageId      = req.body.pageId;
+        var websiteId      = req.body.websiteId;
+        var widgetTypeId=req.body.widgetTypeId;
+        var userId      = req.body.userId;
+        var width         = req.body.width;
+        var myFile        = req.file;
+
+        var originalname  = myFile.originalname;
+        var filename      = myFile.filename;
+        var path          = myFile.path;
+        var destination   = myFile.destination;
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+
+                widgets[0].url="/uploads/"+filename;
+        res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/new/"+widgetTypeId);
     }
 
 };
