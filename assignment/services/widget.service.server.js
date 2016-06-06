@@ -89,7 +89,7 @@ module.exports=function(app){
                 widgets[i].size=widget.size;
                 widgets[i].width=widget.width;
                 widgets[i].url=widget.url;
-                res.send(200);
+                res.send(widgets);
                 return;
             }
         }

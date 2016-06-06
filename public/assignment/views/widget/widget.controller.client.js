@@ -112,7 +112,7 @@
             vm.updateWidget=updateWidget;
             function updateWidget(text,size,width,widgetIdUrl){
                 WidgetService
-                    .updateWidget(widgetId,text,size,width,widgetIdUrl)
+                    .updateWidget(widgetId,widgetIdUrl,text,size,width)
                     .then(
                         function(response){
                             $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");

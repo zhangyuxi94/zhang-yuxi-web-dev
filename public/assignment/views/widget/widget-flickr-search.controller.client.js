@@ -30,14 +30,12 @@
         function selectPhoto(photo) {
             var widgetIdUrl = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
             widgetIdUrl += "/" + photo.id + "_" + photo.secret + "_b.jpg";
-            vm.url=widgetIdUrl;
+
             WidgetService
                 .updateWidget(widgetId, widgetIdUrl)
                 .then(
                     function(response){
-                        console.log(response.data);
-                        
-                        $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+                        $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
                     }
                 );
         }

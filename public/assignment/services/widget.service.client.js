@@ -31,7 +31,7 @@
             return $http.get(url);
         }
 
-        function updateWidget(widgetId,text,size,width,widgetIdUrl){
+        function updateWidget(widgetId,widgetIdUrl,text,size,width){
             var url="/api/widget/"+widgetId;
             var updatedWidget={
                 text:text,
