@@ -3,6 +3,7 @@
  */
 module.exports=function(app){
     var widgets=[
+        {"_id": "2", "widgetType": "IMAGE"},
         { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
         { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
         { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
@@ -11,7 +12,7 @@ module.exports=function(app){
         { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "California's Drought: Start Opening Up the Water"},
         { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
             "url": "https://youtu.be/AM2Ivdi9c4E" },
-        { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Fortunately for California, when Donald Trump becomes president, he plans to “start opening up the water so that you can have your farmers survive so that your job market will get better”—a position that is genuinely hard to argue with, though not for the usual reasons.</p>"},
+        { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Fortunately for California, when Donald Trump becomes president, he plans to “start opening up the water so that you can have your farmers survive so that your job market will get better”—a position that is genuinely hard to argue with, though not for the usual reasons.</p>"}
     ];
     var widgetFilter=[
         {"widgetType": "HEADER","typeId": "1"},
@@ -40,6 +41,7 @@ module.exports=function(app){
         var widgetTypeId=req.params.widgetTypeId;
         for(var i in widgetFilter){
             if(widgetFilter[i].typeId===widgetTypeId){
+                widgetFilter[i].url=widgets[0].url;
                 res.send(widgetFilter[i]);
                 return;
             }

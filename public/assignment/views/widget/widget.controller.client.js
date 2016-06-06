@@ -66,8 +66,11 @@
                 .findWidgetByType(pageId,widgetTypeId)
                 .then(function (response){
                     var widgetName=response.data;
+                    console.log(widgetName);
+                    vm.newWidget=widgetName;
                     vm.widgetName=widgetName;
                 });
+
 
             vm.createWidget=createWidget;
             function createWidget(text,size,url,width){

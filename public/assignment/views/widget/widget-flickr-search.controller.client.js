@@ -30,12 +30,19 @@
         function selectPhoto(photo) {
             var widgetIdUrl = "https://farm" + photo.farm + ".staticflickr.com/" + photo.server;
             widgetIdUrl += "/" + photo.id + "_" + photo.secret + "_b.jpg";
-
             WidgetService
                 .updateWidget(widgetId, widgetIdUrl)
                 .then(
                     function(response){
-                        $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+                        // console.log(response);
+
+                        if(widgetId!=="2"){
+                            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+                        }
+                        else if(widgetId==="2"){
+                            $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/new/"+widgetId);
+                        }
+
                     }
                 );
         }
