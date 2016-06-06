@@ -76,6 +76,7 @@ module.exports=function(app){
         var user=req.body;
         for(var i in users){
             if(users[i]._id===userId){
+                users[i].email=user.email;
                 users[i].firstName=user.firstName;
                 users[i].lastName=user.lastName;
                 res.send(200);
