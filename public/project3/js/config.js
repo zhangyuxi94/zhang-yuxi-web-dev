@@ -10,7 +10,9 @@
         $routeProvider
             .when(
                 "/login",{
-                    templateUrl:"views/user/login.view.client.html"
+                    templateUrl:"views/user/login.view.client.html",
+                    controller:"LoginController",
+                    controllerAs:"model"
         })
             .when(
                 "/register",{
@@ -18,7 +20,9 @@
                 })
             .when(
                 "/",{
-                    templateUrl:"views/user/login.view.client.html"
+                    templateUrl:"views/user/login.view.client.html",
+                    controller:"LoginController",
+                    controllerAs:"model"
             })
             .otherwise({
                 redirectTo:'/'
@@ -39,6 +43,18 @@
                     controller:"HotelListController",
                     controllerAs:"model"
             })
+            .when(
+                "/login",{
+                    templateUrl:"views/user/login.view.client.html",
+                    controller:"LoginController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/:uid",{
+                    templateUrl:"views/mainpage/landing.view.client.html",
+                    controller:"HotelListController",
+                    controllerAs:"model"
+                })
             .when(
                 "/photos",{
                     templateUrl:"views/mainpage/landing.view.client.html",

@@ -10,7 +10,7 @@ html {
 }
 
 .login{
-    padding: 40px 0;
+    padding: 80px 0;
     height: 100%;
     background: url("../image/state1.jpg") no-repeat center;
     background-size: cover;
@@ -18,6 +18,10 @@ html {
 
 a{
     color: white;
+}
+
+.navbar-fixed-bottom a{
+    color: black;
 }
 
 .loginpage{
@@ -70,7 +74,7 @@ a{
 
 @media(min-width:767px) {
     .login{
-        padding: 60px 0;
+        padding: 100px 0;
         height: 100%;
         background: url("../image/state.jpg") no-repeat center;
     }
