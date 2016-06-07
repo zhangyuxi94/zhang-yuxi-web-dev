@@ -5,100 +5,101 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efeb887d-3151-4a61-b7c2-ced5bfef095f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project/user/like.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project/user/profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project/user/signup.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/about/boston.html" afterPath="$PROJECT_DIR$/public/project2/about/boston.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/attraction.html" afterPath="$PROJECT_DIR$/public/project2/attraction/attraction.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/backbay.html" afterPath="$PROJECT_DIR$/public/project2/attraction/backbay.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/charles.html" afterPath="$PROJECT_DIR$/public/project2/attraction/charles.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/fenway.html" afterPath="$PROJECT_DIR$/public/project2/attraction/fenway.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/freedom.html" afterPath="$PROJECT_DIR$/public/project2/attraction/freedom.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/harvard.html" afterPath="$PROJECT_DIR$/public/project2/attraction/harvard.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/mit.html" afterPath="$PROJECT_DIR$/public/project2/attraction/mit.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/quincy.html" afterPath="$PROJECT_DIR$/public/project2/attraction/quincy.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/tdgarden.html" afterPath="$PROJECT_DIR$/public/project2/attraction/tdgarden.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/attraction/trinity.html" afterPath="$PROJECT_DIR$/public/project2/attraction/trinity.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/css/mainpage.css" afterPath="$PROJECT_DIR$/public/project2/css/mainpage.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/guide/guide.html" afterPath="$PROJECT_DIR$/public/project2/guide/guide.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/guide/guide1.html" afterPath="$PROJECT_DIR$/public/project2/guide/guide1.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/guide/guide2.html" afterPath="$PROJECT_DIR$/public/project2/guide/guide2.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/guide/guide3.html" afterPath="$PROJECT_DIR$/public/project2/guide/guide3.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/1boston.jpg" afterPath="$PROJECT_DIR$/public/project2/image/1boston.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/1harvard.jpg" afterPath="$PROJECT_DIR$/public/project2/image/1harvard.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/2celtics.jpg" afterPath="$PROJECT_DIR$/public/project2/image/2celtics.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/2freedom.png" afterPath="$PROJECT_DIR$/public/project2/image/2freedom.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/3Charles.JPG" afterPath="$PROJECT_DIR$/public/project2/image/3Charles.JPG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/3mit.jpg" afterPath="$PROJECT_DIR$/public/project2/image/3mit.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/4Quincy.jpg" afterPath="$PROJECT_DIR$/public/project2/image/4Quincy.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/4fenway.jpg" afterPath="$PROJECT_DIR$/public/project2/image/4fenway.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/5charlesriver.jpg" afterPath="$PROJECT_DIR$/public/project2/image/5charlesriver.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/6trinity.jpg" afterPath="$PROJECT_DIR$/public/project2/image/6trinity.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/Charles1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/Charles1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/Charles2.JPG" afterPath="$PROJECT_DIR$/public/project2/image/Charles2.JPG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/IMG_61451.jpg" afterPath="$PROJECT_DIR$/public/project2/image/IMG_61451.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/Magnify.png" afterPath="$PROJECT_DIR$/public/project2/image/Magnify.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/Quincy.jpeg" afterPath="$PROJECT_DIR$/public/project2/image/Quincy.jpeg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/Quincy1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/Quincy1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/Quincy3.jpg" afterPath="$PROJECT_DIR$/public/project2/image/Quincy3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/bostonNight.jpg" afterPath="$PROJECT_DIR$/public/project2/image/bostonNight.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/celtics.jpg" afterPath="$PROJECT_DIR$/public/project2/image/celtics.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/dessert1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/dessert1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/dessert2.jpg" afterPath="$PROJECT_DIR$/public/project2/image/dessert2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/dessert3.jpg" afterPath="$PROJECT_DIR$/public/project2/image/dessert3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/dessert4.jpg" afterPath="$PROJECT_DIR$/public/project2/image/dessert4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/eat1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/eat1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/eat2.jpg" afterPath="$PROJECT_DIR$/public/project2/image/eat2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/eat3.jpg" afterPath="$PROJECT_DIR$/public/project2/image/eat3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/eat4.jpg" afterPath="$PROJECT_DIR$/public/project2/image/eat4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/eat5.jpg" afterPath="$PROJECT_DIR$/public/project2/image/eat5.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/fast1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/fast1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/fast2.jpg" afterPath="$PROJECT_DIR$/public/project2/image/fast2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/fast3.jpg" afterPath="$PROJECT_DIR$/public/project2/image/fast3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/fast4.jpg" afterPath="$PROJECT_DIR$/public/project2/image/fast4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/fenway-park-boston-ma_1280x960_sc.jpg" afterPath="$PROJECT_DIR$/public/project2/image/fenway-park-boston-ma_1280x960_sc.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/fenway.jpg" afterPath="$PROJECT_DIR$/public/project2/image/fenway.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/guide1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/guide1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/guide3.jpg" afterPath="$PROJECT_DIR$/public/project2/image/guide3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/guideoutdoor.jpg" afterPath="$PROJECT_DIR$/public/project2/image/guideoutdoor.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/harvard.jpg" afterPath="$PROJECT_DIR$/public/project2/image/harvard.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel2-1.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel2-1.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel2-2.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel2-2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel2-3.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel2-3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel2-4.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel2-4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel2.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel2.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel3.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel3.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/hotel4.jpg" afterPath="$PROJECT_DIR$/public/project2/image/hotel4.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/kevin-r.jpg" afterPath="$PROJECT_DIR$/public/project2/image/kevin-r.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/love.png" afterPath="$PROJECT_DIR$/public/project2/image/love.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/love1.png" afterPath="$PROJECT_DIR$/public/project2/image/love1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/love2.png" afterPath="$PROJECT_DIR$/public/project2/image/love2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/marina-k.jpg" afterPath="$PROJECT_DIR$/public/project2/image/marina-k.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/outdoor.jpg" afterPath="$PROJECT_DIR$/public/project2/image/outdoor.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/state.jpg" afterPath="$PROJECT_DIR$/public/project2/image/state.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/image/vincent-m.jpg" afterPath="$PROJECT_DIR$/public/project2/image/vincent-m.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/index.html" afterPath="$PROJECT_DIR$/public/project2/index.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/js/bootstrap.js" afterPath="$PROJECT_DIR$/public/project2/js/bootstrap.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/js/jquery.easing.min.js" afterPath="$PROJECT_DIR$/public/project2/js/jquery.easing.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/js/jquery.js" afterPath="$PROJECT_DIR$/public/project2/js/jquery.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/js/mainpage.js" afterPath="$PROJECT_DIR$/public/project2/js/mainpage.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/live/live.html" afterPath="$PROJECT_DIR$/public/project2/live/live.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/user/login.html" afterPath="$PROJECT_DIR$/public/project2/user/login.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project/weather.js" afterPath="$PROJECT_DIR$/public/project2/weather.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project3/views/user/like.html" afterPath="$PROJECT_DIR$/public/project2/user/like.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project3/views/user/profile.html" afterPath="$PROJECT_DIR$/public/project2/user/profile.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/project3/views/user/signup.html" afterPath="$PROJECT_DIR$/public/project2/user/signup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/services/user.service.server.js" afterPath="$PROJECT_DIR$/project/services/user.service.server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/BostonTrip.html" afterPath="$PROJECT_DIR$/public/project3/BostonTrip.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/js/config.js" afterPath="$PROJECT_DIR$/public/project3/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/services/user.service.client.js" afterPath="$PROJECT_DIR$/public/project3/services/user.service.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/views/mainpage/landing.view.client.html" afterPath="$PROJECT_DIR$/public/project3/views/mainpage/landing.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/views/mainpage/mainpage.controller.client.js" afterPath="$PROJECT_DIR$/public/project3/views/mainpage/mainpage.controller.client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/views/user/login.view.client.html" afterPath="$PROJECT_DIR$/public/project3/views/user/login.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/views/user/register.view.client.html" afterPath="$PROJECT_DIR$/public/project3/views/user/register.view.client.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/project3/views/user/user.controller.client.js" afterPath="$PROJECT_DIR$/public/project3/views/user/user.controller.client.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/Boston.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/BostonTrip.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/css/mainpage.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/css/user.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/1boston.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/1harvard.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/2celtics.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/2freedom.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/3Charles.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/3mit.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/4Quincy.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/4fenway.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/5charlesriver.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/6trinity.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Charles1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Charles2.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Facebook.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Google.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/IMG_61451.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Magnify.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Quincy.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Quincy1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Quincy3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/Twitter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/bostonNight.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/celtics.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/dessert1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/dessert2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/dessert3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/dessert4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/eat1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/eat2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/eat3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/eat4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/eat5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/fast1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/fast2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/fast3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/fast4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/fenway-park-boston-ma_1280x960_sc.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/fenway.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/guide1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/guide3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/guideoutdoor.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/harvard.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel2-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel2-2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel2-3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel2-4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/hotel4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/kevin-r.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/love.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/love1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/love2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/marina-k.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/outdoor.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/state.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/state1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/image/vincent-m.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/js/config.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/js/jquery.easing.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/js/jquery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/js/mainpage.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/js/weather.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/services/mainpage.service.client.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/services/user.service.client.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/about/boston.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/attraction.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/backbay.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/charles.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/fenway.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/freedom.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/harvard.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/mit.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/quincy.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/tdgarden.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/attraction/trinity.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/guide/guide.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/guide/guide1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/guide/guide2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/guide/guide3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/live/live.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/mainpage/landing.view.client.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/mainpage/mainpage.controller.client.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/mainpage/userLanding.view.client.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/user/login.view.client.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/user/register.view.client.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/project3/views/user/user.controller.client.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
     </list>
     <ignored path="homepageyx.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,44 +121,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="register.view.client.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project3/views/user/register.view.client.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="92" selection-start-line="11" selection-start-column="92" selection-end-line="11" selection-end-column="92" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.controller.client.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/project3/views/user/user.controller.client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.service.client.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/project3/services/user.service.client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.service.server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/project/services/user.service.server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
               <folding>
                 <element signature="e#525#820#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="98" column="43" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -220,7 +201,6 @@
         <option value="$PROJECT_DIR$/public/assignment/views/widget/widget-newImage.view.client.html" />
         <option value="$PROJECT_DIR$/assignment/services/widget.service.server.js" />
         <option value="$PROJECT_DIR$/assignment/services/user.service.server.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/project/app.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/project3/index.html" />
@@ -235,6 +215,7 @@
         <option value="$PROJECT_DIR$/public/project3/services/user.service.client.js" />
         <option value="$PROJECT_DIR$/project/services/user.service.server.js" />
         <option value="$PROJECT_DIR$/public/project3/views/user/user.controller.client.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -245,8 +226,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="173" />
-    <option name="y" value="21" />
+    <option name="x" value="236" />
+    <option name="y" value="37" />
     <option name="width" value="1145" />
     <option name="height" value="743" />
   </component>
@@ -308,72 +289,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webdev" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -596,12 +511,12 @@
       <workItem from="1464787519892" duration="32544000" />
       <workItem from="1464875887921" duration="33497000" />
       <workItem from="1464975231489" duration="13701000" />
-      <workItem from="1465136943536" duration="45506000" />
+      <workItem from="1465136943536" duration="45762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="378998000" />
+    <option name="totallyTimeSpent" value="379254000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -613,7 +528,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="173" y="21" width="1145" height="743" extended-state="0" />
+    <frame x="236" y="37" width="1145" height="743" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29087624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -825,14 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="66" column="80" selection-start-line="66" selection-start-column="80" selection-end-line="66" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assignment/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -941,9 +848,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -951,12 +856,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="277" column="22" selection-start-line="277" selection-start-column="22" selection-end-line="277" selection-end-column="22" />
-          <folding>
-            <element signature="n#div#0;n#section#4;n#!!top" expanded="false" />
-            <element signature="n#uib-tab#0;n#uib-tabset#0;n#div#1;n#section#4;n#!!top" expanded="false" />
-            <element signature="n#uib-tab#1;n#uib-tabset#0;n#div#1;n#section#4;n#!!top" expanded="false" />
-            <element signature="n#uib-tab#2;n#uib-tabset#0;n#div#1;n#section#4;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -988,16 +888,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="483" column="84" selection-start-line="483" selection-start-column="84" selection-end-line="483" selection-end-column="84" />
-          <folding>
-            <element signature="n#section#0;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#!!top" expanded="false" />
-            <element signature="n#section#2;n#!!top" expanded="false" />
-            <element signature="n#section#3;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#section#4;n#!!top" expanded="false" />
-            <element signature="n#uib-tab#0;n#uib-tabset#0;n#div#1;n#section#4;n#!!top" expanded="false" />
-            <element signature="n#uib-tab#1;n#uib-tabset#0;n#div#1;n#section#4;n#!!top" expanded="false" />
-            <element signature="n#uib-tab#2;n#uib-tabset#0;n#div#1;n#section#4;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,16 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/services/user.service.server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="e#525#820#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/project3/services/user.service.client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1095,8 +976,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/project3/views/user/user.controller.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+        <state relative-caret-position="190">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/services/user.service.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="e#525#820#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="98" column="43" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
           <folding />
         </state>
       </provider>
