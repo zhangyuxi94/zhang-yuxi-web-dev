@@ -149,23 +149,28 @@ html {
 }
 
 
-.section2 .introtitle .pull-left{
+.introtitle .pull-left{
     font-size: 24px;
     color: #de5556;
 }
 
-.section2 .introtitle h3{
+.introtitle h3{
     text-transform: uppercase;
     position: relative;
     padding-left: 30px;
     font-size: 24px;
 }
 
-.section2 .introtitle div{
+.introtitle div{
     width: 100px;
     height: 4px;
     background-color: #de5556;
     margin-bottom: 20px;
+}
+
+.introtitle a{
+    text-decoration: none;
+    color: black;
 }
 
 .attraction{

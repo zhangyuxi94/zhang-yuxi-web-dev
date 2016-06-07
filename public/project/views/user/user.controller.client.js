@@ -35,7 +35,7 @@
                     function(response){
                         var user=response.data;
                         if(user){
-                            $location.url("/"+user._id);
+                            $location.url("/profile/"+user._id);
                         }
                     },
                     function(error){

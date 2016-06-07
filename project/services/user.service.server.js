@@ -4,8 +4,9 @@
 
 module.exports=function(app){
     var users=[
-        {_id: "1", email: "zhang.yuxi1@husky.neu.edu", password: "zhangyuxi"},
-        {_id: "2", email: "676883173@qq.com",    password: "676883173"}
+        {_id: "1", email: "zhang.yuxi1@husky.neu.edu", password: "zhangyuxi",username:"yuxi"},
+        {_id: "2", email: "676883173@qq.com",    password: "676883173",username:"zhang"},
+        {_id: "3", email: "bob@b.com",    password: "bob",username:"bob"}
     ];
     app.get("/BostonTrip/api/user",getUsers);
     app.post("/BostonTrip/api/user",createUser);
@@ -42,7 +43,7 @@ module.exports=function(app){
             if(user.password===user.verifyPassword){
                 user._id=(new Date()).getTime()+"";
                 users.push(user);
-                res.send(users);
+                res.send(user);
             }
             else{
                 res.send(400);

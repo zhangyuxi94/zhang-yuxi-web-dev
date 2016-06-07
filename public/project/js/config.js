@@ -56,6 +56,12 @@
                     controllerAs:"model"
                 })
             .when(
+                "/profile/:uid",{
+                    templateUrl:"views/user/profile.view.client.html",
+                    controller:"RegisterController",
+                    controllerAs:"model"
+                })
+            .when(
                 "/:uid",{
                     templateUrl:"views/mainpage/userLanding.view.client.html",
                     controller:"userMainpageController",
