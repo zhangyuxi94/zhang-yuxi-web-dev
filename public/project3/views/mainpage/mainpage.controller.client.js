@@ -3,10 +3,10 @@
  */
 (function(){
     angular.module("MainpageApp")
-        .controller("HotelListController",HotelListController)
+        .controller("userMainpageController",userMainpageController)
         .controller('TabsDemoCtrl',TabsDemoCtrl);
 
-    function HotelListController(HotelListService){
+    function userMainpageController(HotelListService){
         var vm=this;
         function init(){
             var popularHotels=HotelListService.findPopularHotels();
@@ -16,7 +16,6 @@
         }
         init();
     }
-
 
     function TabsDemoCtrl($scope, $window) {
         $scope.tabs = [
@@ -34,5 +33,4 @@
             name: 'Tabs'
         };
     }
-
 })();

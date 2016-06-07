@@ -4,53 +4,25 @@
 
 module.exports=function(app){
     var users=[
-        {_id: "1", username: "zhang.yuxi1@husky.neu.edu",    password: "zhangyuxi"},
-        {_id: "2", username: "676883173@qq.com",    password: "676883173"}
+        {_id: "1", email: "zhang.yuxi1@husky.neu.edu", password: "zhangyuxi"},
+        {_id: "2", email: "676883173@qq.com",    password: "676883173"}
     ];
     app.get("/BostonTrip/api/user",getUsers);
+    app.post("/BostonTrip/api/user",createUser);
     // app.get("/api/user/:userId",findUserById);
-    // app.post("/api/user",createUser);
+
     // app.put("/api/user/:userId",updateUser);
     // app.delete("/api/user/:userId",deleteUser);
     function getUsers(req,res){
-        var username=req.query['username'];
+        var email=req.query['email'];
         var password=req.query['password'];
         for(var i in users){
-            if(users[i].username===username&&users[i].password===password){
+            if(users[i].email===email&&users[i].password===password){
                 res.send(users[i]);
                 return;
             }
         }
         res.send(400);
-        // if(username&&password){
-        //     findUserByCredentials(username,password,res);
-        // }
-        // else if(username){
-        //     findUserByUsername(username,res);
-        // }
-        // else{
-        //     res.send(users);
-        // }
-    }
-
-    function findUserByCredentials(username, password,res) {
-        for(var i in users){
-            if(users[i].username===username&&users[i].password===password){
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
-    }
-
-    function findUserByUsername(username,res) {
-        for(var i in users){
-            if(users[i].username===username){
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
     }
 
     // function findUserById(req,res){
@@ -64,18 +36,23 @@ module.exports=function(app){
     //     res.send({});
     // }
 
-    // function createUser(req,res){
-    //     var user = req.body;
-    //     if(user.password===user.verifyPassword){
-    //         user._id=(new Date()).getTime()+"";
-    //         users.push(user);
-    //         res.send(user);
-    //     }
-    //     else{
-    //         res.send(400);
-    //     }
-    // }
-    //
+    function createUser(req,res){
+        var user = req.body;
+        if(user.email&&user.username&&user.password){
+            if(user.password===user.verifyPassword){
+                user._id=(new Date()).getTime()+"";
+                users.push(user);
+                res.send(users);
+            }
+            else{
+                res.send(400);
+            }
+        }
+      else{
+            res.send(400);
+        }
+    }
+
     // function updateUser(req,res){
     //     var userId=req.params.userId;
     //     var user=req.body;

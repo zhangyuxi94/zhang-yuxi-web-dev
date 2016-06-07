@@ -5,16 +5,16 @@
 (function(){
     angular
         .module("MainpageApp")
-        .controller("LoginController",LoginController);
-        // .controller("RegisterController",RegisterController)
+        .controller("LoginController",LoginController)
+        .controller("RegisterController",RegisterController);
         // .controller("ProfileController",ProfileController);
 
     function LoginController($location,UserService){
         var vm=this;
         vm.login=login;
-        function login(username,password){
+        function login(email,password){
             UserService
-                .findUserByCredentials(username,password)
+                .findUserByCredentials(email,password)
                 .then(function (response) {
                     var user=response.data;
                         $location.url("/"+user._id);
@@ -22,7 +22,25 @@
                     function(error){
                         vm.error="Email and password not match."
                     }
-
+                );
+        }
+    }
+    function RegisterController($location,UserService){
+        var vm=this;
+        vm.register=register;
+        function register(email,username,password,verifyPassword){
+            UserService
+                .createUser(email,username,password,verifyPassword)
+                .then(
+                    function(response){
+                        var user=response.data;
+                        if(user){
+                            $location.url("/"+user._id);
+                        }
+                    },
+                    function(error){
+                        vm.error="Please check your enter!"
+                    }
                 );
         }
     }

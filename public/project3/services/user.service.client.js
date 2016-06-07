@@ -10,16 +10,29 @@
 
     function UserService($http){
         var api = {
-            findUserByCredentials:findUserByCredentials
+            findUserByCredentials:findUserByCredentials,
+            createUser:createUser
             // findUserById:findUserById,
             // updateUser:updateUser,
-            // createUser:createUser,
             // deleteUser:deleteUser
         };
         return api;
-        function findUserByCredentials(username,password){
-            var url="/BostonTrip/api/user?username="+username+"&password="+password;
+        function findUserByCredentials(email,password){
+            var url="/BostonTrip/api/user?email="+email+"&password="+password;
             return $http.get(url);
+        }
+
+        function createUser(email,username,password,verifyPassword){
+            // var user={"a":email,"b":username,"c":password,"d":verifyPassword};
+            // return user;
+
+            var user={
+                email:email,
+                username:username,
+                password:password,
+                verifyPassword:verifyPassword
+            };
+            return $http.post("/BostonTrip/api/user",user);
         }
 
         // function findUserByCredentials(email,password){

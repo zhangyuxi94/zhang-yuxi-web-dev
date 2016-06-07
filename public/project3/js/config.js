@@ -39,8 +39,8 @@
         $routeProvider
             .when(
             "/landingPage",{
-                templateUrl:"views/mainpage/landing.view.client.html",
-                    controller:"HotelListController",
+                    templateUrl:"views/mainpage/landing.view.client.html",
+                    controller:"userMainpageController",
                     controllerAs:"model"
             })
             .when(
@@ -50,9 +50,15 @@
                     controllerAs:"model"
                 })
             .when(
+                "/register",{
+                    templateUrl:"views/user/register.view.client.html",
+                    controller:"RegisterController",
+                    controllerAs:"model"
+                })
+            .when(
                 "/:uid",{
-                    templateUrl:"views/mainpage/landing.view.client.html",
-                    controller:"HotelListController",
+                    templateUrl:"views/mainpage/userLanding.view.client.html",
+                    controller:"userMainpageController",
                     controllerAs:"model"
                 })
             .when(
@@ -62,9 +68,15 @@
                     controllerAs:"model"
                 })
             .when(
+                ":uid/photos",{
+                    templateUrl:"views/mainpage/userLanding.view.client.html",
+                    controller:"HotelListController",
+                    controllerAs:"model"
+                })
+            .when(
                 "/",{
                     templateUrl:"views/mainpage/landing.view.client.html",
-                    controller:"HotelListController",
+                    controller:"userMainpageController",
                     controllerAs:"model"
                 })
             .otherwise({
