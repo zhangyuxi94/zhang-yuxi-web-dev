@@ -22,10 +22,17 @@ module.exports=function(app,models){
     function createWebsite(req,res){
         var userId=req.params.userId;
         var newWebsite=req.body;
-        newWebsite._id=(new Date()).getTime()+"";
-        newWebsite.developerId=userId;
-        websites.push(newWebsite);
-        res.send(newWebsite);
+        websiteModel
+            .createWebsite(userId,newWebsite)
+            .then(
+                function (website) {
+                    res.json(website);
+                }
+            );
+        // newWebsite._id=(new Date()).getTime()+"";
+        // newWebsite.developerId=userId;
+        // websites.push(newWebsite);
+        // res.send(newWebsite);
     }
 
     function findAllWebsitesForUser(req,res){
@@ -47,13 +54,20 @@ module.exports=function(app,models){
     }
     function findWebsiteById(req,res){
         var websiteId=req.params.websiteId;
-        for(var w in websites){
-            if(websites[w]._id===websiteId){
-                res.send(websites[w]);
-                return;
-            }
-        }
-        res.send({});
+        websiteModel
+            .findWebsiteById(websiteId)
+            .then(
+                function(website){
+                    res.json(website);
+                }
+            );
+        // for(var w in websites){
+        //     if(websites[w]._id===websiteId){
+        //         res.send(websites[w]);
+        //         return;
+        //     }
+        // }
+        // res.send({});
     }
     function updateWebsite(req,res){
         var websiteId=req.params.websiteId;
