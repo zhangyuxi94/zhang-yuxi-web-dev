@@ -1,7 +1,9 @@
 /**
  * Created by zhangyuxi on 2016/6/1.
  */
-module.exports=function(app){
+module.exports=function(app,models){
+    var websiteModel=models.websiteModel;
+
     var websites=[
             { "_id": "123", "name": "Facebook",    "developerId": "456" ,"description":"This is Facebook"},
             { "_id": "234", "name": "Tweeter",     "developerId": "456" ,"description":"This is Tweeter"},
@@ -28,13 +30,20 @@ module.exports=function(app){
 
     function findAllWebsitesForUser(req,res){
         var userId=req.params.userId;
-        var result=[];
-        for(var w in websites){
-            if(websites[w].developerId===userId){
-                result.push(websites[w])
-            }
-        }
-        res.json(result);
+        websiteModel
+            .findAllWebsitesForUser(userId)
+            .then(
+                function (websites){
+                    res.json(websites);
+                }
+            )
+        // var result=[];
+        // for(var w in websites){
+        //     if(websites[w].developerId===userId){
+        //         result.push(websites[w])
+        //     }
+        // }
+        // res.json(result);
     }
     function findWebsiteById(req,res){
         var websiteId=req.params.websiteId;

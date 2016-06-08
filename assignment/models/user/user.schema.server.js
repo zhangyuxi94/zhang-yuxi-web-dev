@@ -11,7 +11,7 @@ module.exports=function(){
         firstName:String,
         lastName:String,
         dob:Date,
-        datecCreated:{type:Date,default:Date.now}
+        dateCreated:{type:Date,default:Date.now}
     },
         {collection:"assignment.user"}
     );
