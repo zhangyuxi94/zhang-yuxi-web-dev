@@ -2,7 +2,9 @@
  * Created by zhangyuxi on 2016/6/1.
  */
 
-module.exports=function(app){
+module.exports=function(app,models){
+    var userModel=models.userModel;
+
     var users=[
         {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
         {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
@@ -29,13 +31,16 @@ module.exports=function(app){
     }
 
     function findUserByCredentials(username, password,res) {
-        for(var i in users){
-            if(users[i].username===username&&users[i].password===password){
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        userModel
+            .findUserByCredentials(username,password)
+            .then(
+                function (user){
+                    res.json(user);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
     }
 
     function findUserByUsername(username,res) {
@@ -50,51 +55,70 @@ module.exports=function(app){
 
     function findUserById(req,res){
         var id=req.params.userId;
-        for(var i in users){
-            if(users[i]._id===id){
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        userModel
+            .findUserById(id)
+            .then(function(user){
+                res.send(user);
+            },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
     }
 
     function createUser(req,res){
         var user = req.body;
-        if(user.password===user.verifyPassword){
-            user._id=(new Date()).getTime()+"";
-            users.push(user);
-            res.send(user);
-        }
-        else{
-            res.send(400);
-        }
+        userModel
+            .createUser(user)
+            .then(
+                function(user){
+                    console.log(user);
+                    res.json(user);
+                },
+                function(error){
+                    res.send(400);
+                }
+            );
     }
 
     function updateUser(req,res){
         var userId=req.params.userId;
         var user=req.body;
-        for(var i in users){
-            if(users[i]._id===userId){
-                users[i].email=user.email;
-                users[i].firstName=user.firstName;
-                users[i].lastName=user.lastName;
-                res.send(200);
-                return;
-            }
-        }
-        res.send(400);
+        userModel
+            .updateUser(userId,user)
+            .then(
+                function(stats){
+                    console.log(stats);
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+        // for(var i in users){
+        //     if(users[i]._id===userId){
+        //         users[i].email=user.email;
+        //         users[i].firstName=user.firstName;
+        //         users[i].lastName=user.lastName;
+        //         res.send(200);
+        //         return;
+        //     }
+        // }
+        // res.send(400);
     }
 
     function deleteUser(req,res){
         var id=req.params.userId;
-        for(var i in users){
-            if(users[i]._id===id){
-                users.splice(i,1);
-                res.send(200);
-                return;
-            }
-        }
-       res.send(400);
+        userModel
+            .deleteUser(id)
+            .then(
+                function(stats){
+                    console.log(stats);
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
     }
 };

@@ -12,9 +12,13 @@
         var vm=this;
         function init(){
             var userId=$routeParams.uid;
-            var website=WebsiteService.findWebsitesByUser(userId);
-            vm.websites=website;
-            vm.userId=userId;
+            WebsiteService
+                .findWebsitesByUser(userId)
+                .then(function (response){
+                    var website=response.data;
+                        vm.websites=website;
+                        vm.userId=userId;
+                });
         }
         init();
     }
@@ -25,8 +29,14 @@
             vm.createWebsite=createWebsite;
             var userId=$routeParams.uid;
             function createWebsite(website,description){
-                var newWebsite=WebsiteService.createWebsite(userId,website,description);
-                $location.url("/user/"+userId+"/website");
+                WebsiteService
+                    .createWebsite(userId,website,description)
+                    .then(function(response){
+                        var newWebsite=response.data;
+                        if(newWebsite){
+                            $location.url("/user/"+userId+"/website");
+                        }
+                    });
             }
             vm.userId=userId;
         }
@@ -38,28 +48,36 @@
         function init(){
             var websiteId=$routeParams.wid;
             var userId=$routeParams.uid;
-            var website=WebsiteService.findWebsiteById(websiteId);
-            vm.website=website;
             vm.websiteId=websiteId;
             vm.userId=userId;
 
+            WebsiteService
+                .findWebsiteById(websiteId)
+                .then(function (response){
+                    var website=response.data;
+                    vm.website=website;
+                });
+
             vm.updateWebsite=updateWebsite;
             function updateWebsite(name,description){
-                var updateWebsite=WebsiteService.updateWebsite(websiteId,website);
-                $location.url("/user/"+userId+"/website");
+                WebsiteService
+                    .updateWebsite(websiteId,name,description)
+                    .then(function(response){
+                        $location.url("/user/"+userId+"/website");
+                    });
             }
 
             vm.deleteWebsite=deleteWebsite;
             function deleteWebsite(){
-                var deleteWebsite=WebsiteService.deleteWebsite(websiteId);
-                $location.url("/user/"+userId+"/website");
+                WebsiteService
+                    .deleteWebsite(websiteId)
+                    .then(
+                        function(response){
+                            $location.url("/user/"+userId+"/website");
+                        }
+                    );
             }
-
-         
         }
         init();
-
-
-
     }
 })();
