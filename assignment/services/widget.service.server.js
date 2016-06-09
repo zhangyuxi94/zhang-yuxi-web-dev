@@ -1,18 +1,20 @@
 /**
  * Created by zhangyuxi on 2016/6/2.
  */
-module.exports=function(app){
+module.exports=function(app,models){
+    var widgetModel=models.widgetModel;
+
     var widgets=[
-        {"_id": "2", "widgetType": "IMAGE"},
-        { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
-        { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-        { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-            "url": "http://lorempixel.com/400/200/"},
-        { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p><a href='https://www.youtube.com/watch?time_continue=550&v=KPe-WY2eghY'>A rally in Fresno, California</a> today, newfound irrigation expert Donald Trump finally revealed the solution to the drought that’s been crippling California for the past five years: Turn the water back on, idiots.</p>"},
-        { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "California's Drought: Start Opening Up the Water"},
-        { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-            "url": "https://youtu.be/AM2Ivdi9c4E" },
-        { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Fortunately for California, when Donald Trump becomes president, he plans to “start opening up the water so that you can have your farmers survive so that your job market will get better”—a position that is genuinely hard to argue with, though not for the usual reasons.</p>"}
+        {"_id": "2", "widgetType": "IMAGE"}
+        // { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
+        // { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+        // { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
+        //     "url": "http://lorempixel.com/400/200/"},
+        // { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p><a href='https://www.youtube.com/watch?time_continue=550&v=KPe-WY2eghY'>A rally in Fresno, California</a> today, newfound irrigation expert Donald Trump finally revealed the solution to the drought that’s been crippling California for the past five years: Turn the water back on, idiots.</p>"},
+        // { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "California's Drought: Start Opening Up the Water"},
+        // { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
+        //     "url": "https://youtu.be/AM2Ivdi9c4E" },
+        // { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Fortunately for California, when Donald Trump becomes president, he plans to “start opening up the water so that you can have your farmers survive so that your job market will get better”—a position that is genuinely hard to argue with, though not for the usual reasons.</p>"}
     ];
     var widgetFilter=[
         {"widgetType": "HEADER","typeId": "1"},
@@ -56,22 +58,29 @@ module.exports=function(app){
         var i=parseInt(widgetTypeId);
         var newWidget=req.body;
         var widgetType=widgetFilter[i-1].widgetType;
-        newWidget._id=(new Date()).getTime()+"";
-        newWidget.pageId=pageId;
-        newWidget.widgetType=widgetType;
-        widgets.push(newWidget);
-        res.send(widgets);
+        widgetModel
+            .createWidget(pageId,newWidget,widgetType)
+            .then(
+                function(widget){
+                    res.json(widget);
+                }
+            );
+        // newWidget._id=(new Date()).getTime()+"";
+        // newWidget.pageId=pageId;
+        // newWidget.widgetType=widgetType;
+        // widgets.push(newWidget);
+        // res.send(widgets);
     }
 
     function findAllWidgetsForPage(req,res){
         var pageId=req.params.pageId;
-        var result=[];
-        for(var i in widgets){
-            if(widgets[i].pageId===pageId){
-                result.push(widgets[i])
-            }
-        }
-        res.json(result);
+        widgetModel
+            .findAllWidgetsForPage(pageId)
+            .then(
+                function(widgets){
+                    res.json(widgets);
+                }
+            );
     }
     function findWidgetById(req,res){
         var widgetId=req.params.widgetId;
