@@ -22,21 +22,21 @@ module.exports=function(){
         page._website=websiteId;
         return Page.create(page);
     }
-    function findPageById(websiteId){
-        // return Website.findById(websiteId);
+    function findPageById(pageId){
+        return Page.findById(pageId);
     }
 
-    function updatePage(websiteId,website){
-        // delete website._id;
-        // return Website
-        //     .update({_id:websiteId},{
-        //         $set:{
-        //             name:website.name,
-        //             description:website.description
-        //         }
-        //     });
+    function updatePage(pageId,page){
+        delete page._id;
+        return Page
+            .update({_id:pageId},{
+                $set:{
+                    name:page.name,
+                    title:page.title
+                }
+            });
     }
-    function deletePage(websiteId){
-        // return Website.remove({_id:websiteId});
+    function deletePage(pageId){
+        return Page.remove({_id:pageId});
     }
 };
