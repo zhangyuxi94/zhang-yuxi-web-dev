@@ -29,10 +29,6 @@ module.exports=function(app,models){
                     res.json(website);
                 }
             );
-        // newWebsite._id=(new Date()).getTime()+"";
-        // newWebsite.developerId=userId;
-        // websites.push(newWebsite);
-        // res.send(newWebsite);
     }
 
     function findAllWebsitesForUser(req,res){
@@ -44,13 +40,6 @@ module.exports=function(app,models){
                     res.json(websites);
                 }
             )
-        // var result=[];
-        // for(var w in websites){
-        //     if(websites[w].developerId===userId){
-        //         result.push(websites[w])
-        //     }
-        // }
-        // res.json(result);
     }
     function findWebsiteById(req,res){
         var websiteId=req.params.websiteId;
@@ -61,26 +50,31 @@ module.exports=function(app,models){
                     res.json(website);
                 }
             );
-        // for(var w in websites){
-        //     if(websites[w]._id===websiteId){
-        //         res.send(websites[w]);
-        //         return;
-        //     }
-        // }
-        // res.send({});
     }
     function updateWebsite(req,res){
         var websiteId=req.params.websiteId;
         var website=req.body;
-        for(var w in websites){
-            if(websites[w]._id===websiteId){
-                websites[w].name=website.name;
-                websites[w].description=website.description;
-                res.send(200);
-                return;
-            }
-        }
-        res.send(400);
+        websiteModel
+            .updateWebsite(websiteId,website)
+            .then(
+                function(stats){
+                    console.log(stats);
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+
+        // for(var w in websites){
+        //     if(websites[w]._id===websiteId){
+        //         websites[w].name=website.name;
+        //         websites[w].description=website.description;
+        //         res.send(200);
+        //         return;
+        //     }
+        // }
+        // res.send(400);
     }
     function deleteWebsite(req,res){
         var websiteId=req.params.websiteId;

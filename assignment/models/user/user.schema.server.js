@@ -10,7 +10,7 @@ module.exports=function(){
         password:String,
         firstName:String,
         lastName:String,
-        dob:Date,
+        email:String,
         dateCreated:{type:Date,default:Date.now}
     },
         {collection:"assignment.user"}

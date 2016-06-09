@@ -15,7 +15,6 @@ module.exports=function(){
       findUserByCredentials:findUserByCredentials,
       deleteUser:deleteUser,
       updateUser:updateUser
-
   };
 return api;
 
@@ -30,7 +29,6 @@ return api;
     }
 
     function createUser(user){
-        console.log("user.model.server.createUser()");
         return User.create(user);
     }
 
@@ -43,6 +41,7 @@ return api;
         return User
             .update({_id:userId},{
                 $set:{
+                    email:user.email,
                     firstName:user.firstName,
                     lastName:user.lastName
                 }

@@ -10,7 +10,8 @@ module.exports=function(){
     var api={
         findAllWebsitesForUser:findAllWebsitesForUser,
         createWebsite:createWebsite,
-        findWebsiteById:findWebsiteById
+        findWebsiteById:findWebsiteById,
+        updateWebsite:updateWebsite
 
     };
     return api;
@@ -24,5 +25,16 @@ module.exports=function(){
     }
     function findWebsiteById(websiteId){
         return Website.findById(websiteId);
+    }
+
+    function updateWebsite(websiteId,website){
+        delete website._id;
+        return Website
+            .update({_id:websiteId},{
+                $set:{
+                    name:website.name,
+                    description:website.description
+                }
+            });
     }
 };
