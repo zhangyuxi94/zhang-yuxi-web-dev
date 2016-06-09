@@ -11,7 +11,8 @@ module.exports=function(){
         findAllWebsitesForUser:findAllWebsitesForUser,
         createWebsite:createWebsite,
         findWebsiteById:findWebsiteById,
-        updateWebsite:updateWebsite
+        updateWebsite:updateWebsite,
+        deleteWebsite:deleteWebsite
 
     };
     return api;
@@ -36,5 +37,8 @@ module.exports=function(){
                     description:website.description
                 }
             });
+    }
+    function deleteWebsite(websiteId){
+        return Website.remove({_id:websiteId});
     }
 };

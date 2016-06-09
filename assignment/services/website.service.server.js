@@ -58,34 +58,25 @@ module.exports=function(app,models){
             .updateWebsite(websiteId,website)
             .then(
                 function(stats){
-                    console.log(stats);
                     res.send(200);
                 },
                 function(error){
                     res.statusCode(404).send(error);
                 }
             );
-
-        // for(var w in websites){
-        //     if(websites[w]._id===websiteId){
-        //         websites[w].name=website.name;
-        //         websites[w].description=website.description;
-        //         res.send(200);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
     }
     function deleteWebsite(req,res){
         var websiteId=req.params.websiteId;
-        for(var w in websites){
-            if(websites[w]._id===websiteId){
-                websites.splice(w,1);
-                res.send(200);
-                return;
-            }
-        }
-        res.send(400);
+        websiteModel
+            .deleteWebsite(websiteId)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
     }
 };
 

@@ -88,23 +88,12 @@ module.exports=function(app,models){
             .updateUser(userId,user)
             .then(
                 function(stats){
-                    console.log(stats);
                     res.send(200);
                 },
                 function(error){
                     res.statusCode(404).send(error);
                 }
             );
-        // for(var i in users){
-        //     if(users[i]._id===userId){
-        //         users[i].email=user.email;
-        //         users[i].firstName=user.firstName;
-        //         users[i].lastName=user.lastName;
-        //         res.send(200);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
     }
 
     function deleteUser(req,res){
@@ -113,7 +102,6 @@ module.exports=function(app,models){
             .deleteUser(id)
             .then(
                 function(stats){
-                    console.log(stats);
                     res.send(200);
                 },
                 function(error){
