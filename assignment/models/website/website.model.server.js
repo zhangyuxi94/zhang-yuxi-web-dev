@@ -13,7 +13,6 @@ module.exports=function(){
         findWebsiteById:findWebsiteById,
         updateWebsite:updateWebsite,
         deleteWebsite:deleteWebsite
-
     };
     return api;
 

@@ -1,7 +1,8 @@
 /**
  * Created by zhangyuxi on 2016/6/2.
  */
-module.exports=function(app){
+module.exports=function(app,models){
+    var pageModel=models.pageModel;
     var pages=[
         { "_id": "321", "name": "Post 1", "websiteId": "456" ,"title": "This is Post 1" },
         { "_id": "432", "name": "Post 2", "websiteId": "456","title": "This is Post 2" },
@@ -17,21 +18,35 @@ module.exports=function(app){
     function createPage(req,res){
         var websiteId=req.params.websiteId;
         var newPage=req.body;
-        newPage._id=(new Date()).getTime()+"";
-        newPage.websiteId=websiteId;
-        pages.push(newPage);
-        res.send(newPage);
+        pageModel
+            .createPage(websiteId,newPage)
+            .then(
+                function(page){
+                    res.json(page);
+                }
+            );
+        // newPage._id=(new Date()).getTime()+"";
+        // newPage.websiteId=websiteId;
+        // pages.push(newPage);
+        // res.send(newPage);
     }
 
     function findAllPagesForWebsite(req,res){
         var websiteId=req.params.websiteId;
-        var result=[];
-        for(var p in pages){
-            if(pages[p].websiteId===websiteId){
-                result.push(pages[p])
-            }
-        }
-        res.json(result);
+        pageModel
+            .findAllPagesForWebsite(websiteId)
+            .then(
+                function(pages){
+                    res.json(pages);
+                }
+            );
+        // var result=[];
+        // for(var p in pages){
+        //     if(pages[p].websiteId===websiteId){
+        //         result.push(pages[p])
+        //     }
+        // }
+        // res.json(result);
     }
     function findPageById(req,res){
         var pageId=req.params.pageId;
