@@ -126,12 +126,13 @@
                 .then(function (response){
                     var widget=response.data;
                     vm.widget=widget;
+                    vm.newWidget=widget;
                 });
 
             vm.updateWidget=updateWidget;
-            function updateWidget(text,size,width,widgetIdUrl){
+            function updateWidget(text,size,width,widgetIdUrl,widgetType){
                 WidgetService
-                    .updateWidget(widgetId,widgetIdUrl,text,size,width)
+                    .updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType)
                     .then(
                         function(response){
                             $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");

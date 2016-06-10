@@ -27,19 +27,54 @@ module.exports=function(){
 
     function findWidgetByType(){}
 
-    function findWidgetById(pageId){
-        return Page.findById(pageId);
+    function findWidgetById(widgetId){
+        return Widget.findById(widgetId);
     }
 
-    function updateWidget(pageId,page){
-        delete page._id;
-        return Page
-            .update({_id:pageId},{
-                $set:{
-                    name:page.name,
-                    title:page.title
-                }
-            });
+    function updateWidget(widgetId,widget){
+        delete widget._id;
+        var widgetType=widget.widgetType;
+        switch (widgetType){
+            case "HEADER":
+                return Widget
+                    .update({_id:widgetId},{
+                        $set:{
+                            size:widget.size,
+                            text:widget.text
+                            // width:widget.width
+                            // url:widget.url
+                        }
+                    });
+                break;
+            case "IMAGE":
+                return Widget
+                    .update({_id:widgetId},{
+                        $set:{
+                            width:widget.width,
+                            url:widget.url
+                        }
+                    });
+                break;
+            case "HTML":
+                return Widget
+                    .update({_id:widgetId},{
+                        $set:{
+                            text:widget.text
+                        }
+                    });
+                break;
+            case "YOUTUBE":
+                return Widget
+                    .update({_id:widgetId},{
+                        $set:{
+                            width:widget.width,
+                            url:widget.url
+                        }
+                    });
+                break;
+            default:return null;
+        }
+
     }
     function deleteWidget(pageId){
         return Page.remove({_id:pageId});

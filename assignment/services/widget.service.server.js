@@ -84,28 +84,38 @@ module.exports=function(app,models){
     }
     function findWidgetById(req,res){
         var widgetId=req.params.widgetId;
-        for(var i in widgets){
-            if(widgets[i]._id===widgetId){
-                res.send(widgets[i]);
-                return;
-            }
-        }
-        res.send({});
+        widgetModel
+            .findWidgetById(widgetId)
+            .then(
+                function(widget){
+                    res.json(widget);
+                }
+            );
     }
     function updateWidget(req,res){
         var widgetId=req.params.widgetId;
         var widget=req.body;
-        for(var i in widgets){
-            if(widgets[i]._id===widgetId){
-                widgets[i].text=widget.text;
-                widgets[i].size=widget.size;
-                widgets[i].width=widget.width;
-                widgets[i].url=widget.url;
-                res.send(widgets);
-                return;
-            }
-        }
-        res.send(400);
+        widgetModel
+            .updateWidget(widgetId,widget)
+            .then(
+                function(stats){
+                    res.send(stats);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+        // for(var i in widgets){
+        //     if(widgets[i]._id===widgetId){
+        //         widgets[i].text=widget.text;
+        //         widgets[i].size=widget.size;
+        //         widgets[i].width=widget.width;
+        //         widgets[i].url=widget.url;
+        //         res.send(widgets);
+        //         return;
+        //     }
+        // }
+        // res.send(400);
     }
     function deleteWidget(req,res){
         var widgetId=req.params.widgetId;

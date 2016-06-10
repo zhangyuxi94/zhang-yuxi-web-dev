@@ -31,9 +31,10 @@
             return $http.get(url);
         }
 
-        function updateWidget(widgetId,widgetIdUrl,text,size,width){
+        function updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType){
             var url="/api/widget/"+widgetId;
             var updatedWidget={
+                widgetType:widgetType,
                 text:text,
                 size:size,
                 width:width,
@@ -49,6 +50,7 @@
 
         function createWidget(pageId,widgetTypeId,text,size,url,width){
             var newWidget={};
+            var widgetType=widgetTypeId;
             switch (widgetTypeId){
                 case "1":
                     newWidget={
