@@ -105,28 +105,28 @@ module.exports=function(app,models){
                     res.statusCode(404).send(error);
                 }
             );
+    }
+    function deleteWidget(req,res){
+        var widgetId=req.params.widgetId;
+        widgetModel
+            .deleteWidget(widgetId)
+            .then(
+                function(stats){
+                    res.send(stats);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+
         // for(var i in widgets){
         //     if(widgets[i]._id===widgetId){
-        //         widgets[i].text=widget.text;
-        //         widgets[i].size=widget.size;
-        //         widgets[i].width=widget.width;
-        //         widgets[i].url=widget.url;
+        //         widgets.splice(i,1);
         //         res.send(widgets);
         //         return;
         //     }
         // }
         // res.send(400);
-    }
-    function deleteWidget(req,res){
-        var widgetId=req.params.widgetId;
-        for(var i in widgets){
-            if(widgets[i]._id===widgetId){
-                widgets.splice(i,1);
-                res.send(widgets);
-                return;
-            }
-        }
-        res.send(400);
     }
 
     function uploadImage(req, res) {

@@ -76,7 +76,7 @@ module.exports=function(){
         }
 
     }
-    function deleteWidget(pageId){
-        return Page.remove({_id:pageId});
+    function deleteWidget(widgetId){
+        return Widget.remove({_id:widgetId});
     }
 };
