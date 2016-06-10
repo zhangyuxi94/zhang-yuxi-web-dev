@@ -10,8 +10,11 @@
 
     function WidgetListController($sce,$routeParams,WidgetService){
         var vm=this;
+        // vm.reorderWidgets=reorderWidgets;
         vm.getSafeHtml=getSafeHtml;
         vm.getSafeUrl=getSafeUrl;
+        var startIndex=-1;
+        var endIndex=-1;
 
         function init(){
             var pageId=$routeParams.pid;
@@ -21,13 +24,25 @@
             vm.website=website;
             vm.page=pageId;
 
+            // function reorderWidgets(start,end){
+            //     console.log("test");
+            //     console.log(start);
+            //     console.log(end);
+            // }
             WidgetService
                 .findWidgetsByPageId(pageId)
                 .then(function (response){
                     var widget=response.data;
                     vm.widgets=widget;
                     $(".container").sortable({
-                        axis:'y'
+                        axis:'y',
+                        start:function(event,ui){
+                            startIndex=ui.item.index();
+                        },
+                        stop:function(event,ui){
+                            endIndex=ui.item.index();
+                            console.log([startIndex,endIndex]);
+                        }
                     });
                 });
         }
