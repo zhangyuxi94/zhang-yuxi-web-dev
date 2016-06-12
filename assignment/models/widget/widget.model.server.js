@@ -12,17 +12,22 @@ module.exports=function(){
         findWidgetByType:findWidgetByType,
         findWidgetById:findWidgetById,
         updateWidget:updateWidget,
-        deleteWidget:deleteWidget
+        deleteWidget:deleteWidget,
+        reorderWidgets:reorderWidgets
     };
     return api;
 
-    function findAllWidgetsForPage(pageId) {
+    function findAllWidgetsForPage(pageId,websiteId,userId) {
         return Widget.find({"_page":pageId})
     }
-    function createWidget(pageId,widget,widgetType){
+    function createWidget(pageId,websiteId,userId,widget,widgetType,priority){
         widget._page=pageId;
+        widget._user=userId;
+        widget._website=websiteId;
+        widget.priority=priority;
         widget.widgetType=widgetType;
-        return Widget.create(widget);
+        Widget.create(widget);
+        return Widget.find({"_page":pageId});
     }
 
     function findWidgetByType(){}
@@ -76,7 +81,40 @@ module.exports=function(){
         }
 
     }
-    function deleteWidget(widgetId){
-        return Widget.remove({_id:widgetId});
+    function deleteWidget(pageId){
+        return Widget.remove({_id:pageId});
+    }
+
+    function reorderWidgets(start,end,pageId){
+        return Widget
+            .find({"_page":pageId})
+            .then(
+                function (widgets){
+                    for(var i in widgets){
+                        var widget = widgets[i];
+                        if(start<end){
+                            if(widget.priority>start&&widget.order <= end){
+                                widget.priority--;
+                                widget.save(function(){});
+                            }else if(widget.priority===start){
+                                widget.priority = end;
+                                widget.save(function(){});
+                            }
+                        }else if(start>end){
+                            if(widget.priority >= end && widget.priority < start){
+                                widget.priority ++;
+                                widget.save(function(){});
+                            }else if(widget.priority === start){
+                                widget.priority = end;
+                                widget.save(function(){});
+                            }
+                        }
+                    }
+                    return Widget.find({_page:pageId});
+                },
+                function(error){
+                    return null;
+                }
+            );
     }
 };

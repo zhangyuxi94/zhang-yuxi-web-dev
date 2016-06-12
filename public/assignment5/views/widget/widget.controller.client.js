@@ -10,10 +10,9 @@
 
     function WidgetListController($sce,$routeParams,WidgetService,$http){
         var vm=this;
-
         vm.getSafeHtml=getSafeHtml;
         vm.getSafeUrl=getSafeUrl;
-
+        var pageId=$routeParams.pid;
 
         function init(){
             var startIndex=-1;
@@ -25,38 +24,11 @@
             vm.website=website;
             vm.page=pageId;
 
-
-
-            $(".container").sortable({
-                axis:'y',
-                start:function(event,ui){
-                    startIndex=ui.item.index();
-                },
-                stop:function(event,ui){
-                    endIndex=ui.item.index();
-                    console.log([startIndex,endIndex]);
-                }
-            });
-
-            // var start=startIndex;
-            // var end=endIndex;
-            // console.log([start,end]);
-
-
-
             WidgetService
-                .findWidgetsByPageId(pageId)
+                .findWidgetsByPageId(pageId,userId,website)
                 .then(function (response){
                     var widget=response.data;
                     vm.widgets=widget;
-
-                    // for(var i in widget){
-                    //     var widgetTest=widget[i]._id;
-                    //     console.log(widgetTest);
-                    //     vm.widgetTest=widgetTest;
-                    // }
-
-
                 });
 
             WidgetService
@@ -66,12 +38,16 @@
                 });
         }
         init();
+        vm.reorderWidgets=reorderWidgets;
+        function reorderWidgets(start, end) {
+            $http.put("/page/"+pageId+"/widget?start="+start+"&end" +
+                "="+end)
+                .then(init);
+        }
         vm.reorderTodos=reorderTodos;
         function reorderTodos(start,end){
-            // console.log("test");
-            // console.log(start);
-            // console.log(end);
-            $http.put("/api/todos?start="+start+"&end="+end)
+            $http.put("/api/todos?start="+start+"&end" +
+                "="+end)
                 .then(init);
         }
 
@@ -117,7 +93,7 @@
             vm.createWidget=createWidget;
             function createWidget(text,size,url,width){
                 WidgetService
-                    .createWidget(pageId,widgetTypeId,text,size,url,width)
+                    .createWidget(pageId,userId,websiteId,widgetTypeId,text,size,url,width)
                     .then(function(response){
                         var newWidget=response.data;
                         if(newWidget){

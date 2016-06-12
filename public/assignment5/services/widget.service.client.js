@@ -17,8 +17,8 @@
         };
         return api;
 
-        function findWidgetsByPageId(pageId){
-            var url="/api/page/"+pageId+"/widget";
+        function findWidgetsByPageId(pageId,userId,website){
+            var url="/api/user/"+userId+"/web/"+website+"/page/"+pageId+"/widget";
             return $http.get(url);
         }
 
@@ -49,9 +49,10 @@
             return $http.delete(url);
         }
 
-        function createWidget(pageId,widgetTypeId,text,size,url,width){
+        function createWidget(pageId,userId,website,widgetTypeId,text,size,url,width){
             var newWidget={};
             var widgetType=widgetTypeId;
+          
             switch (widgetTypeId){
                 case "1":
                     newWidget={
@@ -82,7 +83,7 @@
                     break;
                 default:return null;
             }
-            return $http.post("/api/page/"+pageId+"/widget/new/"+widgetTypeId,newWidget);
+            return $http.post("/api/user/"+userId+"/web/"+website+"/page/"+pageId+"/widget/new/"+widgetTypeId,newWidget);
         }
 
         function findWidgetByType(pageId,widgetTypeId){
