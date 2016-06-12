@@ -32,14 +32,17 @@
             return $http.get(url);
         }
 
-        function updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType){
+        function updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType,rows,placeholder,formatted){
             var url="/api/widget/"+widgetId;
             var updatedWidget={
                 widgetType:widgetType,
                 text:text,
                 size:size,
                 width:width,
-                url:widgetIdUrl
+                url:widgetIdUrl,
+                rows:rows,
+                placeholder:placeholder,
+                formatted:formatted
             };
             return $http.put(url,updatedWidget);
         }
@@ -49,7 +52,7 @@
             return $http.delete(url);
         }
 
-        function createWidget(pageId,userId,website,widgetTypeId,text,size,url,width){
+        function createWidget(pageId,userId,website,widgetTypeId,text,size,url,width,rows,placeholder,formatted){
             var newWidget={};
             var widgetType=widgetTypeId;
           
@@ -79,6 +82,15 @@
                         pageId: pageId,
                         url: url,
                         width:width
+                    };
+                    break;
+                case "5":
+                    newWidget={
+                        pageId: pageId,
+                        text:text,
+                        rows:rows,
+                        placeholder:placeholder,
+                        formatted:formatted
                     };
                     break;
                 default:return null;

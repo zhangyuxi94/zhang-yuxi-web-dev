@@ -13,6 +13,9 @@ module.exports=function(){
             size:Number,
             text:String,
             width:String,
+            rows:Number,
+            placeholder:String,
+            formatted:Boolean,
             url:String,
             priority:Number,
             dateCreated:{type:Date,default:Date.now}

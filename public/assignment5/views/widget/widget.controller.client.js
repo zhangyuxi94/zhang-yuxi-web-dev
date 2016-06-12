@@ -91,9 +91,9 @@
 
 
             vm.createWidget=createWidget;
-            function createWidget(text,size,url,width){
+            function createWidget(text,size,url,width,rows,placeholder,formatted){
                 WidgetService
-                    .createWidget(pageId,userId,websiteId,widgetTypeId,text,size,url,width)
+                    .createWidget(pageId,userId,websiteId,widgetTypeId,text,size,url,width,rows,placeholder,formatted)
                     .then(function(response){
                         var newWidget=response.data;
                         if(newWidget){
@@ -108,7 +108,6 @@
             }
         }
         init();
-
     }
 
     function EditWidgetController($location,$routeParams,WidgetService) {
@@ -132,9 +131,9 @@
                 });
 
             vm.updateWidget=updateWidget;
-            function updateWidget(text,size,width,widgetIdUrl,widgetType){
+            function updateWidget(text,size,width,widgetIdUrl,widgetType,rows,placeholder,formatted){
                 WidgetService
-                    .updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType)
+                    .updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType,rows,placeholder,formatted)
                     .then(
                         function(response){
                             $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");

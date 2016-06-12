@@ -77,6 +77,17 @@ module.exports=function(){
                         }
                     });
                 break;
+            case "TEXT":
+                return Widget
+                    .update({_id:widgetId},{
+                        $set:{
+                            text:widget.text,
+                            rows:widget.rows,
+                            placeholder:widget.placeholder,
+                            formatted:widget.formatted
+                        }
+                    });
+                break;
             default:return null;
         }
 

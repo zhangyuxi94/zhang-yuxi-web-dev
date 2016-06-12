@@ -21,7 +21,8 @@ module.exports=function(app,models){
         {"widgetType": "HEADER","typeId": "1"},
         {"widgetType": "IMAGE","typeId": "2"},
         {"widgetType": "HTML","typeId": "3"},
-        {"widgetType": "YOUTUBE","typeId": "4"}
+        {"widgetType": "YOUTUBE","typeId": "4"},
+        {"widgetType": "TEXT","typeId": "5"}
     ];
     var multer = require('multer'); 
     var upload = multer({ dest: __dirname+'/../../public/uploads' });
@@ -97,7 +98,6 @@ module.exports=function(app,models){
                     priority=widget.length;
                 }
             );
-
     }
 
     function findAllWidgetsForPage(req,res){
