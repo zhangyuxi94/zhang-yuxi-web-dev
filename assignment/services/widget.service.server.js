@@ -3,6 +3,7 @@
  */
 module.exports=function(app,models){
     var widgetModel=models.widgetModel;
+    var todoModel=models.todoModel;
 
     var widgets=[
         {"_id": "2", "widgetType": "IMAGE"}
@@ -32,9 +33,27 @@ module.exports=function(app,models){
     app.get("/api/page/:pageId/widget/new",widgetChooser);
     app.get("/api/widget/:widgetId",findWidgetById);
     app.get("/api/page/:pageId/widget/new/:widgetTypeId",findWidgetByType);
+    app.get("/api/todos",findAllTodos);
     app.put("/api/widget/:widgetId",updateWidget);
+    app.put("/api/todos",reorderTodos);
     app.delete("/api/widget/:widgetId",deleteWidget);
 
+    function findAllTodos(req,res){
+        todoModel
+            .findAllTodos()
+            .then(function(todos){
+                res.json(todos);
+            })
+    }
+
+    function reorderTodos(req,res){
+        var start=parseInt(req.query.start);
+        var end=parseInt(req.query.end);
+        console.log([start,end]);
+        todoModel
+            .reorderTodos(start,end);
+        res.send(200);
+    }
 
     function widgetChooser(req,res){
         res.send(widgetFilter);

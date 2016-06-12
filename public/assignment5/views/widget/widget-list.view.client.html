@@ -21,7 +21,10 @@
     </div>
 </nav>
 
+
     <div class="container">
+        {{model.widgets}}
+
         <div class="jga-widget" ng-repeat="widget in model.widgets">
             <div class="jga-widget-tool">
                 <a href="#/user/{{model.userId}}/website/{{model.website}}/page/{{model.page}}/widget/{{widget._id}}">
@@ -54,8 +57,11 @@
             </div>
         </div>
     </div>
+{{model.data}}
+<todos data="model.data"
+       callback="model.reorderTodos(start,end)">
 
-
+</todos>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
         <div class="pull-left">

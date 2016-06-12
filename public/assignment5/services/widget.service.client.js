@@ -12,7 +12,8 @@
             updateWidget:updateWidget,
             deleteWidget:deleteWidget,
             findWidgetByType:findWidgetByType,
-            createWidget:createWidget
+            createWidget:createWidget,
+            findAllTodos:findAllTodos
         };
         return api;
 
@@ -86,6 +87,11 @@
 
         function findWidgetByType(pageId,widgetTypeId){
             var url="/api/page/"+pageId+"/widget/new/"+widgetTypeId;
+            return $http.get(url);
+        }
+
+        function findAllTodos(){
+            var url="/api/todos";
             return $http.get(url);
         }
     }

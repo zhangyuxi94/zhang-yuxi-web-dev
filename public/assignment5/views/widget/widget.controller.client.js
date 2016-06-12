@@ -8,15 +8,16 @@
         .controller("EditWidgetController",EditWidgetController);
 
 
-    function WidgetListController($sce,$routeParams,WidgetService){
+    function WidgetListController($sce,$routeParams,WidgetService,$http){
         var vm=this;
-        // vm.reorderWidgets=reorderWidgets;
+
         vm.getSafeHtml=getSafeHtml;
         vm.getSafeUrl=getSafeUrl;
-        var startIndex=-1;
-        var endIndex=-1;
+
 
         function init(){
+            var startIndex=-1;
+            var endIndex=-1;
             var pageId=$routeParams.pid;
             var userId=$routeParams.uid;
             var website=$routeParams.wid;
@@ -24,29 +25,55 @@
             vm.website=website;
             vm.page=pageId;
 
-            // function reorderWidgets(start,end){
-            //     console.log("test");
-            //     console.log(start);
-            //     console.log(end);
-            // }
+
+
+            $(".container").sortable({
+                axis:'y',
+                start:function(event,ui){
+                    startIndex=ui.item.index();
+                },
+                stop:function(event,ui){
+                    endIndex=ui.item.index();
+                    console.log([startIndex,endIndex]);
+                }
+            });
+
+            // var start=startIndex;
+            // var end=endIndex;
+            // console.log([start,end]);
+
+
+
             WidgetService
                 .findWidgetsByPageId(pageId)
                 .then(function (response){
                     var widget=response.data;
                     vm.widgets=widget;
-                    $(".container").sortable({
-                        axis:'y',
-                        start:function(event,ui){
-                            startIndex=ui.item.index();
-                        },
-                        stop:function(event,ui){
-                            endIndex=ui.item.index();
-                            console.log([startIndex,endIndex]);
-                        }
-                    });
+
+                    // for(var i in widget){
+                    //     var widgetTest=widget[i]._id;
+                    //     console.log(widgetTest);
+                    //     vm.widgetTest=widgetTest;
+                    // }
+
+
+                });
+
+            WidgetService
+                .findAllTodos()
+                .then(function (response){
+                    vm.data=response.data;
                 });
         }
         init();
+        vm.reorderTodos=reorderTodos;
+        function reorderTodos(start,end){
+            // console.log("test");
+            // console.log(start);
+            // console.log(end);
+            $http.put("/api/todos?start="+start+"&end="+end)
+                .then(init);
+        }
 
         function getSafeHtml(widget){
             return $sce.trustAsHtml(widget.text);
@@ -82,7 +109,6 @@
                 .findWidgetByType(pageId,widgetTypeId)
                 .then(function (response){
                     var widgetName=response.data;
-                    // console.log(widgetName);
                     vm.newWidget=widgetName;
                     vm.widgetName=widgetName;
                 });
