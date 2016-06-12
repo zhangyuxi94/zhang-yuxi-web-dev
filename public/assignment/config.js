@@ -19,6 +19,9 @@
                 controller:"LoginController",
                 controllerAs:"model"
             })
+            .when("/html", {
+                templateUrl: "views/widget/widget-html-edit.view.client.html"
+            })
 
             .when("/register", {
                 templateUrl: "views/user/register.view.client.html",

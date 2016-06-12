@@ -8,12 +8,15 @@
         .controller("EditWidgetController",EditWidgetController);
 
 
-    function WidgetListController($sce,$routeParams,WidgetService){
+    function WidgetListController($sce,$routeParams,WidgetService,$http){
         var vm=this;
         vm.getSafeHtml=getSafeHtml;
         vm.getSafeUrl=getSafeUrl;
+        var pageId=$routeParams.pid;
 
         function init(){
+            var startIndex=-1;
+            var endIndex=-1;
             var pageId=$routeParams.pid;
             var userId=$routeParams.uid;
             var website=$routeParams.wid;
@@ -22,16 +25,31 @@
             vm.page=pageId;
 
             WidgetService
-                .findWidgetsByPageId(pageId)
+                .findWidgetsByPageId(pageId,userId,website)
                 .then(function (response){
                     var widget=response.data;
                     vm.widgets=widget;
-                    $(".container").sortable({
-                        axis:'y'
-                    });
+                });
+
+            WidgetService
+                .findAllTodos()
+                .then(function (response){
+                    vm.data=response.data;
                 });
         }
         init();
+        vm.reorderWidgets=reorderWidgets;
+        function reorderWidgets(start, end) {
+            $http.put("/page/"+pageId+"/widget?start="+start+"&end" +
+                "="+end)
+                .then(init);
+        }
+        vm.reorderTodos=reorderTodos;
+        function reorderTodos(start,end){
+            $http.put("/api/todos?start="+start+"&end" +
+                "="+end)
+                .then(init);
+        }
 
         function getSafeHtml(widget){
             return $sce.trustAsHtml(widget.text);
@@ -67,16 +85,15 @@
                 .findWidgetByType(pageId,widgetTypeId)
                 .then(function (response){
                     var widgetName=response.data;
-                    console.log(widgetName);
                     vm.newWidget=widgetName;
                     vm.widgetName=widgetName;
                 });
 
 
             vm.createWidget=createWidget;
-            function createWidget(text,size,url,width){
+            function createWidget(text,size,url,width,rows,placeholder,formatted){
                 WidgetService
-                    .createWidget(pageId,widgetTypeId,text,size,url,width)
+                    .createWidget(pageId,userId,websiteId,widgetTypeId,text,size,url,width,rows,placeholder,formatted)
                     .then(function(response){
                         var newWidget=response.data;
                         if(newWidget){
@@ -91,7 +108,6 @@
             }
         }
         init();
-
     }
 
     function EditWidgetController($location,$routeParams,WidgetService) {
@@ -111,12 +127,13 @@
                 .then(function (response){
                     var widget=response.data;
                     vm.widget=widget;
+                    vm.newWidget=widget;
                 });
 
             vm.updateWidget=updateWidget;
-            function updateWidget(text,size,width,widgetIdUrl){
+            function updateWidget(text,size,width,widgetIdUrl,widgetType,rows,placeholder,formatted){
                 WidgetService
-                    .updateWidget(widgetId,widgetIdUrl,text,size,width)
+                    .updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType,rows,placeholder,formatted)
                     .then(
                         function(response){
                             $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
