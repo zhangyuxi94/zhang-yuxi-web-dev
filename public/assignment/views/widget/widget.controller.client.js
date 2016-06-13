@@ -85,10 +85,9 @@
                 .findWidgetByType(pageId,widgetTypeId)
                 .then(function (response){
                     var widgetName=response.data;
-                    vm.newWidget=widgetName;
+                    // vm.newWidget=widgetName;
                     vm.widgetName=widgetName;
                 });
-
 
             vm.createWidget=createWidget;
             function createWidget(text,size,url,width,rows,placeholder,formatted){
@@ -133,7 +132,7 @@
             vm.updateWidget=updateWidget;
             function updateWidget(text,size,width,widgetIdUrl,widgetType,rows,placeholder,formatted){
                 WidgetService
-                    .updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType,rows,placeholder,formatted)
+                    .updateWidget(widgetId,widgetIdUrl,widgetType,text,size,width,rows,placeholder,formatted)
                     .then(
                         function(response){
                             $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");

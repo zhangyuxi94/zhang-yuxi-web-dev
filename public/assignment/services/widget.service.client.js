@@ -13,7 +13,8 @@
             deleteWidget:deleteWidget,
             findWidgetByType:findWidgetByType,
             createWidget:createWidget,
-            findAllTodos:findAllTodos
+            findAllTodos:findAllTodos,
+            newFlickr:newFlickr
         };
         return api;
 
@@ -32,7 +33,7 @@
             return $http.get(url);
         }
 
-        function updateWidget(widgetId,widgetIdUrl,text,size,width,widgetType,rows,placeholder,formatted){
+        function updateWidget(widgetId,widgetIdUrl,widgetType,text,size,width,rows,placeholder,formatted){
             var url="/api/widget/"+widgetId;
             var updatedWidget={
                 widgetType:widgetType,
@@ -45,6 +46,15 @@
                 formatted:formatted
             };
             return $http.put(url,updatedWidget);
+        }
+
+        function newFlickr(widgetId, widgetIdUrl){
+            var url="/api/widget/newFlickr/"+widgetId;
+            var newFlickr={
+                url:widgetIdUrl
+            }
+            return $http.post(url,newFlickr);
+            // console.log([widgetId,widgetIdUrl])
         }
 
         function deleteWidget(widgetId){
@@ -102,6 +112,7 @@
             var url="/api/page/"+pageId+"/widget/new/"+widgetTypeId;
             return $http.get(url);
         }
+
 
         function findAllTodos(){
             var url="/api/todos";

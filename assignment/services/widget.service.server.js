@@ -27,6 +27,7 @@ module.exports=function(app,models){
     app.get("/api/page/:pageId/widget/new/:widgetTypeId",findWidgetByType);
     app.get("/api/todos",findAllTodos);
     app.put("/api/widget/:widgetId",updateWidget);
+    app.post("/api/widget/newFlickr/:widgetId",newFlickr);
     app.put("/api/todos",reorderTodos);
     app.put("/page/:pageId/widget",reorderWidgets);
     app.delete("/api/widget/:widgetId",deleteWidget);
@@ -127,6 +128,18 @@ module.exports=function(app,models){
                 }
             );
     }
+    function newFlickr(req,res){
+        var widgetId=req.params.widgetId;
+        var widget=req.body;
+        widgetModel
+            .newFlickr(widgetId,widget)
+            .then(
+                function(widget){
+                    res.send(widget.url)
+                }
+            );
+
+    }
     function deleteWidget(req,res){
         var widgetId=req.params.widgetId;
         widgetModel
@@ -149,20 +162,36 @@ module.exports=function(app,models){
         var userId      = req.body.userId;
         var width         = req.body.width;
         var myFile        = req.file;
-
         var originalname  = myFile.originalname;
         var filename      = myFile.filename;
         var path          = myFile.path;
         var destination   = myFile.destination;
         var size          = myFile.size;
         var mimetype      = myFile.mimetype;
+        //
+        // for(var i in widgets){
+        //     if(widgets[i]._id===widgetId){
+        //         widgets[i].url="/uploads/"+filename;
+        //     }
+        // }
+        var widget={
+            _id:widgetId,
+            url:"/uploads/"+filename,
+            widgetType:"Flickr"
+        };
 
-        for(var i in widgets){
-            if(widgets[i]._id===widgetId){
-                widgets[i].url="/uploads/"+filename;
-            }
-        }
-            res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+        widgetModel
+            .updateWidget(widgetId,widget)
+            .then(
+                function(status){
+                    res.send(status);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+        res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+
     }
 
 

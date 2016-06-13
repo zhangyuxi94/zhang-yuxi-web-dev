@@ -13,7 +13,8 @@ module.exports=function(){
         findWidgetById:findWidgetById,
         updateWidget:updateWidget,
         deleteWidget:deleteWidget,
-        reorderWidgets:reorderWidgets
+        reorderWidgets:reorderWidgets,
+        newFlickr:newFlickr
     };
     return api;
 
@@ -39,6 +40,7 @@ module.exports=function(){
     function updateWidget(widgetId,widget){
         delete widget._id;
         var widgetType=widget.widgetType;
+
         switch (widgetType){
             case "HEADER":
                 return Widget
@@ -56,6 +58,14 @@ module.exports=function(){
                     .update({_id:widgetId},{
                         $set:{
                             width:widget.width,
+                            url:widget.url
+                        }
+                    });
+                break;
+            case "Flickr":
+                return Widget
+                    .update({_id:widgetId},{
+                        $set:{
                             url:widget.url
                         }
                     });
@@ -92,6 +102,17 @@ module.exports=function(){
         }
 
     }
+    function newFlickr(widgetId,widget){
+        Widget._id=widgetId;
+        return Widget.create(widget);
+        // return Widget
+        //     .update({_id:widgetId},{
+        //         $set:{
+        //             url:widget.url
+        //         }
+        //     });
+    }
+
     function deleteWidget(pageId){
         return Widget.remove({_id:pageId});
     }
