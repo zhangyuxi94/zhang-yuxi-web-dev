@@ -85,14 +85,15 @@ a{
 /*===================================profile===================================*/
 #profile1{
     padding: 70px 0;
-    background: url("../image/5charlesriver.jpg") no-repeat top center;
+    background: url("../image/1boston.jpg") no-repeat top center;
     background-size: cover;
     -webkit-box-shadow: 0 -5px 10px 0 rgba(0,0,0,0.3) inset;
     box-shadow: 0 -5px 10px 0 rgba(0,0,0,0.3) inset;
 }
 
 #profileMain{
-    padding: 10px 0;
+    height: auto;
+    padding: 20px 0;
    background-color: #eee;
 }
 
@@ -145,4 +146,21 @@ a{
     #myProfile{
         font-size: 20px;
     }
+}
+/*===================================favorites===================================*/
+#myFavorites{
+    height: auto;
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+#myFavorites h4{
+    font-size: 20px;
+}
+
+#myFavorites a{
+    color: black;
+}
+
+@media(min-width:767px) {
 }

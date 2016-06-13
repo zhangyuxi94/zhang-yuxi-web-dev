@@ -9,6 +9,11 @@ html {
     height: 100%;
 }
 
+.wholeWrapper{
+    width: 100%;
+    height: 100%;
+}
+
 .navbar-fixed-top {
     background-color: rgba(0, 0, 0, 0.34);
     border: 0;
@@ -55,7 +60,6 @@ html {
 
 .navbar-ex1-collapse li{
     font-size: 18px;
-
 }
 
 .top-nav-collapse {
@@ -65,33 +69,12 @@ html {
     transition: background .5s ease-in-out,padding .5s ease-in-out;
 }
 
-.carousel{
-    z-index: 1;
-}
-
-
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-    width: 100%;
-    margin: auto;
-}
-
-.carousel-inner > .item .photoname{
-    position: relative;
-    color: white;
-    margin-top: -38px;
-    padding: 8px;
-    background-color: rgba(0, 0, 0, 0.42);
-    text-transform: uppercase;
-}
-
-.carousel-inner > .item a{
-    text-decoration: none;
-}
-
 .section1 {
     height: auto;
+    padding-top: 150px;
     text-align: center;
+    background: url("../image/1boston.jpg") no-repeat right center;
+    background-size: cover;
 }
 
 .section1 #mainboston{
@@ -109,6 +92,9 @@ html {
 }
 
 @media(min-width:767px) {
+    .section1 {
+        height: 100%;}
+
     .navbar-fixed-top {
         padding: 20px 0;
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -132,14 +118,8 @@ html {
     .section1 #mainboston{
         display: block;
     }
-    .carousel-inner > .item .photoname{
-        margin-top: -44px;
-        font-size: 20px;
-    }
 }
 
-@media(min-width:992px){
-}
 
 /*==================================page2=====================================*/
 #mainpage2 {

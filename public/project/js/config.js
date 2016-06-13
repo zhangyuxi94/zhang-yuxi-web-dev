@@ -58,7 +58,7 @@
             .when(
                 "/profile/:uid",{
                     templateUrl:"views/user/profile.view.client.html",
-                    controller:"RegisterController",
+                    controller:"ProfileController",
                     controllerAs:"model"
                 })
             .when(
@@ -67,18 +67,18 @@
                     controller:"userMainpageController",
                     controllerAs:"model"
                 })
-            .when(
-                "/photos",{
-                    templateUrl:"views/mainpage/landing.view.client.html",
-                    controller:"HotelListController",
-                    controllerAs:"model"
-                })
-            .when(
-                ":uid/photos",{
-                    templateUrl:"views/mainpage/userLanding.view.client.html",
-                    controller:"HotelListController",
-                    controllerAs:"model"
-                })
+            // .when(
+            //     "/photos",{
+            //         templateUrl:"views/mainpage/landing.view.client.html",
+            //         controller:"HotelListController",
+            //         controllerAs:"model"
+            //     })
+            // .when(
+            //     ":uid/photos",{
+            //         templateUrl:"views/mainpage/userLanding.view.client.html",
+            //         controller:"HotelListController",
+            //         controllerAs:"model"
+            //     })
             .when(
                 "/",{
                     templateUrl:"views/mainpage/landing.view.client.html",

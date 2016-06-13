@@ -6,8 +6,9 @@
         .controller("userMainpageController",userMainpageController)
         .controller('TabsDemoCtrl',TabsDemoCtrl);
 
-    function userMainpageController(HotelListService){
+    function userMainpageController($routeParams,HotelListService){
         var vm=this;
+        vm.userId=$routeParams.uid;
         function init(){
             var popularHotels=HotelListService.findPopularHotels();
             vm.popularHotels=popularHotels;

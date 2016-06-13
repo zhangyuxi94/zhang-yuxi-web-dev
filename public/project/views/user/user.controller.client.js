@@ -6,8 +6,8 @@
     angular
         .module("MainpageApp")
         .controller("LoginController",LoginController)
-        .controller("RegisterController",RegisterController);
-        // .controller("ProfileController",ProfileController);
+        .controller("RegisterController",RegisterController)
+        .controller("ProfileController",ProfileController);
 
     function LoginController($location,UserService){
         var vm=this;
@@ -43,6 +43,14 @@
                     }
                 );
         }
+    }
+
+    function ProfileController($routeParams){
+        var vm=this;
+        vm.userId=$routeParams.uid;
+        function init(){}
+        init();
+
     }
 
     // function ProfileController($location,$routeParams,UserService){

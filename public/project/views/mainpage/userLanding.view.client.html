@@ -1,37 +1,46 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="row navbar-header page-scroll">
+            <div class="col-xs-4">
+                <div  class="logo">
+                    <a class="page-scroll" href="#{{model.userId}}">BostonTrip</a>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <input type="text" placeholder="Search..">
+            </div>
+            <div class="col-xs-2">
+                <button type="button"  class="navbar-toggle"  data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="about/boston.html" style="color: white">About Boston</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="attraction/attraction.html" style="color: white">Attractions</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="guide/guide.html" style="color: white">Travel Guide</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="live/live.html" style="color: white">Live and Eat</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <section id="mainpage1" class="section1">
-    <div id="photos" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <a href="attraction/backbay.html"><img src="image/1boston.jpg" alt="1"></a>
-                <a href="attraction/backbay.html"><div class="photoname">Back Bay</div></a>
-            </div>
-
-            <div class="item">
-                <a href="attraction/tdgarden.html"><img src="image/2celtics.jpg" alt="2"></a>
-                <a href="attraction/tdgarden.html"><div class="photoname">TD Garden</div></a>
-            </div>
-
-            <div class="item">
-                <a href="attraction/charles.html"><img src="image/3Charles.JPG" alt="3"></a>
-                <a href="attraction/charles.html"><div class="photoname">Charles River</div></a>
-            </div>
-
-            <div class="item">
-                <a href="attraction/fenway.html"><img src="image/4fenway.jpg" alt="4"></a>
-                <a href="attraction/fenway.html"><div class="photoname">Fenway Park</div></a>
-            </div>
-        </div>
-        <input id="mainboston" placeholder="Search Attractions/Hotels/Restaurants..." class="form-control">
-        <a class="left carousel-control" href="#photos" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#photos" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+    <input id="mainboston" placeholder="Search Attractions/Hotels/Restaurants..." class="form-control">
 </section>
 
 <section id="mainpage2" class="section2">
