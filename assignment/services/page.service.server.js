@@ -12,13 +12,18 @@ module.exports=function(app,models){
     function createPage(req,res){
         var websiteId=req.params.websiteId;
         var newPage=req.body;
-        pageModel
-            .createPage(websiteId,newPage)
-            .then(
-                function(page){
-                    res.json(page);
-                }
-            );
+        if(newPage.name==undefined||newPage.title==undefined){
+            res.send(400);
+        }else{
+            pageModel
+                .createPage(websiteId,newPage)
+                .then(
+                    function(page){
+                        res.json(page);
+                    }
+                );
+        }
+
     }
 
     function findAllPagesForWebsite(req,res){
@@ -44,16 +49,20 @@ module.exports=function(app,models){
     function updatePage(req,res){
         var pageId=req.params.pageId;
         var page=req.body;
-        pageModel
-            .updatePage(pageId,page)
-            .then(
-                function(stats){
-                    res.send(200);
-                },
-                function(error){
-                    res.statusCode(404).send(error);
-                }
-            );
+        if(page.name==""||page.title==""){
+            res.send(400);
+        }else{
+            pageModel
+                .updatePage(pageId,page)
+                .then(
+                    function(stats){
+                        res.send(200);
+                    },
+                    function(error){
+                        res.statusCode(404).send(error);
+                    }
+                );
+        }
     }
     function deletePage(req,res){
         var pageId=req.params.pageId;

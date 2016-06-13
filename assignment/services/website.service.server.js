@@ -12,13 +12,19 @@ module.exports=function(app,models){
     function createWebsite(req,res){
         var userId=req.params.userId;
         var newWebsite=req.body;
-        websiteModel
-            .createWebsite(userId,newWebsite)
-            .then(
-                function (website) {
-                    res.json(website);
-                }
-            );
+        if(newWebsite.name==undefined||newWebsite.description==undefined){
+            res.send(400);
+        }
+        else{
+            websiteModel
+                .createWebsite(userId,newWebsite)
+                .then(
+                    function (website) {
+                        res.json(website);
+                    }
+                );
+        }
+
     }
 
     function findAllWebsitesForUser(req,res){
@@ -44,16 +50,21 @@ module.exports=function(app,models){
     function updateWebsite(req,res){
         var websiteId=req.params.websiteId;
         var website=req.body;
-        websiteModel
-            .updateWebsite(websiteId,website)
-            .then(
-                function(stats){
-                    res.send(200);
-                },
-                function(error){
-                    res.statusCode(404).send(error);
-                }
-            );
+        if(website.name==""||website.description==""){
+            res.send(400);
+        }
+        else{
+            websiteModel
+                .updateWebsite(websiteId,website)
+                .then(
+                    function(stats){
+                        res.send(200);
+                    },
+                    function(error){
+                        res.statusCode(404).send(error);
+                    }
+                );
+        }
     }
     function deleteWebsite(req,res){
         var websiteId=req.params.websiteId;
