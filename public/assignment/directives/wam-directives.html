@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="jga-widget" ng-repeat="widget in widgets.widgets">
+    <div class="jga-widget" ng-repeat="widget in widgets.widgets| orderBy : 'priority'">
         <div class="jga-widget-tool">
             <a href="#/user/{{widget._user}}/website/{{widget._page}}/page/{{widget._page}}/widget/{{widget._id}}">
                 <span class="glyphicon glyphicon-cog"></span>

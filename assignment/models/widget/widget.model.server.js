@@ -25,10 +25,20 @@ module.exports=function(){
         widget._page=pageId;
         widget._user=userId;
         widget._website=websiteId;
-        widget.priority=priority;
+        // widget.priority=priority;
         widget.widgetType=widgetType;
-        Widget.create(widget);
-        return Widget.find({"_page":pageId});
+        // Widget.create(widget);
+        return Widget.find({"_page":pageId})
+            .then(
+                function (widgets) {
+                    widget.priority = widgets.length;
+                    return Widget.create(widget);
+                },
+                function (error) {
+                    return null;
+                }
+            );
+        // return Widget.find({"_page":pageId});
     }
 
     function findWidgetByType(){}
@@ -125,7 +135,7 @@ module.exports=function(){
                     for(var i in widgets){
                         var widget = widgets[i];
                         if(start<end){
-                            if(widget.priority>start&&widget.order <= end){
+                            if(widget.priority>start&&widget.priority <= end){
                                 widget.priority--;
                                 widget.save(function(){});
                             }else if(widget.priority===start){
@@ -142,7 +152,7 @@ module.exports=function(){
                             }
                         }
                     }
-                    return Widget.find({_page:pageId});
+                    return Widget.find({"_page":pageId});
                 },
                 function(error){
                     return null;

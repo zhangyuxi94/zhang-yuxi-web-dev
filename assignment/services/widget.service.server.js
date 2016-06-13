@@ -54,8 +54,15 @@ module.exports=function(app,models){
         var end=parseInt(req.query.end);
         var pageId=req.params.pageId;
         widgetModel
-            .reorderWidgets(start,end,pageId);
-        // res.send(200);
+            .reorderWidgets(start,end,pageId)
+            .then(
+                function (widget) {
+                    res.send(widget);
+                },
+                function (error) {
+                    res.status(404).send("Reorder failed.");
+                }
+            );
     }
 
     function widgetChooser(req,res){
@@ -73,7 +80,7 @@ module.exports=function(app,models){
         }
         res.send({});
     }
-    var priority=0;
+    // var priority=0;
     function createWidget(req,res){
         var pageId=req.params.pageId;
         var websiteId=req.params.websiteId;
@@ -82,14 +89,16 @@ module.exports=function(app,models){
         var i=parseInt(widgetTypeId);
         var newWidget=req.body;
         var widgetType=widgetFilter[i-1].widgetType;
-        widgetModel
-            .createWidget(pageId,websiteId,userId,newWidget,widgetType,priority)
-            .then(
-                function(widget){
-                    res.json(widget);
-                    priority=widget.length;
-                }
-            );
+            widgetModel
+                .createWidget(pageId,websiteId,userId,newWidget,widgetType)
+                .then(
+                    function (widget) {
+                        res.json(widget);
+                    },
+                    function (error) {
+                        res.status(404).send("Creation failed.");
+                    }
+                );
     }
 
     function findAllWidgetsForPage(req,res){
