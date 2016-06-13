@@ -54,7 +54,6 @@
                 url:widgetIdUrl
             }
             return $http.post(url,newFlickr);
-            // console.log([widgetId,widgetIdUrl])
         }
 
         function deleteWidget(widgetId){

@@ -8,6 +8,7 @@
 
     function FlickrImageSearchController($routeParams,$location,FlickrService,WidgetService){
         var vm=this;
+        vm.try="http://gizmodo.com/a-recipe-for-your-hangover-michelada-thats-impossible-t-1777890642";
         var userId=$routeParams.uid;
         var widgetId=$routeParams.wgid;
         var pageId=$routeParams.pid;
@@ -45,11 +46,14 @@
                     .newFlickr(widgetId, widgetIdUrl)
                     .then(
                         function(response){
-                            // console.log(response.data);
+                            var FlickrUrl=(response.data);
                             $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/new/"+widgetId);
+                            // vm.flickrUrl=FlickrUrl;
                         }
                     )
             }
         }
+
+
     }
 })();
