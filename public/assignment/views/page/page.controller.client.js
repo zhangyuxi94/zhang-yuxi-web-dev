@@ -35,12 +35,17 @@
             function createPage(page,pageTitle){
                 PageService
                     .createPage(websiteId,page,pageTitle)
-                    .then(function(response){
+                    .then(
+                        function(response){
                         var newPage=response.data;
                         if(newPage){
                             $location.url("/user/"+userId+"/website/"+websiteId+"/page");
                         }
-                    });
+                    },
+                        function(error){
+                            vm.alert="Please recheck!"
+                        }
+                    );
             }
             vm.userId=userId;
             vm.websiteId=websiteId;
@@ -69,9 +74,14 @@
             function updatePage(name,title){
                 PageService
                     .updatePage(pageId,name,title)
-                    .then(function(response){
+                    .then(
+                        function(response){
                         $location.url("/user/"+userId+"/website/"+websiteId+"/page");
-                    });
+                    },
+                        function(error){
+                            vm.alert="Please recheck!"
+                        }
+                    );
             }
 
             vm.deletePage=deletePage;

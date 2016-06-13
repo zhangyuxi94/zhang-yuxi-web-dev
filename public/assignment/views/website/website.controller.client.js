@@ -31,12 +31,17 @@
             function createWebsite(website,description){
                 WebsiteService
                     .createWebsite(userId,website,description)
-                    .then(function(response){
+                    .then(
+                        function(response){
                         var newWebsite=response.data;
                         if(newWebsite){
                             $location.url("/user/"+userId+"/website");
                         }
-                    });
+                    },
+                function(error){
+                    vm.alert="Please recheck!"
+                }
+                    );
             }
             vm.userId=userId;
         }
@@ -62,9 +67,14 @@
             function updateWebsite(name,description){
                 WebsiteService
                     .updateWebsite(websiteId,name,description)
-                    .then(function(response){
+                    .then(
+                        function(response){
                         $location.url("/user/"+userId+"/website");
-                    });
+                    },
+                        function(error){
+                            vm.alert="Please recheck!"
+                        }
+                    );
             }
 
             vm.deleteWebsite=deleteWebsite;
