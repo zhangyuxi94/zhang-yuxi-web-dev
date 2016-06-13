@@ -13,19 +13,23 @@ module.exports=function(){
       createUser:createUser,
       findUserById:findUserById,
       findUserByCredentials:findUserByCredentials,
+      findUserByUsername:findUserByUsername,
       deleteUser:deleteUser,
       updateUser:updateUser
   };
 return api;
 
-
-
-    function findUserByCredentials(username,password){
-        return User.findOne({username:username,password:password});
+    function findUserByCredentials(username, password) {
+        return User.findOne({username: username, password: password});
     }
+
 
     function findUserById(userId) {
         return User.findById(userId);
+    }
+
+    function findUserByUsername(username){
+        return User.findById({username: username});
     }
 
     function createUser(user){

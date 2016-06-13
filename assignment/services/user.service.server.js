@@ -5,12 +5,12 @@
 module.exports=function(app,models){
     var userModel=models.userModel;
 
-    var users=[
-        {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-        {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-        {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-        {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-    ];
+    // var users=[
+    //     {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
+    //     {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
+    //     {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
+    //     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
+    // ];
     app.get("/api/user",getUsers);
     app.get("/api/user/:userId",findUserById);
     app.post("/api/user",createUser);
@@ -26,7 +26,7 @@ module.exports=function(app,models){
             findUserByUsername(username,res);
         }
         else{
-            res.send(users);
+            res.send(400);
         }
     }
 
@@ -44,13 +44,21 @@ module.exports=function(app,models){
     }
 
     function findUserByUsername(username,res) {
-        for(var i in users){
-            if(users[i].username===username){
-                res.send(users[i]);
-                return;
-            }
-        }
-        res.send({});
+        userModel
+            .findUserByUsername(username)
+            .then(function (user) {
+                    res.json(user);
+                },
+                function (err) {
+                    res.statusCode(404).send(err);
+                });
+        // for(var i in users){
+        //     if(users[i].username===username){
+        //         res.send(users[i]);
+        //         return;
+        //     }
+        // }
+        // res.send({});
     }
 
     function findUserById(req,res){
@@ -72,7 +80,6 @@ module.exports=function(app,models){
             .createUser(user)
             .then(
                 function(user){
-                    console.log(user);
                     res.json(user);
                 },
                 function(error){

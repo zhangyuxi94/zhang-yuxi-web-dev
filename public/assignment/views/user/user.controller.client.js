@@ -17,11 +17,11 @@
                 .findUserByCredentials(username,password)
                 .then(function (response) {
                     var user=response.data;
-                    if(user._id){
-                        $location.url("/user/"+user._id);
-                    }
-                    else{
+                    if(user===null){
                         vm.alert="Unable to login";
+                    }
+                    else if(user._id){
+                        $location.url("/user/"+user._id);
                     }
             });
         }
@@ -75,19 +75,25 @@
         var vm=this;
         vm.register=register;
         function register(user,password,verifypassword){
-            UserService
-                .createUser(user,password,verifypassword)
-                .then(
-                    function(response){
-                    var user=response.data;
-                    if(user){
-                        $location.url("/user/"+user._id);
-                    }
-                },
-                    function(error){
-                        vm.alert="Password not match!"
-                    }
-                );
+            if(user==null||password==null||verifypassword==null){
+                vm.alert="Please recheck!"
+            }else if(password!==verifypassword){
+                vm.alert="Password not match!"
+            }else{
+                UserService
+                        .createUser(user,password,verifypassword)
+                        .then(
+                            function(response){
+                                var user=response.data;
+                                if(user){
+                                    $location.url("/user/"+user._id);
+                                }
+                            },
+                            function(error){
+                                vm.alert="Please recheck!"
+                            }
+                        );
+            }
         }
     }
 })();
