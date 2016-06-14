@@ -53,72 +53,23 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="attraction/harvard.html">
+        <div class="row detailShow">
+            <div class="col-sm-3" ng-repeat="attraction in model.attraction1">
+                <div class="jga-widget-tool">
+                    <a href="#login">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </a>
+                </div>
+                <a href="#/attractions/{{attraction._id}}">
                     <div class="thumbnail attraction">
-                        <img src="image/1harvard.jpg" alt="1">
+                        <img ng-src={{attraction.image}}>
                         <div class="caption">
-                            <h3>1. Harvard University</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="attraction/freedom.html">
-                    <div class="thumbnail attraction">
-                        <img src="image/2freedom.png" alt="2">
-                        <div class="caption">
-                            <h3>2. Freedom Trial</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="attraction/mit.html">
-                    <div class="thumbnail attraction">
-                        <img src="image/3mit.jpg" alt="3">
-                        <div class="caption">
-                            <h3>3. MIT</h3>
+                            <h5>{{attraction.rank}}. {{attraction.name}}</h5>
                         </div>
                     </div>
                 </a>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="attraction/quincy.html">
-                    <div class="thumbnail attraction">
-                        <img src="image/4Quincy.jpg" alt="4">
-                        <div class="caption">
-                            <h3>4. Quincy Market</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="attraction/charles.html">
-                    <div class="thumbnail attraction">
-                        <img src="image/5charlesriver.jpg" alt="5">
-                        <div class="caption">
-                            <h3>5. Charles River</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a href="attraction/trinity.html">
-                    <div class="thumbnail attraction">
-                        <img src="image/6trinity.jpg" alt="6">
-                        <div class="caption">
-                            <h3>6. Trinity Church</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-
     </div>
 </section>
 

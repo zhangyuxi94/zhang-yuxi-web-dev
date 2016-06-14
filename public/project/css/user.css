@@ -93,7 +93,7 @@ a{
 
 #profileMain{
     height: auto;
-    padding: 20px 0;
+    padding: 20px 0 50px 0;
    background-color: #eee;
 }
 
@@ -147,7 +147,35 @@ a{
         font-size: 20px;
     }
 }
-/*===================================favorites===================================*/
+/*===================================detailShow===================================*/
+.detailShow a{
+    text-decoration: none;
+    text-align: center;
+}
+
+.detailShow .thumbnail h5{
+    font-size: 18px;
+}
+
+.detailShow .thumbnail p{
+    font-size: 14px;
+}
+
+.jga-widget-tool {
+    position: absolute;
+    right: 15px;
+    background-color: white;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 8px;
+    opacity: 0.9;
+}
+
+.jga-widget-tool span{
+    color: #de5556;
+    font-size: 18px;
+}
+    /*===================================favorites===================================*/
 #myFavorites{
     height: auto;
     padding: 20px 0;

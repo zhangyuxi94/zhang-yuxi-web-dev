@@ -74,7 +74,7 @@
                     controllerAs:"model"
                 })
             .when(
-                "/about/:uid",{
+                "/:uid/about",{
                     templateUrl:"views/about/about.view.user.html",
                     controller:"userMainpageController",
                     controllerAs:"model"
@@ -86,7 +86,7 @@
                     controllerAs:"model"
                 })
             .when(
-                "/attractions/:uid",{
+                "/:uid/attractions",{
                     templateUrl:"views/attraction/attraction.view.user.html",
                     controller:"userMainpageController",
                     controllerAs:"model"
@@ -98,7 +98,7 @@
                     controllerAs:"model"
                 })
             .when(
-                "/guide/:uid",{
+                "/:uid/guide",{
                     templateUrl:"views/guide/guide.view.user.html",
                     controller:"userMainpageController",
                     controllerAs:"model"
@@ -110,7 +110,7 @@
                     controllerAs:"model"
                 })
             .when(
-                "/live/:uid",{
+                "/:uid/live",{
                     templateUrl:"views/live/live.view.user.html",
                     controller:"userMainpageController",
                     controllerAs:"model"

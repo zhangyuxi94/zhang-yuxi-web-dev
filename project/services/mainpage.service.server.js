@@ -72,9 +72,104 @@ module.exports=function(app){
         }
 
     ];
+    var attraction1=[
+        { _id: "1",
+            image:"./image/1harvard.jpg",
+            name: "Harvard University",
+            rank:"1",
+            address:"Harvard Yard Cambridge, MA",
+            official:"http://www.harvard.edu/visitors/tours"
+        },
+        { _id: "2",
+            image:"./image/2freedom.png",
+            name: "Freedom Trial",
+            rank:"2",
+            address:"Charles Street, Boston, MA",
+            official:"http://www.thefreedomtrail.org/"
+        },
+        { _id: "3",
+            image:"./image/3mit.jpg",
+            name: "MIT",
+            rank:"3",
+            address:"Massachusetts Avenue Cambridge, MA",
+            official:"http://web.mit.edu/"
+        },
+        { _id: "4",
+            image:"./image/4Quincy.jpg",
+            name: "Quincy Market",
+            rank:"4",
+            address:"4 South Market Street, Boston, MA",
+            official:"http://www.quincy-market.com"
+        }
+    ];
+    var attraction2=[
+        { _id: "5",
+            image:"./image/5charlesriver.jpg",
+            name: "Charles River",
+            rank:"5",
+            address:"Beacon St & Arlington St, Boston, MA"
+        },
+        { _id: "6",
+            image:"./image/6trinity.jpg",
+            name: "Trinity Church",
+            rank:"6",
+            address:"206 Clarendon Street, Boston, MA",
+            official:"http://trinitychurchboston.org/",
+            phone:"617-536-0944"
+        },
+        { _id: "7",
+            image:"./image/7library.jpg",
+            name: "Boston Public Library",
+            rank:"7",
+            address:"700 Boylston St, Boston, MA",
+            official:"http://bpl.org/central/",
+            phone:"617-536-5400"
+        },
+        { _id: "8",
+            image:"./image/8MFA.jpg",
+            name: "Museum of Fine Arts",
+            rank:"8",
+            address:"465 Huntington Avenue, Boston, MA",
+            official:"http://www.mfa.org/",
+            phone:"617-267-9300"
+        }
+    ];
+    var attraction3=[
+        { _id: "9",
+            image:"./image/9bostonCommon.jpg",
+            name: "Boston Common",
+            rank:"9",
+            address:"131 Tremont St, Boston, MA",
+            official:"http://www.cityofboston.gov/freedomtrail/bostoncommon.asp"
+        },
+        { _id: "10",
+            image:"./image/10copley.jpeg",
+            name: "Copley Square",
+            rank:"10",
+            address:"Copley Square, Huntington Avenue, Boston, MA"
+        },
+        { _id: "11",
+            image:"./image/11prudential.jpg",
+            name: "Prudential Tower",
+            rank:"11",
+            address:"800 Boylston St#50, Boston, MA",
+            official:"http://www.prudentialcenter.com/"
+        },
+        { _id: "12",
+            image:"./image/4fenway.jpg",
+            name: "Fenway Park",
+            rank:"12",
+            address:"4 Yawkey Way, Boston, MA",
+            official:"http://boston.redsox.mlb.com/index.jsp?c_id=bos",
+            phone:"617-226-6666"
+        }
+    ];
 
     app.get("/BostonTrip/api/popular",findPopularHotels);
     app.get("/BostonTrip/api/highstar",findHighstarHotels);
+    app.get("/BostonTrip/api/attraction1",findAttraction1);
+    app.get("/BostonTrip/api/attraction2",findAttraction2);
+    app.get("/BostonTrip/api/attraction3",findAttraction3);
 
     function findPopularHotels(req,res){
         res.send(popularHotels);
@@ -82,5 +177,15 @@ module.exports=function(app){
 
     function findHighstarHotels(req,res){
         res.send(highstarHotels);
+    }
+
+    function findAttraction1(req,res){
+        res.send(attraction1);
+    }
+    function findAttraction2(req,res){
+        res.send(attraction2);
+    }
+    function findAttraction3(req,res){
+        res.send(attraction3);
     }
 };

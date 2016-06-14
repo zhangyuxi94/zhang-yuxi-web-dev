@@ -6,7 +6,7 @@
         .controller("userMainpageController",userMainpageController)
         .controller('TabsDemoCtrl',TabsDemoCtrl);
 
-    function userMainpageController($routeParams,HotelListService){
+    function userMainpageController($routeParams,$location,HotelListService){
         var vm=this;
         vm.userId=$routeParams.uid;
         function init(){
@@ -23,6 +23,28 @@
                     function(response){
                         var highstar=response.data;
                         vm.highHotels=highstar;
+                    }
+                );
+
+            HotelListService.findAttractionsRow1()
+                .then(
+                    function(response){
+                        var attraction=response.data;
+                        vm.attraction1=attraction;
+                    }
+                );
+            HotelListService.findAttractionsRow2()
+                .then(
+                    function(response){
+                        var attraction=response.data;
+                        vm.attraction2=attraction;
+                    }
+                );
+            HotelListService.findAttractionsRow3()
+                .then(
+                    function(response){
+                        var attraction=response.data;
+                        vm.attraction3=attraction;
                     }
                 );
         }
