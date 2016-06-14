@@ -17,10 +17,15 @@
                 .findUserByCredentials(email,password)
                 .then(function (response) {
                     var user=response.data;
-                        $location.url("/"+user._id);
+                        if(user===null){
+                            vm.error="Unable to login";
+                        }
+                        else if(user._id){
+                            $location.url("/"+user._id);
+                        }
                 },
                     function(error){
-                        vm.error="Email and password not match."
+                        vm.error="Unable to login"
                     }
                 );
         }
@@ -29,19 +34,25 @@
         var vm=this;
         vm.register=register;
         function register(email,username,password,verifyPassword){
-            UserService
-                .createUser(email,username,password,verifyPassword)
-                .then(
-                    function(response){
-                        var user=response.data;
-                        if(user){
-                            $location.url("/profile/"+user._id);
+            if(email==null||password==null||verifyPassword==null){
+                vm.error="Please check your enter!"
+            }else if(password!==verifyPassword){
+                vm.error="Password not match!"
+            }else{
+                UserService
+                    .createUser(email,username,password,verifyPassword)
+                    .then(
+                        function(response){
+                            var user=response.data;
+                            if(user){
+                                $location.url("/profile/"+user._id);
+                            }
+                        },
+                        function(error){
+                            vm.error="Please check your enter!"
                         }
-                    },
-                    function(error){
-                        vm.error="Please check your enter!"
-                    }
-                );
+                    );
+            }
         }
     }
 
