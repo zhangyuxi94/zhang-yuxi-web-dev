@@ -2,7 +2,8 @@
  * Created by zhangyuxi on 2016/6/6.
  */
 
-module.exports=function(app){
+module.exports=function(app,models){
+    var BUserModel=models.BUserModel;
     var users=[
         {_id: "1", email: "zhang.yuxi1@husky.neu.edu", password: "zhangyuxi",username:"yuxi"},
         {_id: "2", email: "676883173@qq.com",    password: "676883173",username:"zhang"},
@@ -39,19 +40,29 @@ module.exports=function(app){
 
     function createUser(req,res){
         var user = req.body;
-        if(user.email&&user.username&&user.password){
-            if(user.password===user.verifyPassword){
-                user._id=(new Date()).getTime()+"";
-                users.push(user);
-                res.send(user);
-            }
-            else{
-                res.send(400);
-            }
-        }
-      else{
-            res.send(400);
-        }
+        BUserModel.createUser(user)
+            .then(
+                function(user){
+                    res.json(user);
+                },
+                function(error){
+                    res.send(400);
+                }
+            );
+        
+      //   if(user.email&&user.username&&user.password){
+      //       if(user.password===user.verifyPassword){
+      //           user._id=(new Date()).getTime()+"";
+      //           users.push(user);
+      //           res.send(user);
+      //       }
+      //       else{
+      //           res.send(400);
+      //       }
+      //   }
+      // else{
+      //       res.send(400);
+      //   }
     }
 
     // function updateUser(req,res){

@@ -50,7 +50,6 @@
         vm.userId=$routeParams.uid;
         function init(){}
         init();
-
     }
 
     // function ProfileController($location,$routeParams,UserService){

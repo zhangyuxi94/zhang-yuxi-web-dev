@@ -11,8 +11,8 @@ html {
 
 .login{
     padding: 80px 0;
-    height: 100%;
-    background: url("../image/background.jpg") no-repeat center;
+    height: auto;
+    background: url("../image/1boston.jpg") no-repeat center;
     background-size: cover;
 }
 
@@ -75,7 +75,7 @@ a{
 @media(min-width:767px) {
     .login{
         padding: 100px 0;
-        height: 100%;
+        height: auto;
     }
 
     .loginpage{
@@ -163,4 +163,7 @@ a{
 }
 
 @media(min-width:767px) {
+    #myFavorites h4{
+        /*font-size: 20px;*/
+    }
 }

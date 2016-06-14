@@ -10,10 +10,21 @@
         var vm=this;
         vm.userId=$routeParams.uid;
         function init(){
-            var popularHotels=HotelListService.findPopularHotels();
-            vm.popularHotels=popularHotels;
-            var highHotels=HotelListService.findHighstarHotels();
-            vm.highHotels=highHotels;
+            HotelListService.findPopularHotels()
+                .then(
+                    function(response){
+                        var popular=response.data;
+                        vm.popularHotels=popular;
+                    }
+                );
+
+            HotelListService.findHighstarHotels()
+                .then(
+                    function(response){
+                        var highstar=response.data;
+                        vm.highHotels=highstar;
+                    }
+                );
         }
         init();
     }

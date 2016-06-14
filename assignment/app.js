@@ -8,4 +8,7 @@ module.exports = function(app) {
     require("./services/website.service.server.js")(app,models);
     require("./services/page.service.server.js")(app,models);
     require("./services/widget.service.server.js")(app,models);
+    require("../project/services/user.service.server")(app,models);
+    require("../project/services/mainpage.service.server.js")(app,models);
+
 };
