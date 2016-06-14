@@ -3,31 +3,31 @@
  */
 // BostonTripApp Controller
 (function(){
-    angular
-        .module("BostonTripApp")
-        .config(Config);
-    function Config($routeProvider){
-        $routeProvider
-            .when(
-                "/login",{
-                    templateUrl:"views/user/login.view.client.html",
-                    controller:"LoginController",
-                    controllerAs:"model"
-        })
-            .when(
-                "/register",{
-                    templateUrl:"views/user/register.view.client.html"
-                })
-            .when(
-                "/",{
-                    templateUrl:"views/user/login.view.client.html",
-                    controller:"LoginController",
-                    controllerAs:"model"
-            })
-            .otherwise({
-                redirectTo:'/'
-            });
-    }
+    // angular
+    //     .module("BostonTripApp")
+    //     .config(Config);
+    // function Config($routeProvider){
+    //     $routeProvider
+    //         .when(
+    //             "/login",{
+    //                 templateUrl:"views/user/login.view.client.html",
+    //                 controller:"LoginController",
+    //                 controllerAs:"model"
+    //     })
+    //         .when(
+    //             "/register",{
+    //                 templateUrl:"views/user/register.view.client.html"
+    //             })
+    //         .when(
+    //             "/",{
+    //                 templateUrl:"views/user/login.view.client.html",
+    //                 controller:"LoginController",
+    //                 controllerAs:"model"
+    //         })
+    //         .otherwise({
+    //             redirectTo:'/'
+    //         });
+    // }
 
 
 // MainPageApp Controller
@@ -38,11 +38,17 @@
     function ConfigMainpage($routeProvider){
         $routeProvider
             .when(
-            "/landingPage",{
+                "/landingPage",{
                     templateUrl:"views/mainpage/landing.view.client.html",
                     controller:"userMainpageController",
                     controllerAs:"model"
             })
+            .when(
+                "/landingPage/:uid",{
+                    templateUrl:"views/mainpage/userLanding.view.client.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
             .when(
                 "/login",{
                     templateUrl:"views/user/login.view.client.html",
@@ -62,23 +68,53 @@
                     controllerAs:"model"
                 })
             .when(
-                "/:uid",{
-                    templateUrl:"views/mainpage/userLanding.view.client.html",
+                "/about",{
+                    templateUrl:"views/about/about.view.visitor.html",
                     controller:"userMainpageController",
                     controllerAs:"model"
                 })
-            // .when(
-            //     "/photos",{
-            //         templateUrl:"views/mainpage/landing.view.client.html",
-            //         controller:"HotelListController",
-            //         controllerAs:"model"
-            //     })
-            // .when(
-            //     ":uid/photos",{
-            //         templateUrl:"views/mainpage/userLanding.view.client.html",
-            //         controller:"HotelListController",
-            //         controllerAs:"model"
-            //     })
+            .when(
+                "/about/:uid",{
+                    templateUrl:"views/about/about.view.user.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/attractions",{
+                    templateUrl:"views/attraction/attraction.view.visitor.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/attractions/:uid",{
+                    templateUrl:"views/attraction/attraction.view.user.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/guide",{
+                    templateUrl:"views/guide/guide.view.visitor.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/guide/:uid",{
+                    templateUrl:"views/guide/guide.view.user.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/live",{
+                    templateUrl:"views/live/live.view.visitor.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/live/:uid",{
+                    templateUrl:"views/live/live.view.user.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
             .when(
                 "/",{
                     templateUrl:"views/mainpage/landing.view.client.html",

@@ -21,7 +21,7 @@
                             vm.error="Unable to login";
                         }
                         else if(user._id){
-                            $location.url("/"+user._id);
+                            $location.url("/landingPage/"+user._id);
                         }
                 },
                     function(error){

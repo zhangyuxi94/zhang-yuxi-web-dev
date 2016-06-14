@@ -3,7 +3,7 @@
         <div class="row navbar-header page-scroll">
             <div class="col-xs-4">
                 <div  class="logo">
-                    <a class="page-scroll" href="#{{model.userId}}">BostonTrip</a>
+                    <a class="page-scroll" href="#/landingPage/{{model.userId}}">BostonTrip</a>
                 </div>
             </div>
             <div class="col-xs-6">
@@ -20,19 +20,19 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li class="hidden">
-                    <a class="page-scroll" href="#page-top"></a>
+                    <a class="page-scroll"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="about/boston.html" style="color: white">About Boston</a>
+                    <a class="page-scroll" href="#about/{{model.userId}}" style="color: white">About Boston</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="attraction/attraction.html" style="color: white">Attractions</a>
+                    <a class="page-scroll" href="#attractions/{{model.userId}}" style="color: white">Attractions</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="guide/guide.html" style="color: white">Travel Guide</a>
+                    <a class="page-scroll" href="#guide/{{model.userId}}" style="color: white">Travel Guide</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="live/live.html" style="color: white">Live and Eat</a>
+                    <a class="page-scroll" href="#live/{{model.userId}}" style="color: white">Live and Eat</a>
                 </li>
             </ul>
         </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="profileDetail row">
                     <div class="col-xs-4 left"><p>Logout:</p></div>
-                    <div class="col-xs-8 right"><a href="#login"><span class="glyphicon glyphicon-log-out" style="color: #de5657"></span></a></div>
+                    <div class="col-xs-8 right"><a href="#landingPage"><span class="glyphicon glyphicon-log-out" style="color: #de5657"></span></a></div>
                 </div>
 
             </div>
