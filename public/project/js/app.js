@@ -3,6 +3,6 @@
  */
 (function () {
    
-    angular.module("BostonTripApp",["ngRoute"]);
+    // angular.module("BostonTripApp",["ngRoute"]);
     angular.module("MainpageApp",["ngRoute",'ngAnimate', 'ui.bootstrap']);
 })();
