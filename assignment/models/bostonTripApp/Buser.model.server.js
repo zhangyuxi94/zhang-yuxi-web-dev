@@ -8,15 +8,22 @@ module.exports=function(){
 
     var api={
         findUserByCredentials:findUserByCredentials,
-        createUser:createUser
+        createUser:createUser,
+        findUserById:findUserById,
+        findUserByEmail:findUserByEmail
     };
     return api;
 
-    // function findUserByCredentials(username, password) {
-    //     return User.findOne({username: username, password: password});
-    // }
-    function findUserByCredentials(){
+    function findUserByCredentials(email, password) {
+        return BUser.findOne({email: email, password: password});
+    }
 
+    function findUserByEmail(username){
+        return BUser.findById({email: username});
+    }
+
+    function findUserById(userId) {
+        return BUser.findById(userId);
     }
 
     function createUser(user){

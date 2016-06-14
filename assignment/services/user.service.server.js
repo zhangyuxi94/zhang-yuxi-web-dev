@@ -52,13 +52,6 @@ module.exports=function(app,models){
                 function (err) {
                     res.statusCode(404).send(err);
                 });
-        // for(var i in users){
-        //     if(users[i].username===username){
-        //         res.send(users[i]);
-        //         return;
-        //     }
-        // }
-        // res.send({});
     }
 
     function findUserById(req,res){

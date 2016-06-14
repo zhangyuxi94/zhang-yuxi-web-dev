@@ -11,8 +11,8 @@
     function UserService($http){
         var api = {
             findUserByCredentials:findUserByCredentials,
-            createUser:createUser
-            // findUserById:findUserById,
+            createUser:createUser,
+            findUserById:findUserById
             // updateUser:updateUser,
             // deleteUser:deleteUser
         };
@@ -44,10 +44,10 @@
         //     return $http.get(url,user);
         // }
 
-        // function findUserById(userId){
-        //     var url="/api/user/"+userId;
-        //     return $http.get(url);
-        // }
+        function findUserById(userId){
+            var url="/BostonTrip/api/user/"+userId;
+            return $http.get(url);
+        }
         //
         // function updateUser(userId,newUser){
         //     var url="/api/user/"+userId;
