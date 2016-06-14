@@ -6,11 +6,11 @@
         .controller("userMainpageController",userMainpageController)
         .controller('TabsDemoCtrl',TabsDemoCtrl);
 
-    function userMainpageController($routeParams,$location,HotelListService){
+    function userMainpageController($routeParams,MainpageService){
         var vm=this;
         vm.userId=$routeParams.uid;
         function init(){
-            HotelListService.findPopularHotels()
+            MainpageService.findPopularHotels()
                 .then(
                     function(response){
                         var popular=response.data;
@@ -18,7 +18,7 @@
                     }
                 );
 
-            HotelListService.findHighstarHotels()
+            MainpageService.findHighstarHotels()
                 .then(
                     function(response){
                         var highstar=response.data;
@@ -26,25 +26,32 @@
                     }
                 );
 
-            HotelListService.findAttractionsRow1()
+            MainpageService.findAttractionsRow1()
                 .then(
                     function(response){
                         var attraction=response.data;
                         vm.attraction1=attraction;
                     }
                 );
-            HotelListService.findAttractionsRow2()
+            MainpageService.findAttractionsRow2()
                 .then(
                     function(response){
                         var attraction=response.data;
                         vm.attraction2=attraction;
                     }
                 );
-            HotelListService.findAttractionsRow3()
+            MainpageService.findAttractionsRow3()
                 .then(
                     function(response){
                         var attraction=response.data;
                         vm.attraction3=attraction;
+                    }
+                );
+            MainpageService.findGuide()
+                .then(
+                    function(response){
+                        var guide=response.data;
+                        vm.guides=guide;
                     }
                 );
         }

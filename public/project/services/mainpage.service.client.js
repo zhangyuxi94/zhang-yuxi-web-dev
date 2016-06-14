@@ -4,14 +4,15 @@
 
 (function(){
     angular.module("MainpageApp")
-        .factory("HotelListService",HotelListService);
-    function HotelListService($http){
+        .factory("MainpageService",MainpageService);
+    function MainpageService($http){
         var api={
             findPopularHotels:findPopularHotels,
             findHighstarHotels:findHighstarHotels,
             findAttractionsRow1:findAttractionsRow1,
             findAttractionsRow2:findAttractionsRow2,
-            findAttractionsRow3:findAttractionsRow3
+            findAttractionsRow3:findAttractionsRow3,
+            findGuide:findGuide
         };
         return api;
 
@@ -33,6 +34,11 @@
         }
         function findAttractionsRow3(){
             var url="/BostonTrip/api/attraction3";
+            return $http.get(url);
+        }
+
+        function findGuide() {
+            var url="/BostonTrip/api/guide";
             return $http.get(url);
         }
     }

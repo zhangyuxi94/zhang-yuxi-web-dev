@@ -164,12 +164,36 @@ module.exports=function(app){
             phone:"617-226-6666"
         }
     ];
+    var guide=[
+        { _id: "1",
+            userName:"Marina K",
+            userPhoto:"./image/marina-k.jpg",
+            image:"./image/guide1.jpg",
+            name: "3 Days in Boston",
+            description:"From loads of history to delicious eating, Boston is packed with 'must-sees'. Here are the highlights that will give you a good taste of Boston in just three days."
+        },
+        { _id: "2",
+            userName:"Vincent M",
+            userPhoto:"./image/vincent-m.jpg",
+            image:"./image/guideoutdoor.jpg",
+            name: "Guide to Boston Outdoors",
+            description:"Hiking, biking, kayaking, walking... Boston is a great city for exploring the great outdoors. Here are some of my favorite 'fresh-air spots' in the city and the surrounding areas."
+        },
+        { _id: "3",
+            userName:"Kevin R",
+            userPhoto:"./image/kevin-r.jpg",
+            image:"./image/guide3.jpg",
+            name: "Afternoon Tour of Boston",
+            description:"Hopefully this guide will help find some cool things to do while in the city for the day and help you see what Boston is all about."
+        }
+    ];
 
     app.get("/BostonTrip/api/popular",findPopularHotels);
     app.get("/BostonTrip/api/highstar",findHighstarHotels);
     app.get("/BostonTrip/api/attraction1",findAttraction1);
     app.get("/BostonTrip/api/attraction2",findAttraction2);
     app.get("/BostonTrip/api/attraction3",findAttraction3);
+    app.get("/BostonTrip/api/guide",findGuide);
 
     function findPopularHotels(req,res){
         res.send(popularHotels);
@@ -187,5 +211,8 @@ module.exports=function(app){
     }
     function findAttraction3(req,res){
         res.send(attraction3);
+    }
+    function findGuide(req,res){
+        res.send(guide);
     }
 };

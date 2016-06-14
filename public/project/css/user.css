@@ -175,6 +175,30 @@ a{
     color: #de5556;
     font-size: 18px;
 }
+#myProfile .allGuides{
+    background-color: #ffffff;
+    margin: 20px 0;
+    padding: 10px;
+    border-bottom: 3px solid #dedede;
+    font-size: 18px;
+
+}
+
+#myProfile .allGuides img{
+    width: 100%;
+}
+
+#myProfile .allGuides h4{
+     font-size: 22px;
+     color: #de5556;
+     font-weight: 600;
+ }
+
+#myProfile .allGuides .author{
+    font-size: 16px;
+    color: #8b8b8b;
+    font-weight: 300;
+}
     /*===================================favorites===================================*/
 #myFavorites{
     height: auto;
