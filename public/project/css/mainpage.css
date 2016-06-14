@@ -172,15 +172,25 @@ html {
 }
 
 .description{
-    font-size: 24px;
+    font-size: 18px;
 }
 
-#mainpage3 .description span{
-    font-size: 30px;
+.description span{
+    font-size: 22px;
     color: #de5556;
 }
 
-/*==================================page4=====================================*/
+@media(min-width:767px){
+    .description{
+        font-size: 24px;
+    }
+    .description span{
+        font-size: 30px;
+        color: #de5556;
+    }
+}
+
+    /*==================================page4=====================================*/
 #mainpage4 {
     height: auto;
     padding: 20px 0 100px 0;
