@@ -194,6 +194,7 @@ module.exports=function(app){
     app.get("/BostonTrip/api/attraction2",findAttraction2);
     app.get("/BostonTrip/api/attraction3",findAttraction3);
     app.get("/BostonTrip/api/guide",findGuide);
+    app.get("/BostonTrip/api/eat1",findEat1);
 
     function findPopularHotels(req,res){
         res.send(popularHotels);
@@ -213,6 +214,9 @@ module.exports=function(app){
         res.send(attraction3);
     }
     function findGuide(req,res){
+        res.send(guide);
+    }
+    function findEat1(req,res){
         res.send(guide);
     }
 };

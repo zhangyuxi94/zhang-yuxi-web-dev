@@ -54,6 +54,13 @@
                         vm.guides=guide;
                     }
                 );
+            MainpageService.findEat1()
+                .then(
+                    function(response){
+                        var eat=response.data;
+                        vm.guides=eat;
+                    }
+                );
         }
         init();
     }

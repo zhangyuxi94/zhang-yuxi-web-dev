@@ -12,7 +12,8 @@
             findAttractionsRow1:findAttractionsRow1,
             findAttractionsRow2:findAttractionsRow2,
             findAttractionsRow3:findAttractionsRow3,
-            findGuide:findGuide
+            findGuide:findGuide,
+            findEat1:findEat1
         };
         return api;
 
@@ -39,6 +40,11 @@
 
         function findGuide() {
             var url="/BostonTrip/api/guide";
+            return $http.get(url);
+        }
+
+        function findEat1() {
+            var url="/BostonTrip/api/eat1";
             return $http.get(url);
         }
     }

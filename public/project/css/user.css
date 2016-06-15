@@ -113,12 +113,12 @@ a{
     margin: 0 auto;
 }
 
-#myProfile{
+.myProfile{
     font-size: 16px;
     /*background-color: white;*/
 }
 
-#myProfile a{
+.myProfile a{
     color: black;
 }
 
@@ -143,7 +143,7 @@ a{
         width: 100px;
     }
 
-    #myProfile{
+    .myProfile{
         font-size: 20px;
     }
 }
@@ -175,7 +175,7 @@ a{
     color: #de5556;
     font-size: 18px;
 }
-#myProfile .allGuides{
+.myProfile .allGuides{
     background-color: #ffffff;
     margin: 20px 0;
     padding: 10px;
@@ -184,17 +184,17 @@ a{
 
 }
 
-#myProfile .allGuides img{
+.myProfile .allGuides img{
     width: 100%;
 }
 
-#myProfile .allGuides h4{
+.myProfile .allGuides h4{
      font-size: 22px;
      color: #de5556;
      font-weight: 600;
  }
 
-#myProfile .allGuides .author{
+.myProfile .allGuides .author{
     font-size: 16px;
     color: #8b8b8b;
     font-weight: 300;
@@ -202,7 +202,7 @@ a{
     /*===================================favorites===================================*/
 #myFavorites{
     height: auto;
-    padding: 20px 0;
+    padding: 20px 0 40px 0;
     background-color: #ffffff;
 }
 
