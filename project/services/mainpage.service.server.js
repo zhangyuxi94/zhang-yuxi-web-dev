@@ -187,6 +187,44 @@ module.exports=function(app){
             description:"Hopefully this guide will help find some cool things to do while in the city for the day and help you see what Boston is all about."
         }
     ];
+    var eat1=[
+        { "_id": "1",
+            "type": "1" ,
+            "image":"./image/eat2.jpg",
+            "name": "Giacomo's Ristorante",
+            "style": "Italian",
+            "price": "$$",
+            "stars":"5",
+            "address":"355 Hanover St."
+        },
+        { "_id": "2",
+            "type": "1" ,
+            "image":"./image/eat3.jpg",
+            "name": "Neptune Oyster",
+            "style": "Seafood",
+            "price": "$$",
+            "stars":"5",
+            "address":"63 Salem St."
+        },
+        { "_id": "3",
+            "type": "1" ,
+            "image":"./image/eat4.jpg",
+            "name": "O Ya",
+            "style": "Japanese",
+            "price": "$$$$",
+            "stars":"5",
+            "address":"9 East St. Pl"
+        },
+        { "_id": "4",
+            "type": "1" ,
+            "image":"./image/eat5.jpg",
+            "name": "James Hook & Co",
+            "style": "Seafood",
+            "price": "$$",
+            "stars":"4",
+            "address":"440 Atlantic Ave"
+        }
+    ];
 
     app.get("/BostonTrip/api/popular",findPopularHotels);
     app.get("/BostonTrip/api/highstar",findHighstarHotels);
@@ -217,6 +255,6 @@ module.exports=function(app){
         res.send(guide);
     }
     function findEat1(req,res){
-        res.send(guide);
+        res.send(eat1);
     }
 };

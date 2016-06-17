@@ -13,17 +13,23 @@
         var vm=this;
         vm.login=login;
         function login(username,password){
-            UserService
-                .login(username,password)
-                .then(function (response) {
-                    var user=response.data;
-                    if(user===null){
-                        vm.alert="Unable to login";
-                    }
-                    else if(user._id){
-                        $location.url("/user/"+user._id);
-                    }
-            });
+            if(username==null||password==null){
+                vm.alert="Please check your input!";
+            }else{
+                UserService
+                    .login(username,password)
+                    .then(function (response) {
+                        var user=response.data;
+                        if(user==="404"){
+                            vm.alert="Username and password not match!";
+                        }
+                        else if(user._id){
+                            $location.url("/user/"+user._id);
+                        }
+                    });
+            }
+
+
         }
     }
 
@@ -64,14 +70,26 @@
                     );
             }
 
+            vm.logout=logout;
+            function logout(){
+                UserService
+                    .logout()
+                    .then(
+                        function(response){
+                            $location.url("/login");
+                        },
+                        function(response){
+                            $location.url("/login");
+                        }
+                    )
+            }
         }
         init();
 
 
     }
 
-
-    function RegisterController($location,UserService){
+    function RegisterController($location,UserService) {
         var vm=this;
         vm.register=register;
         function register(user,password,verifypassword){
@@ -81,7 +99,7 @@
                 vm.alert="Password not match!"
             }else{
                 UserService
-                        .createUser(user,password,verifypassword)
+                        .register(user,password,verifypassword)
                         .then(
                             function(response){
                                 var user=response.data;
@@ -90,7 +108,7 @@
                                 }
                             },
                             function(error){
-                                vm.alert="Please recheck!"
+                                vm.alert=error.data;
                             }
                         );
             }

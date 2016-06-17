@@ -12,17 +12,38 @@
             updateUser:updateUser,
             createUser:createUser,
             deleteUser:deleteUser,
-            login:login
+            login:login,
+            logout:logout,
+            register:register,
+            loggedIn:loggedIn
         };
         return api;
+
+        function loggedIn(){
+            return $http.get("/api/loggedIn");
+        }
 
         function login(username,password){
             var user={
                 username:username,
                 password:password
             };
-            return $http.post("/api/login",user);
+            if(user.username&&user.password){
+                return $http.post("/api/login",user);
+            }
+        }
 
+        function logout(){
+            return $http.post("/api/logout");
+        }
+
+        function register(username,password,verifyPassword){
+            var user={
+                username:username,
+                password:password,
+                verifyPassword:verifyPassword
+            };
+            return $http.post("/api/register",user);
         }
         function findUserByCredentials(username,password){
             var url="/api/user?username="+username+"&password="+password;

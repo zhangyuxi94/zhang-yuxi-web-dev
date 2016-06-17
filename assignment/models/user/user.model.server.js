@@ -29,7 +29,7 @@ return api;
     }
 
     function findUserByUsername(username){
-        return User.findById({username: username});
+        return User.findOne({username: username});
     }
 
     function createUser(user){

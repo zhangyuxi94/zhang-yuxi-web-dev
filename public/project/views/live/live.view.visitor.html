@@ -49,7 +49,7 @@
                     <div></div>
                 </div>
                 <div class="row detailShow">
-                    <div class="col-sm-3" ng-repeat="attraction in model.attraction1">
+                    <div class="col-sm-3" ng-repeat="eat in model.eats">
                         <div class="jga-widget-tool">
                             <a href="#login">
                                 <span class="glyphicon glyphicon-heart"></span>
@@ -57,9 +57,11 @@
                         </div>
                         <a href="#/attractions/{{attraction._id}}">
                             <div class="thumbnail">
-                                <img ng-src={{attraction.image}}>
+                                <img ng-src={{eat.image}}>
                                 <div class="caption">
-                                    <h5>{{attraction.rank}}. {{attraction.name}}</h5>
+                                    <h5>{{eat.name}}</h5>
+                                    <p><span>{{eat.price}}</span> | <span>{{eat.stars}} stars</span></p>
+                                    <p>{{eat.address}}</p>
                                 </div>
                             </div>
                         </a>

@@ -58,7 +58,7 @@
                 .then(
                     function(response){
                         var eat=response.data;
-                        vm.guides=eat;
+                        vm.eats=eat;
                     }
                 );
         }
