@@ -28,15 +28,14 @@ module.exports=function(app,models){
             .findUserByUsername(username)
             .then(
                 function(user) {
+                    if (!user) {
+                        return done(null, "400");
+                    }
                     if(user.username===username&&bcrypt.compareSync(password, user.password)) {
                         return done(null, user);
-                    } else {
-                        return done(null, "404");
                     }
-                },
-                function(err) {
-                    if(err){
-                        return done(err);
+                    else {
+                        return done(null, "404");
                     }
                 }
             );
@@ -63,10 +62,12 @@ module.exports=function(app,models){
         var user=req.user;
         if(user!=="404"){
             res.json(user);
-
         }
         else if(user==="404"){
                 res.send("404")
+        }
+        else if(user==="400"){
+            res.send("400")
         }
     }
 

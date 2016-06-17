@@ -23,6 +23,9 @@
                         if(user==="404"){
                             vm.alert="Username and password not match!";
                         }
+                        else if(user==="400"){
+                            vm.alert="Username not found!";
+                        }
                         else if(user._id){
                             $location.url("/user/"+user._id);
                         }
