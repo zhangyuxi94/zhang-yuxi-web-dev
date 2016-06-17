@@ -3,12 +3,14 @@
  */
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 
 
 module.exports=function(app,models){
     var userModel=models.userModel;
 
+    app.get("/auth/facebook",passport.authenticate('facebook'));
     app.get("/api/user",getUsers);
     app.get("/api/user/:userId",findUserById);
     app.get("/api/loggedIn",loggedIn);
@@ -22,6 +24,13 @@ module.exports=function(app,models){
     passport.use('assignment',new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
+
+    var facebookConfig = {
+        clientID     : process.env.FACEBOOK_CLIENT_ID,
+        clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+        callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+    };
+    passport.use('facebook',new FacebookStrategy(facebookConfig,facebookLogin));
 
     function localStrategy(username, password, done) {
         userModel
@@ -69,6 +78,11 @@ module.exports=function(app,models){
         else if(user==="400"){
             res.send("400")
         }
+    }
+
+    function facebookLogin(req,res){
+        res.send(200);
+
     }
 
     function loggedIn(req,res){
