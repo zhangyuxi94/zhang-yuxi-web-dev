@@ -28,7 +28,16 @@
                 controller:"RegisterController",
                 controllerAs:"model"
             })
-            .when("/user/:uid", {
+            .when("/user", {
+                templateUrl: "views/user/profile.view.client.html",
+                controller:"ProfileController",
+                controllerAs:"model",
+                resolve:{
+                    loggedIn:checkloggedIn
+                }
+            })
+
+            .when("/facebookSuccess", {
                 templateUrl: "views/user/profile.view.client.html",
                 controller:"ProfileController",
                 controllerAs:"model",
@@ -95,18 +104,19 @@
                 redirectTo:'/'
             });
 
-        function checkloggedIn(UserService,$location,$q){
+        function checkloggedIn(UserService,$location,$q,$rootScope){
             var deferred=$q.defer();
             UserService
                 .loggedIn()
                 .then(
                     function(response){
                         var user=response.data;
-                        // console.log(user);
                         if(user=='0'){
+                            $rootScope.currentUser=null;
                             deferred.reject();
                             $location.url("/login");
                         }else{
+                            $rootScope.currentUser=user;
                             deferred.resolve();
                         }
                     },

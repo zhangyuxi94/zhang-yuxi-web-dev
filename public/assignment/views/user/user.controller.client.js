@@ -28,18 +28,16 @@
                         }
                         else if(user._id){
                             $rootScope.currentUser = user;
-                            $location.url("/user/"+user._id);
+                            $location.url("/user");
                         }
                     });
             }
-
-
         }
     }
 
     function ProfileController($location,$routeParams,UserService,$rootScope){
         var vm=this;
-        var userId=$routeParams.uid;
+        var userId=$rootScope.currentUser._id;
         function init(){
             UserService
                 .findUserById(userId)
@@ -104,7 +102,7 @@
                             function(response){
                                 var user=response.data;
                                 if(user){
-                                    $location.url("/user/"+user._id);
+                                    $location.url("/user");
                                 }
                             },
                             function(error){

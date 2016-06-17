@@ -11,6 +11,10 @@ module.exports=function(app,models){
     var userModel=models.userModel;
 
     app.get("/auth/facebook",passport.authenticate('facebook'));
+    app.get("/auth/facebook/callback", passport.authenticate('facebook', {
+        successRedirect: '/assignment/#/user',
+        failureRedirect: '/assignment/#/login'
+    }));
     app.get("/api/user",getUsers);
     app.get("/api/user/:userId",findUserById);
     app.get("/api/loggedIn",loggedIn);
@@ -81,9 +85,34 @@ module.exports=function(app,models){
         }
     }
 
-    function facebookLogin(req,res){
-        res.send(200);
+    function facebookLogin(token, refreshToken, profile, done){
+        userModel
+            .findFacebookUser(profile.id)
+            .then(
+                function(facebookUser){
 
+                    if(facebookUser){
+                        return done(null,facebookUser);
+                    }
+                    else{
+                        facebookUser={
+                            username:profile.displayName.replace(/ /g,''),
+                            facebook:{
+                                token:token,
+                                id:profile.id,
+                                displayName:profile.displayName
+                            }
+                        };
+                        userModel
+                            .createUser(facebookUser)
+                            .then(
+                                function(user) {
+                                    done(null, user);
+                                }
+                            );
+                    }
+                }
+            );
     }
 
     function loggedIn(req,res){
