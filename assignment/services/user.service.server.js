@@ -26,12 +26,12 @@ module.exports=function(app,models){
     passport.deserializeUser(deserializeUser);
 
     var facebookConfig = {
-        clientID     : process.env.FACEBOOK_CLIENT_ID,
-        clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+        clientID     : "301460686858797",
+        clientSecret : "512650dc75de693ed05f8dbb48ff2bb1",
+        callbackURL  : "http://127.0.0.1:8080/auth/facebook/callback"
     };
     passport.use('facebook',new FacebookStrategy(facebookConfig,facebookLogin));
-    
+
 
     function localStrategy(username, password, done) {
         userModel
