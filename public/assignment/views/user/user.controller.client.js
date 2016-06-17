@@ -9,7 +9,7 @@
         .controller("RegisterController",RegisterController)
         .controller("ProfileController",ProfileController);
 
-    function LoginController($location,UserService){
+    function LoginController($location,UserService,$rootScope){
         var vm=this;
         vm.login=login;
         function login(username,password){
@@ -27,6 +27,7 @@
                             vm.alert="Username not found!";
                         }
                         else if(user._id){
+                            $rootScope.currentUser = user;
                             $location.url("/user/"+user._id);
                         }
                     });
@@ -36,7 +37,7 @@
         }
     }
 
-    function ProfileController($location,$routeParams,UserService){
+    function ProfileController($location,$routeParams,UserService,$rootScope){
         var vm=this;
         var userId=$routeParams.uid;
         function init(){
@@ -79,17 +80,13 @@
                     .logout()
                     .then(
                         function(response){
-                            $location.url("/login");
-                        },
-                        function(response){
+                            $rootScope.currentUser = null;
                             $location.url("/login");
                         }
                     )
             }
         }
         init();
-
-
     }
 
     function RegisterController($location,UserService) {
