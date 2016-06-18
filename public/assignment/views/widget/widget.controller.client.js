@@ -106,7 +106,7 @@
                 $location.url("/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
             }
         }
-        init();
+        init(); 
     }
 
     function EditWidgetController($location,$routeParams,WidgetService) {
