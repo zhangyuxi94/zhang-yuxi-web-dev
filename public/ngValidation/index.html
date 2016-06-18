@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="validationApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="validationController as model">
+<h1>test</h1>
+    <div class="alert alert-danger" ng-show="myForm.$invalid&&myForm.$submitted">
+        There are errors in the form
+    </div>
+    <form name="myForm" novalidate>
+        <input name="email"
+               type="email"
+               ng-model="email"
+               class="form-control"
+               placeholder="email"
+               required
+        >
+        <span ng-show="myForm.$submitted&&myForm.email.$invalid">Please enter a valid email</span>
+        <input name="age"
+               ng-model="age"
+               min="0" max="200"
+               id="age"
+               type="number"
+               placeholder="age"
+               class="form-control">
+        <span ng-show="myForm.age.$viewValue<0">
+            Age can't be negative
+        </span>
+        <span ng-show="myForm.age.$viewValue>200">
+            Good!
+        </span>
+        <button type="submit" class="btn btn-success btn-block">
+            Submit
+        </button>
+    </form>
+</div>
+
+</body>
+</html>

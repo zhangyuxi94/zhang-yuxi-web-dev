@@ -90,7 +90,6 @@ module.exports=function(app,models){
             .findFacebookUser(profile.id)
             .then(
                 function(facebookUser){
-
                     if(facebookUser){
                         return done(null,facebookUser);
                     }
