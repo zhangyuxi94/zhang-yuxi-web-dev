@@ -47,6 +47,13 @@
                         vm.eats=eat;
                     }
                 );
+            MainpageService.findHotels()
+                .then(
+                    function(response){
+                        var hotels=response.data;
+                        vm.hotels=hotels;
+                    }
+                );
         }
         init();
     }

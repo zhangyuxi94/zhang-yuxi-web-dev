@@ -184,7 +184,7 @@
             <uib-tab index="0" heading="Most Popular">
                 <div class="hotelbackground">
                     <div class="row">
-                        <div class="col-sm-3" ng-repeat="popular in model.popularHotels">
+                        <div class="col-sm-3" ng-repeat="popular in model.hotels|filter:{type:1}">
                             <a href="#">
                                 <div class="thumbnail">
                                     <img ng-src={{popular.image}}>
@@ -202,7 +202,7 @@
             <uib-tab index="1" heading="4 stars and higher">
                 <div class="hotelbackground">
                     <div class="row">
-                        <div class="col-sm-3" ng-repeat="popular in model.highHotels">
+                        <div class="col-sm-3" ng-repeat="popular in model.hotels|filter:{type:2}">
                             <a href="#">
                                 <div class="thumbnail">
                                     <img ng-src={{popular.image}}>
@@ -220,7 +220,7 @@
             <uib-tab index="2" heading="3 stars and lower">
                 <div class="hotelbackground">
                     <div class="row">
-                        <div class="col-sm-3" ng-repeat="popular in model.popularHotels">
+                        <div class="col-sm-3" ng-repeat="popular in model.hotels|filter:{type:3}">
                             <a href="#">
                                 <div class="thumbnail">
                                     <img ng-src={{popular.image}}>

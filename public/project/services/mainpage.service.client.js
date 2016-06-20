@@ -11,7 +11,8 @@
             findHighstarHotels:findHighstarHotels,
             findAttractions:findAttractions,
             findGuide:findGuide,
-            findEat:findEat
+            findEat:findEat,
+            findHotels:findHotels
         };
         return api;
 
@@ -34,6 +35,11 @@
 
         function findEat() {
             var url="/BostonTrip/api/eat";
+            return $http.get(url);
+        }
+
+        function findHotels() {
+            var url="/BostonTrip/api/hotels";
             return $http.get(url);
         }
     }

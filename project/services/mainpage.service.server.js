@@ -70,7 +70,6 @@ module.exports=function(app){
             "stars":"5",
             "address":"138 Saint James Avenue, Back Bay"
         }
-
     ];
     var attraction=[
         { _id: "1",
@@ -305,12 +304,115 @@ module.exports=function(app){
             "address":"1437 Tremont St."
         }
     ];
+    var hotels=[
+        { "_id": "1",
+            "type": "1" ,
+            "image":"./image/hotel1.jpg",
+            "name": "The Godfrey Hotel Boston",
+            "price": "509",
+            "stars":"4",
+            "address":"505 Washington Street, Theater District"
+        },
+        { "_id": "2",
+            "type": "1" ,
+            "image":"./image/hotel2.jpg",
+            "name": "DoubleTree Suites by Hilton",
+            "price": "167",
+            "stars":"3",
+            "address":"400 Soldier Field Road, Allston"
+        },
+        { "_id": "3",
+            "type": "1" ,
+            "image":"./image/hotel3.jpg",
+            "name": "Residence Inn Back Bay",
+            "price": "441",
+            "stars":"3",
+            "address":"125 Brookline Avenue, Fenway Kenmore"
+        },
+        { "_id": "4",
+            "type": "1" ,
+            "image":"./image/hotel4.jpg",
+            "name": "Harborside Inn",
+            "price": "309",
+            "stars":"3",
+            "address":"185 State Street, Financial District"
+        },
+        { "_id": "5",
+            "type": "2" ,
+            "image":"./image/hotel2-1.jpg",
+            "name": "The Eliot Suite Hotel",
+            "price": "485",
+            "stars":"5",
+            "address":"370 Commonwealth Avenue, Back Bay"
+        },
+        { "_id": "6",
+            "type": "2" ,
+            "image":"./image/hotel2-2.jpg",
+            "name": "Battery Wharf Hotel, Boston Waterfront",
+            "price": "429",
+            "stars":"5",
+            "address":"3 Battery Wharf, Waterfront"
+        },
+        { "_id": "7",
+            "type": "2" ,
+            "image":"./image/hotel2-3.jpg",
+            "name": "Four Seasons Boston",
+            "price": "795",
+            "stars":"5",
+            "address":"200 Boylston Street"
+        },
+        { "_id": "8",
+            "type": "2" ,
+            "image":"./image/hotel2-4.jpg",
+            "name": "Fairmont Copley Plaza",
+            "price": "512",
+            "stars":"5",
+            "address":"138 Saint James Avenue, Back Bay"
+        },
+        { "_id": "9",
+            "type": "3" ,
+            "image":"./image/hotel3-1.jpg",
+            "name": "Boston Hotel Buckminster",
+            "price": "200",
+            "stars":"3",
+            "address":"645 Beacon Street, Fenway Kenmore",
+            "url":"http://www.booking.com/hotel/us/buckminster.zh-cn.html?aid=304142;label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=7679301_88767979_0_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X2;type=total;ucfs=1&"
+        },
+        { "_id": "10",
+            "type": "3" ,
+            "image":"./image/hotel3-2.jpg",
+            "name": "Hotel 140",
+            "price": "219",
+            "stars":"3",
+            "address":"140 Clarendon Street, Back Bay",
+            "url":"http://www.booking.com/hotel/us/140.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24&checkout=2016-06-25&dest_id=20061717&dest_type=city&group_adults=2&highlighted_blocks=18113101_88895135_0_0_0&nflt=class%3D3&room1=A%2CA&sb_price_type=total&srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X1&type=total&ucfs=1&"
+        },
+        { "_id": "11",
+            "type": "3" ,
+            "image":"./image/hotel2.jpg",
+            "name": "DoubleTree Suites by Hilton",
+            "price": "167",
+            "stars":"3",
+            "address":"400 Soldier Field Road, Allston",
+            "url":"http://www.booking.com/hotel/us/doubletree-guest-suites-boston.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=2876502_487555_2_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X5;type=total;ucfs=1&"
+        },
+        { "_id": "12",
+            "type": "3" ,
+            "image":"./image/hotel3-4.jpg",
+            "name": "The Verb Hotel",
+            "price": "179",
+            "stars":"3",
+            "address":"1271 Boylston Street, Fenway Kenmore",
+            "url":"http://www.booking.com/hotel/us/doubletree-guest-suites-boston.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=2876502_487555_2_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X5;type=total;ucfs=1&"
+        }
+    ];
 
     app.get("/BostonTrip/api/popular",findPopularHotels);
     app.get("/BostonTrip/api/highstar",findHighstarHotels);
     app.get("/BostonTrip/api/attraction",findAttraction);
     app.get("/BostonTrip/api/guide",findGuide);
     app.get("/BostonTrip/api/eat",findEat);
+    app.get("/BostonTrip/api/hotels",findHotels);
 
     function findPopularHotels(req,res){
         res.send(popularHotels);
@@ -328,5 +430,8 @@ module.exports=function(app){
     }
     function findEat(req,res){
         res.send(eat);
+    }
+    function findHotels(req,res){
+        res.send(hotels);
     }
 };
