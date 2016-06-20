@@ -288,9 +288,6 @@ html {
 
 #mainpage5 .caption h3{
     font-size: 20px;
-}
-#mainpage5 .caption h4{
-    font-size: 18px;
     font-weight: 700;
     color: #de5556;
 }
@@ -299,10 +296,14 @@ html {
     color: #feba04;
 }
 
-#mainpage5 .caption p{
-    font-size: 14px;
+
+#mainpage5 .eat .caption .stars{
+    color: #feba04;
 }
 
+#mainpage5 .eat .caption span{
+    font-size: 18px;
+}
 
 #mainpage5 .thumbnail{
     border: 0;

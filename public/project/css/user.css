@@ -161,6 +161,14 @@ a{
     font-size: 14px;
 }
 
+.detailShow .thumbnail span{
+    font-size: 18px;
+}
+
+.detailShow .stars{
+    color: #feba04;
+}
+
 .jga-widget-tool {
     position: absolute;
     right: 15px;
@@ -199,6 +207,8 @@ a{
     color: #8b8b8b;
     font-weight: 300;
 }
+
+
     /*===================================favorites===================================*/
 #myFavorites{
     height: auto;
