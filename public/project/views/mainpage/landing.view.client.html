@@ -54,7 +54,7 @@
     </div>
     <div class="container">
         <div class="row detailShow">
-            <div class="col-sm-3" ng-repeat="attraction in model.attraction1">
+            <div class="col-sm-3" ng-repeat="attraction in model.attraction|filter:{type:1}">
                 <div class="jga-widget-tool">
                     <a href="#login">
                         <span class="glyphicon glyphicon-heart"></span>

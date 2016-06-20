@@ -26,25 +26,11 @@
                     }
                 );
 
-            MainpageService.findAttractionsRow1()
+            MainpageService.findAttractions()
                 .then(
                     function(response){
                         var attraction=response.data;
-                        vm.attraction1=attraction;
-                    }
-                );
-            MainpageService.findAttractionsRow2()
-                .then(
-                    function(response){
-                        var attraction=response.data;
-                        vm.attraction2=attraction;
-                    }
-                );
-            MainpageService.findAttractionsRow3()
-                .then(
-                    function(response){
-                        var attraction=response.data;
-                        vm.attraction3=attraction;
+                        vm.attraction=attraction;
                     }
                 );
             MainpageService.findGuide()
@@ -54,7 +40,7 @@
                         vm.guides=guide;
                     }
                 );
-            MainpageService.findEat1()
+            MainpageService.findEat()
                 .then(
                     function(response){
                         var eat=response.data;

@@ -72,8 +72,9 @@ module.exports=function(app){
         }
 
     ];
-    var attraction1=[
+    var attraction=[
         { _id: "1",
+            type:"1",
             image:"./image/1harvard.jpg",
             name: "Harvard University",
             rank:"1",
@@ -81,6 +82,7 @@ module.exports=function(app){
             official:"http://www.harvard.edu/visitors/tours"
         },
         { _id: "2",
+            type:"1",
             image:"./image/2freedom.png",
             name: "Freedom Trial",
             rank:"2",
@@ -88,6 +90,7 @@ module.exports=function(app){
             official:"http://www.thefreedomtrail.org/"
         },
         { _id: "3",
+            type:"1",
             image:"./image/3mit.jpg",
             name: "MIT",
             rank:"3",
@@ -95,21 +98,22 @@ module.exports=function(app){
             official:"http://web.mit.edu/"
         },
         { _id: "4",
+            type:"1",
             image:"./image/4Quincy.jpg",
             name: "Quincy Market",
             rank:"4",
             address:"4 South Market Street, Boston, MA",
             official:"http://www.quincy-market.com"
-        }
-    ];
-    var attraction2=[
+        },
         { _id: "5",
+            type:"2",
             image:"./image/5charlesriver.jpg",
             name: "Charles River",
             rank:"5",
             address:"Beacon St & Arlington St, Boston, MA"
         },
         { _id: "6",
+            type:"2",
             image:"./image/6trinity.jpg",
             name: "Trinity Church",
             rank:"6",
@@ -118,6 +122,7 @@ module.exports=function(app){
             phone:"617-536-0944"
         },
         { _id: "7",
+            type:"2",
             image:"./image/7library.jpg",
             name: "Boston Public Library",
             rank:"7",
@@ -126,16 +131,16 @@ module.exports=function(app){
             phone:"617-536-5400"
         },
         { _id: "8",
+            type:"2",
             image:"./image/8MFA.jpg",
             name: "Museum of Fine Arts",
             rank:"8",
             address:"465 Huntington Avenue, Boston, MA",
             official:"http://www.mfa.org/",
             phone:"617-267-9300"
-        }
-    ];
-    var attraction3=[
+        },
         { _id: "9",
+            type:"3",
             image:"./image/9bostonCommon.jpg",
             name: "Boston Common",
             rank:"9",
@@ -143,12 +148,14 @@ module.exports=function(app){
             official:"http://www.cityofboston.gov/freedomtrail/bostoncommon.asp"
         },
         { _id: "10",
+            type:"3",
             image:"./image/10copley.jpeg",
             name: "Copley Square",
             rank:"10",
             address:"Copley Square, Huntington Avenue, Boston, MA"
         },
         { _id: "11",
+            type:"3",
             image:"./image/11prudential.jpg",
             name: "Prudential Tower",
             rank:"11",
@@ -156,6 +163,7 @@ module.exports=function(app){
             official:"http://www.prudentialcenter.com/"
         },
         { _id: "12",
+            type:"3",
             image:"./image/4fenway.jpg",
             name: "Fenway Park",
             rank:"12",
@@ -187,7 +195,7 @@ module.exports=function(app){
             description:"Hopefully this guide will help find some cool things to do while in the city for the day and help you see what Boston is all about."
         }
     ];
-    var eat1=[
+    var eat=[
         { "_id": "1",
             "type": "1" ,
             "image":"./image/eat2.jpg",
@@ -223,16 +231,50 @@ module.exports=function(app){
             "price": "$$",
             "stars":"4",
             "address":"440 Atlantic Ave"
+        },
+        { "_id": "1",
+            "type": "2" ,
+            "image":"./image/eat2.jpg",
+            "name": "Giacomo's Ristorante",
+            "style": "Italian",
+            "price": "$$",
+            "stars":"5",
+            "address":"355 Hanover St."
+        },
+        { "_id": "2",
+            "type": "2" ,
+            "image":"./image/eat3.jpg",
+            "name": "Neptune Oyster",
+            "style": "Seafood",
+            "price": "$$",
+            "stars":"5",
+            "address":"63 Salem St."
+        },
+        { "_id": "3",
+            "type": "2" ,
+            "image":"./image/eat4.jpg",
+            "name": "O Ya",
+            "style": "Japanese",
+            "price": "$$$$",
+            "stars":"5",
+            "address":"9 East St. Pl"
+        },
+        { "_id": "4",
+            "type": "2" ,
+            "image":"./image/eat5.jpg",
+            "name": "James Hook & Co",
+            "style": "Seafood",
+            "price": "$$",
+            "stars":"4",
+            "address":"440 Atlantic Ave"
         }
     ];
 
     app.get("/BostonTrip/api/popular",findPopularHotels);
     app.get("/BostonTrip/api/highstar",findHighstarHotels);
-    app.get("/BostonTrip/api/attraction1",findAttraction1);
-    app.get("/BostonTrip/api/attraction2",findAttraction2);
-    app.get("/BostonTrip/api/attraction3",findAttraction3);
+    app.get("/BostonTrip/api/attraction",findAttraction);
     app.get("/BostonTrip/api/guide",findGuide);
-    app.get("/BostonTrip/api/eat1",findEat1);
+    app.get("/BostonTrip/api/eat",findEat);
 
     function findPopularHotels(req,res){
         res.send(popularHotels);
@@ -242,19 +284,13 @@ module.exports=function(app){
         res.send(highstarHotels);
     }
 
-    function findAttraction1(req,res){
-        res.send(attraction1);
-    }
-    function findAttraction2(req,res){
-        res.send(attraction2);
-    }
-    function findAttraction3(req,res){
-        res.send(attraction3);
+    function findAttraction(req,res){
+        res.send(attraction);
     }
     function findGuide(req,res){
         res.send(guide);
     }
-    function findEat1(req,res){
-        res.send(eat1);
+    function findEat(req,res){
+        res.send(eat);
     }
 };
