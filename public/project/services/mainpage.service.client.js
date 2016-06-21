@@ -7,23 +7,14 @@
         .factory("MainpageService",MainpageService);
     function MainpageService($http){
         var api={
-            findPopularHotels:findPopularHotels,
-            findHighstarHotels:findHighstarHotels,
             findAttractions:findAttractions,
             findGuide:findGuide,
             findEat:findEat,
-            findHotels:findHotels
+            findHotels:findHotels,
+            findAttractionsById:findAttractionsById
         };
         return api;
-
-        function findPopularHotels(){
-            var url="/BostonTrip/api/popular";
-            return $http.get(url);
-        }
-        function findHighstarHotels(){
-            var url="/BostonTrip/api/highstar";
-            return $http.get(url);
-      }
+        
         function findAttractions(){
             var url="/BostonTrip/api/attraction";
             return $http.get(url);
@@ -35,6 +26,11 @@
 
         function findEat() {
             var url="/BostonTrip/api/eat";
+            return $http.get(url);
+        }
+
+        function findAttractionsById(attractionId){
+            var url="/BostonTrip/api/attraction/"+attractionId;
             return $http.get(url);
         }
 

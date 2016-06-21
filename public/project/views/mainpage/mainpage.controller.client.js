@@ -9,28 +9,22 @@
     function userMainpageController($routeParams,MainpageService){
         var vm=this;
         vm.userId=$routeParams.uid;
+        vm.attractionId=$routeParams.aid;
         function init(){
-            MainpageService.findPopularHotels()
-                .then(
-                    function(response){
-                        var popular=response.data;
-                        vm.popularHotels=popular;
-                    }
-                );
-
-            MainpageService.findHighstarHotels()
-                .then(
-                    function(response){
-                        var highstar=response.data;
-                        vm.highHotels=highstar;
-                    }
-                );
+            var attractionId=$routeParams.aid;
 
             MainpageService.findAttractions()
                 .then(
                     function(response){
                         var attraction=response.data;
                         vm.attraction=attraction;
+                    }
+                );
+            MainpageService.findAttractionsById(attractionId)
+                .then(
+                    function(response){
+                        var attraction=response.data;
+                        vm.eachAttraction=attraction;
                     }
                 );
             MainpageService.findGuide()

@@ -169,6 +169,14 @@ a{
     color: #feba04;
 }
 
+.attractionPhoto img{
+    width: 100%;
+}
+
+.attractionDescribe span{
+    color: #de5556;
+}
+
 .jga-widget-tool {
     position: absolute;
     right: 15px;

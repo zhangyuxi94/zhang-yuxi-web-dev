@@ -1,36 +1,7 @@
 /**
  * Created by zhangyuxi on 2016/5/26.
  */
-// BostonTripApp Controller
 (function(){
-    // angular
-    //     .module("BostonTripApp")
-    //     .config(Config);
-    // function Config($routeProvider){
-    //     $routeProvider
-    //         .when(
-    //             "/login",{
-    //                 templateUrl:"views/user/login.view.client.html",
-    //                 controller:"LoginController",
-    //                 controllerAs:"model"
-    //     })
-    //         .when(
-    //             "/register",{
-    //                 templateUrl:"views/user/register.view.client.html"
-    //             })
-    //         .when(
-    //             "/",{
-    //                 templateUrl:"views/user/login.view.client.html",
-    //                 controller:"LoginController",
-    //                 controllerAs:"model"
-    //         })
-    //         .otherwise({
-    //             redirectTo:'/'
-    //         });
-    // }
-
-
-// MainPageApp Controller
     angular
         .module("MainpageApp")
         .config(ConfigMainpage);
@@ -79,6 +50,7 @@
                     controller:"userMainpageController",
                     controllerAs:"model"
                 })
+
             .when(
                 "/attractions",{
                     templateUrl:"views/attraction/attraction.view.visitor.html",
@@ -91,6 +63,19 @@
                     controller:"userMainpageController",
                     controllerAs:"model"
                 })
+            .when(
+                "/attractions/:aid",{
+                    templateUrl:"views/attraction/eachAttraction.view.visitor.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/:uid/attractions/:aid",{
+                    templateUrl:"views/attraction/eachAttraction.view.user.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+
             .when(
                 "/guide",{
                     templateUrl:"views/guide/guide.view.visitor.html",

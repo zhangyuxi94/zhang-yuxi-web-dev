@@ -2,83 +2,16 @@
  * Created by zhangyuxi on 2016/6/13.
  */
 module.exports=function(app){
-    var popularHotels=[
-        { "_id": "1",
-            "type": "1" ,
-            "image":"./image/hotel1.jpg",
-            "name": "The Godfrey Hotel Boston",
-            "price": "509",
-            "stars":"4",
-            "address":"505 Washington Street, Theater District"
-        },
-        { "_id": "2",
-            "type": "1" ,
-            "image":"./image/hotel2.jpg",
-            "name": "DoubleTree Suites by Hilton",
-            "price": "369",
-            "stars":"3",
-            "address":"400 Soldier Field Road, Allston"
-        },
-        { "_id": "3",
-            "type": "1" ,
-            "image":"./image/hotel3.jpg",
-            "name": "Residence Inn Back Bay",
-            "price": "441",
-            "stars":"3",
-            "address":"125 Brookline Avenue, Fenway Kenmore"
-        },
-        { "_id": "4",
-            "type": "1" ,
-            "image":"./image/hotel4.jpg",
-            "name": "Harborside Inn",
-            "price": "309",
-            "stars":"3",
-            "address":"185 State Street, Financial District"
-        }
-
-    ];
-    var highstarHotels=[
-        { "_id": "5",
-            "type": "2" ,
-            "image":"./image/hotel2-1.jpg",
-            "name": "The Eliot Suite Hotel",
-            "price": "485",
-            "stars":"5",
-            "address":"370 Commonwealth Avenue, Back Bay"
-        },
-        { "_id": "6",
-            "type": "2" ,
-            "image":"./image/hotel2-2.jpg",
-            "name": "Battery Wharf Hotel, Boston Waterfront",
-            "price": "429",
-            "stars":"5",
-            "address":"3 Battery Wharf, Waterfront"
-        },
-        { "_id": "7",
-            "type": "2" ,
-            "image":"./image/hotel2-3.jpg",
-            "name": "Four Seasons Boston",
-            "price": "795",
-            "stars":"5",
-            "address":"200 Boylston Street"
-        },
-        { "_id": "8",
-            "type": "2" ,
-            "image":"./image/hotel2-4.jpg",
-            "name": "Fairmont Copley Plaza",
-            "price": "512",
-            "stars":"5",
-            "address":"138 Saint James Avenue, Back Bay"
-        }
-    ];
     var attraction=[
         { _id: "1",
             type:"1",
             image:"./image/1harvard.jpg",
             name: "Harvard University",
             rank:"1",
-            address:"Harvard Yard Cambridge, MA",
-            official:"http://www.harvard.edu/visitors/tours"
+            address:"1350 Massachusetts Ave, Cambridge, MA",
+            official:"http://www.harvard.edu/visitors/tours",
+            phone:"617-495-9400",
+            description:"Harvard University is a private research university in Cambridge, Massachusetts (US), established 1636, whose history, influence and wealth have made it one of the world's most prestigious universities."
         },
         { _id: "2",
             type:"1",
@@ -86,7 +19,9 @@ module.exports=function(app){
             name: "Freedom Trial",
             rank:"2",
             address:"Charles Street, Boston, MA",
-            official:"http://www.thefreedomtrail.org/"
+            official:"http://www.thefreedomtrail.org/",
+            phone:"617-357-8300",
+            description:"Freedom Trail, a 2.5-mile, red-lined route that leads you to 16 historically significant sites — each one an authentic treasure. Explore museums and meetinghouses, churches, and burying grounds. Learn about the brave people who shaped our nation. Discover the rich history of the American Revolution, as it began in Boston, where every step tells a story."
         },
         { _id: "3",
             type:"1",
@@ -94,7 +29,9 @@ module.exports=function(app){
             name: "MIT",
             rank:"3",
             address:"Massachusetts Avenue Cambridge, MA",
-            official:"http://web.mit.edu/"
+            official:"http://web.mit.edu/",
+            phone:"617-253-1000",
+            description:"The Massachusetts Institute of Technology is an independent, coeducational, privately endowed university committed to the extension of knowledge through teaching and research. It is organized into five academic Schools — Architecture and Planning; Engineering; Humanities, Arts, and Social Sciences; Management; and Science — and numerous interdisciplinary programs and activities."
         },
         { _id: "4",
             type:"1",
@@ -102,14 +39,19 @@ module.exports=function(app){
             name: "Quincy Market",
             rank:"4",
             address:"4 South Market Street, Boston, MA",
-            official:"http://www.quincy-market.com"
+            official:"http://www.quincy-market.com",
+            phone:"617-523-1300",
+            description:"Quincy Market is a historic market complex near Faneuil Hall in downtown Boston, Massachusetts. It was constructed in 1824–26 and named in honor of Mayor Josiah Quincy, who organized its construction without any tax or debt. The market was designated a National Historic Landmark, recognizing its significance as one of the largest market complexes built in the United States in the first half of the 19th century."
         },
         { _id: "5",
             type:"2",
             image:"./image/5charlesriver.jpg",
             name: "Charles River",
             rank:"5",
-            address:"Beacon St & Arlington St, Boston, MA"
+            address:"Beacon St & Arlington St, Boston, MA",
+            official:"http://www.crwa.org/#_=_",
+            phone:"617-635-4505",
+            description:"Charles river is well known for its rowing, sculling, dragonboating, and sailing, both recreational and competitive. The river may also be kayaked; depending on the season, however, kayakers can only navigate the Charles by getting out and dragging their kayaks for significant stretches. The 'Lower Basin' between the Longfellow and Harvard bridges is home to Community Boating, the Harvard University Sailing Center, and the MIT Sailing Pavilion. The Head of the Charles Regatta is held here every October. In early June, the annual Hong Kong Boston Dragon boat Festival is held in Cambridge, near the Weeks Footbridge."
         },
         { _id: "6",
             type:"2",
@@ -118,7 +60,8 @@ module.exports=function(app){
             rank:"6",
             address:"206 Clarendon Street, Boston, MA",
             official:"http://trinitychurchboston.org/",
-            phone:"617-536-0944"
+            phone:"617-536-0944",
+            description:"Trinity Church is a thriving Christian community in the heart of Boston's Back Bay, and a member parish of the American Episcopal Church. Housed in a grand and historic building consistently ranked as one of America's most significant architectural landmarks, we are also a parish family drawing members from Boston and much of eastern Massachusetts."
         },
         { _id: "7",
             type:"2",
@@ -127,7 +70,8 @@ module.exports=function(app){
             rank:"7",
             address:"700 Boylston St, Boston, MA",
             official:"http://bpl.org/central/",
-            phone:"617-536-5400"
+            phone:"617-536-5400",
+            description:"The Boston Public Library is a municipal public library system in Boston, Massachusetts, United States, founded in 1848. The Boston Public Library is also the Library for the Commonwealth (formerly library of last recourse) of the Commonwealth of Massachusetts; all adult residents of the commonwealth are entitled to borrowing and research privileges, and the library receives state funding. The Boston Public Library contains approximately 23 million items encompassing all formats including books, DVDs, CDs, maps, music scores, microfilm, manuscripts, prints and other visual materials, and electronic resources, making it the second-largest public library in the United States behind only the Library of Congress."
         },
         { _id: "8",
             type:"2",
@@ -136,7 +80,8 @@ module.exports=function(app){
             rank:"8",
             address:"465 Huntington Avenue, Boston, MA",
             official:"http://www.mfa.org/",
-            phone:"617-267-9300"
+            phone:"617-267-9300",
+            description:"The MFA is one of the most comprehensive art museums in the world; the collection encompasses nearly 500,000 works of art. We welcome more than one million visitors each year to experience art from ancient Egyptian to contemporary, special exhibitions, and innovative educational programs. The Museum has undergone significant expansion and change in recent years; 2010 marked the opening of the Art of the Americas Wing, with four levels of American art from ancient to modern. In 2011, the west wing of the Museum was transformed into the Linde Family Wing for Contemporary Art, with new galleries for contemporary art and social and learning spaces. Improved and new galleries for European, Asian, and African art have opened through 2013, with more to come."
         },
         { _id: "9",
             type:"3",
@@ -144,14 +89,20 @@ module.exports=function(app){
             name: "Boston Common",
             rank:"9",
             address:"131 Tremont St, Boston, MA",
-            official:"http://www.cityofboston.gov/freedomtrail/bostoncommon.asp"
+            official:"http://www.cityofboston.gov/freedomtrail/bostoncommon.asp",
+            phone:"617-635-4500",
+            description:"The starting point of the Freedom Trail, Boston Common is the oldest park in the country. The park is almost 50 acres in size. Today, Boston Common is the anchor for the Emerald Necklace, a system of connected parks that winds through many of Boston's neighborhoods. The 'Common' has been used for many different purposes throughout its long history. Until 1830, cattle grazed the Common, and until 1817, public hangings took place here. British troops camped on Boston Common prior to the Revolution and left from here to face colonial resistance at Lexington and Concord in April, 1775. Celebrities, including Martin Luther King Jr., Pope John Paul II, and Gloria Steinem (advocate of the feminist revolution), have given speeches at the Common."
+
         },
         { _id: "10",
             type:"3",
             image:"./image/10copley.jpeg",
             name: "Copley Square",
             rank:"10",
-            address:"Copley Square, Huntington Avenue, Boston, MA"
+            address:"Copley Square, Huntington Avenue, Boston, MA",
+            official:"http://www.massvacation.com/blog/2014/03/the-charms-of-copley-square/",
+            phone:"617-536-9000",
+            description:"If you’ve been to Boston once, you’ve most likely set foot in Copley Square. Located at the heart of the city, it is dedicated to that most illustrious native son, that painter of portraits, the one and only John Singleton Copley. As a place dedicated to an artist, it is a place for all walks to gather and commune. Perhaps on a fall day, you will come and buy some apples from local farmers. On another day, you might stop by for a bit of outdoor entertainment. But why stop by for just another afternoon or a lunch break? The delights of Copley Square are best enjoyed as part of a long, luxurious weekend and here’s what you should do during those days and nights."
         },
         { _id: "11",
             type:"3",
@@ -159,7 +110,9 @@ module.exports=function(app){
             name: "Prudential Tower",
             rank:"11",
             address:"800 Boylston St#50, Boston, MA",
-            official:"http://www.prudentialcenter.com/"
+            official:"http://www.prudentialcenter.com/",
+            phone:"617-859-0648",
+            description:"Visit the Skywalk Observatory at Prudential Tower, Boston's only sky-high vantage point for sweeping 360 degree views of Greater Boston and beyond. Let your eyes and ears do the walking as you experience the exclusive state-of-the-art Acoustiguide audio tour detailing the city's many points of historic and cultural interest. Audio guides are provided in the following languages: English, Spanish, Dutch, French, Japanese and Mandarin."
         },
         { _id: "12",
             type:"3",
@@ -168,7 +121,8 @@ module.exports=function(app){
             rank:"12",
             address:"4 Yawkey Way, Boston, MA",
             official:"http://boston.redsox.mlb.com/index.jsp?c_id=bos",
-            phone:"617-226-6666"
+            phone:"617-226-6666",
+            description:"'America's Most Beloved Ballpark' is uniquely nestled in the city of Boston. Fenway Park is a place where dreams are made, traditions are celebrated and baseball is forever. See the home of Red Sox Legends, Williams, Yaz, Fisk and Rice. Visit Pesky's Pole and sit atop the world famous Green Monster which stands 37 feet 2 inches high overlooking leftfield. Our experienced tour guides will provide a thrilling, one hour, walking tour of Fenway Park. Bilingual tours are available in Spanish and Japanese with advance notice. We welcome all fans to Fenway Park, home of the Boston Red Sox and the pulse of Red Sox Nation."
         }
     ];
     var guide=[
@@ -407,20 +361,11 @@ module.exports=function(app){
         }
     ];
 
-    app.get("/BostonTrip/api/popular",findPopularHotels);
-    app.get("/BostonTrip/api/highstar",findHighstarHotels);
     app.get("/BostonTrip/api/attraction",findAttraction);
     app.get("/BostonTrip/api/guide",findGuide);
     app.get("/BostonTrip/api/eat",findEat);
     app.get("/BostonTrip/api/hotels",findHotels);
-
-    function findPopularHotels(req,res){
-        res.send(popularHotels);
-    }
-
-    function findHighstarHotels(req,res){
-        res.send(highstarHotels);
-    }
+    app.get("/BostonTrip/api/attraction/:attractionId",findAttractionsById);
 
     function findAttraction(req,res){
         res.send(attraction);
@@ -434,4 +379,13 @@ module.exports=function(app){
     function findHotels(req,res){
         res.send(hotels);
     }
+    function findAttractionsById(req,res){
+        var attractionId=req.params.attractionId;
+        for(var i in attraction){
+            if(attraction[i]._id===attractionId){
+                res.send(attraction[i]);
+            }
+        }
+        // return null;
+        }
 };
