@@ -45,7 +45,8 @@
                     <h3>{{model.eachAttraction.name}}</h3>
                     <div></div>
                 </div>
-                <div class="col-sm-5 attractionPhoto">
+                <div class="row">
+                    <div class="col-sm-5 attractionPhoto">
                     <div class="jga-widget-tool">
                         <a href="#login">
                             <span class="glyphicon glyphicon-heart"></span>
@@ -53,11 +54,19 @@
                     </div>
                     <img ng-src="{{model.eachAttraction.image}}">
                 </div>
-                <div class="col-sm-7 attractionDescribe">
+                    <div class="col-sm-7 attractionDescribe">
                     <p><span>Description: </span>{{model.eachAttraction.description}}</p>
                     <p><span>Address: </span>{{model.eachAttraction.address}}</p>
                     <p style="overflow: auto"><span>Official Website: </span><a ng-href="{{model.eachAttraction.official}}">{{model.eachAttraction.official}}</a></p>
                 </div>
+                </div>
+                <!--<div class="row attractionDescribe">-->
+                    <!--<br>-->
+                    <!--<p><span>Attraction Map:</span></p>-->
+                <!--<div class="embed-responsive embed-responsive-16by9">-->
+                    <!--<iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJGzE9DS1l44kRoOhiASS_fHg&key=AIzaSyAtj0Egf0up_qsDHwMrew9LpXpcFBqWVsk" allowfullscreen></iframe>-->
+                <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </div>

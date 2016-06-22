@@ -75,6 +75,40 @@
                     );
             }
             vm.unlikeAttraction=unlikeAttraction;
+
+            function likeHotel(attractionId,attractionName){
+                // console.log(attractionId);
+                // console.log(attractionName);
+
+                var userId=$routeParams.uid;
+                MainpageService.likeHotel(attractionId,attractionName,userId)
+                    .then(
+                        function(response){
+                            vm.hotelSuccess="Successfully Added!";
+                        },
+                        function(err){
+                            vm.existHotel=err.data;
+                        }
+                    );
+            }
+            vm.likeHotel=likeHotel;
+
+            MainpageService.findLikeHotels(userId)
+                .then(function(response){
+                    var likeHotels=response.data;
+                    vm.likeHotels=likeHotels;
+                });
+
+            function unlikeHotel(attraction){
+                MainpageService
+                    .dislikeHotel(attraction,userId)
+                    .then(
+                        function(response){
+                            $route.reload();
+                        }
+                    );
+            }
+            vm.unlikeHotel=unlikeHotel;
         }
         init();
     }

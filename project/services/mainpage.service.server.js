@@ -3,6 +3,7 @@
  */
 module.exports=function(app,models){
     var BLikeAttractionModel=models.BLikeAttractionModel;
+    var BLikeHotelModel=models.BLikeHotelModel;
     var attraction=[
         { _id: "1",
             type:"1",
@@ -264,9 +265,10 @@ module.exports=function(app,models){
             "type": "1" ,
             "image":"./image/hotel1.jpg",
             "name": "The Godfrey Hotel Boston",
-            "price": "509",
+            "price": "347",
             "stars":"4",
-            "address":"505 Washington Street, Theater District"
+            "address":"505 Washington Street, Theater District",
+            "booking":"http://www.booking.com/hotel/us/the-godfrey-boston.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-06-28;checkout=2016-06-29;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=140465704_91315786_0_0_0;hpos=1;room1=A%2CA;sb_price_type=total;srfid=6df9d49cced899e06b89c1280dc0c6ffae433cdeX1;type=total;ucfs=1&"
         },
         { "_id": "2",
             "type": "1" ,
@@ -274,54 +276,62 @@ module.exports=function(app,models){
             "name": "DoubleTree Suites by Hilton",
             "price": "167",
             "stars":"3",
-            "address":"400 Soldier Field Road, Allston"
+            "address":"400 Soldier Field Road, Allston",
+            "booking":"http://www.booking.com/hotel/us/doubletree-guest-suites-boston.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-06-28;checkout=2016-06-29;dest_id=20061717;dest_type=city;dist=0;group_adults=2;hpos=1;no_rooms=1;room1=A%2CA;sb_price_type=total;soldout=0%2C0;srfid=8bc4fd215d8dff5d8eff0258a0416666696d4a4dX1;type=total;ucfs=1&"
         },
         { "_id": "3",
             "type": "1" ,
             "image":"./image/hotel3.jpg",
             "name": "Residence Inn Back Bay",
-            "price": "441",
+            "price": "280",
             "stars":"3",
-            "address":"125 Brookline Avenue, Fenway Kenmore"
+            "address":"125 Brookline Avenue, Fenway Kenmore",
+            "booking":"http://www.booking.com/hotel/us/residence-inn-boston-back-bay-fenway.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-07-06;checkout=2016-07-07;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=53554403_91475770_0_1_0;hpos=1;no_rooms=1;room1=A%2CA;sb_price_type=total;srfid=4444b51c92733f31558bfaea472ac5b2f8c60988X1;type=total;ucfs=1&"
         },
         { "_id": "4",
             "type": "1" ,
             "image":"./image/hotel4.jpg",
             "name": "Harborside Inn",
-            "price": "309",
+            "price": "229",
             "stars":"3",
-            "address":"185 State Street, Financial District"
+            "address":"185 State Street, Financial District",
+            "booking":"http://www.booking.com/hotel/us/harborside.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-07-06;checkout=2016-07-07;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=5635401_81191727_0_0_0;hpos=1;room1=A%2CA;sb_price_type=total;srfid=81a22e354833d840aba989c4f5e7430a975119c4X1;type=total;ucfs=1&"
+
         },
         { "_id": "5",
             "type": "2" ,
             "image":"./image/hotel2-1.jpg",
             "name": "The Eliot Suite Hotel",
-            "price": "485",
+            "price": "295",
             "stars":"5",
-            "address":"370 Commonwealth Avenue, Back Bay"
+            "address":"370 Commonwealth Avenue, Back Bay",
+            "booking":"http://www.booking.com/hotel/us/the-eliot.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-07-06;checkout=2016-07-07;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=7835403_91294496_0_0_0;hpos=1;room1=A%2CA;sb_price_type=total;srfid=14297e86f66a6813a2077194e5fbcb1d4af0d7bcX1;type=total;ucfs=1&"
         },
         { "_id": "6",
             "type": "2" ,
             "image":"./image/hotel2-2.jpg",
             "name": "Battery Wharf Hotel, Boston Waterfront",
-            "price": "429",
+            "price": "239",
             "stars":"5",
+            "booking":"http://www.booking.com/hotel/us/battery-wharf-hotel.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-07-06;checkout=2016-07-07;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=29873102_90850267_2_0_0;hpos=1;room1=A%2CA;sb_price_type=total;srfid=05392eed8cac97a86b171ed0094e49396fe68766X1;type=total;ucfs=1&",
             "address":"3 Battery Wharf, Waterfront"
         },
         { "_id": "7",
             "type": "2" ,
             "image":"./image/hotel2-3.jpg",
             "name": "Four Seasons Boston",
-            "price": "795",
+            "price": "595",
             "stars":"5",
+            "booking":"http://www.booking.com/hotel/us/four-seasons-boston.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-07-06;checkout=2016-07-07;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=45466802_88272976_2_0_0;hpos=1;no_rooms=1;room1=A%2CA;sb_price_type=total;srfid=7ba4761d5318e6c30b28e524c9ed920d273817a8X1;type=total;ucfs=1&",
             "address":"200 Boylston Street"
         },
         { "_id": "8",
             "type": "2" ,
             "image":"./image/hotel2-4.jpg",
             "name": "Fairmont Copley Plaza",
-            "price": "512",
+            "price": "287",
             "stars":"5",
+            "booking":"http://www.booking.com/hotel/us/fairmont-copley-plaza.en-us.html?aid=355697;label=guid_23a8fd83-950c-cdd7-dcc0-b1535b6fc2e0_datetime_14556823518978_cityid_8387_hotelid_265516;sid=d9fbdca2636a358333eed8fb70967417;dcid=12;checkin=2016-07-06;checkout=2016-07-07;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=5756301_91822785_2_0_0;hpos=1;no_rooms=1;room1=A%2CA;sb_price_type=total;srfid=a4df46a2a4fa794203aa375816935db3dfc05c18X1;type=total;ucfs=1&",
             "address":"138 Saint James Avenue, Back Bay"
         },
         { "_id": "9",
@@ -331,7 +341,7 @@ module.exports=function(app,models){
             "price": "200",
             "stars":"3",
             "address":"645 Beacon Street, Fenway Kenmore",
-            "url":"http://www.booking.com/hotel/us/buckminster.zh-cn.html?aid=304142;label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=7679301_88767979_0_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X2;type=total;ucfs=1&"
+            "booking":"http://www.booking.com/hotel/us/buckminster.zh-cn.html?aid=304142;label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=7679301_88767979_0_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X2;type=total;ucfs=1&"
         },
         { "_id": "10",
             "type": "3" ,
@@ -340,7 +350,7 @@ module.exports=function(app,models){
             "price": "219",
             "stars":"3",
             "address":"140 Clarendon Street, Back Bay",
-            "url":"http://www.booking.com/hotel/us/140.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24&checkout=2016-06-25&dest_id=20061717&dest_type=city&group_adults=2&highlighted_blocks=18113101_88895135_0_0_0&nflt=class%3D3&room1=A%2CA&sb_price_type=total&srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X1&type=total&ucfs=1&"
+            "booking":"http://www.booking.com/hotel/us/140.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24&checkout=2016-06-25&dest_id=20061717&dest_type=city&group_adults=2&highlighted_blocks=18113101_88895135_0_0_0&nflt=class%3D3&room1=A%2CA&sb_price_type=total&srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X1&type=total&ucfs=1&"
         },
         { "_id": "11",
             "type": "3" ,
@@ -349,7 +359,7 @@ module.exports=function(app,models){
             "price": "167",
             "stars":"3",
             "address":"400 Soldier Field Road, Allston",
-            "url":"http://www.booking.com/hotel/us/doubletree-guest-suites-boston.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=2876502_487555_2_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X5;type=total;ucfs=1&"
+            "booking":"http://www.booking.com/hotel/us/doubletree-guest-suites-boston.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=2876502_487555_2_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X5;type=total;ucfs=1&"
         },
         { "_id": "12",
             "type": "3" ,
@@ -358,7 +368,7 @@ module.exports=function(app,models){
             "price": "179",
             "stars":"3",
             "address":"1271 Boylston Street, Fenway Kenmore",
-            "url":"http://www.booking.com/hotel/us/doubletree-guest-suites-boston.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=2876502_487555_2_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X5;type=total;ucfs=1&"
+            "booking":"http://www.booking.com/hotel/us/doubletree-guest-suites-boston.html?label=gen173nr-1DEgJnbzIFaG90ZWxCAlhYSDNiBW5vcmVmcgV1c19uaogBAZgBMrgBDMgBDNgBA-gBAfgBAqgCAw;sid=d9fbdca2636a358333eed8fb70967417;dcid=4;checkin=2016-06-24;checkout=2016-06-25;dest_id=20061717;dest_type=city;dist=0;group_adults=2;highlighted_blocks=2876502_487555_2_0_0;nflt=class%3D3;room1=A%2CA;sb_price_type=total;srfid=d9e66f22b5c2410c3b979c9152a0363cc87e8391X5;type=total;ucfs=1&"
         }
     ];
 
@@ -366,10 +376,16 @@ module.exports=function(app,models){
     app.get("/BostonTrip/api/guide",findGuide);
     app.get("/BostonTrip/api/eat",findEat);
     app.get("/BostonTrip/api/hotels",findHotels);
-    app.get("/BostonTrip/api/:userId/like/attractions",findLikeAttractions);
     app.get("/BostonTrip/api/attraction/:attractionId",findAttractionsById);
+
+    app.get("/BostonTrip/api/:userId/like/attractions",findLikeAttractions);
     app.post("/BostonTrip/api/likeAttraction",likeAttraction);
     app.delete("/BostonTrip/api/:userId/dislike/attractions/:attractionId",dislikeAttraction);
+
+    app.get("/BostonTrip/api/:userId/like/hotels",findLikeHotels);
+    app.post("/BostonTrip/api/likeHotel",likeHotel);
+    app.delete("/BostonTrip/api/:userId/dislike/hotels/:attractionId",dislikeHotel);
+
 
     function findAttraction(req,res){
         res.send(attraction);
@@ -392,6 +408,7 @@ module.exports=function(app,models){
         }
         // return null;
         }
+
     function likeAttraction(req,res){
         var attraction=req.body;
         var favoriteId=attraction.favoriteId;
@@ -430,7 +447,6 @@ module.exports=function(app,models){
         //         }
         //     );
     }
-
     function dislikeAttraction(req,res){
         var favoriteId=req.params.attractionId;
         var userId=req.params.userId;
@@ -445,7 +461,6 @@ module.exports=function(app,models){
                 }
             );
     }
-
     function findLikeAttractions(req,res){
         var userId=req.params.userId;
         var userAttractions=[];
@@ -463,6 +478,77 @@ module.exports=function(app,models){
                         }
                     }
                     res.send(userAttractions);
+                }
+            );
+    }
+
+    function likeHotel(req,res){
+        var attraction=req.body;
+        var favoriteId=attraction.favoriteId;
+        var userId=attraction.userId;
+
+        BLikeHotelModel
+            .findLikeAttractionsById(favoriteId,userId)
+            .then(
+                function(attractionExist){
+                    if(attractionExist&&attractionExist.userId===attraction.userId){
+                        res.status(404).send("Already Exists!");
+                        return;
+                    }
+                    else{
+                        return BLikeHotelModel
+                            .likeAttraction(attraction);
+                    }
+                }
+            )
+            .then(
+                function(attractions){
+                    res.json(attractions);
+                },
+                function(error){
+                    res.send(400);
+                }
+            );
+        //
+        // BLikeAttractionModel.likeAttraction(attraction)
+        //     .then(
+        //         function(attractions){
+        //             res.json(attractions);
+        //         },
+        //         function(error){
+        //             res.send(400);
+        //         }
+        //     );
+    }
+    function findLikeHotels(req,res){
+        var userId=req.params.userId;
+        var userHotels=[];
+        BLikeHotelModel
+            .findLikeAttractions(userId)
+            .then(
+                function(attractions){
+                    for(var a in attractions){
+                        for(var i in hotels){
+                            if(hotels[i]._id===attractions[a].favoriteId){
+                                userHotels.push(hotels[i]);
+                            }
+                        }
+                    }
+                    res.send(userHotels);
+                }
+            );
+    }
+    function dislikeHotel(req,res){
+        var favoriteId=req.params.attractionId;
+        var userId=req.params.userId;
+        BLikeHotelModel
+            .dislikeAttractions(favoriteId,userId)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
                 }
             );
     }
