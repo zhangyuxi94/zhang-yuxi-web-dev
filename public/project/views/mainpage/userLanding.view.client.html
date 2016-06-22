@@ -56,10 +56,18 @@
         </div>
     </div>
     <div class="container">
+        <div ng-if="model.existAttraction" class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{model.existAttraction}}
+        </div>
+        <div ng-if="model.attractionSuccess" class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{model.attractionSuccess}}
+        </div>
         <div class="row detailShow">
             <div class="col-sm-3" ng-repeat="attraction in model.attraction|filter:{type:1}">
                 <div class="jga-widget-tool">
-                    <a href="#login">
+                    <a ng-click="model.likeAttraction(attraction._id,attraction.name)">
                         <span class="glyphicon glyphicon-heart"></span>
                     </a>
                 </div>

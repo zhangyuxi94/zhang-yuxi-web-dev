@@ -22,7 +22,8 @@ module.exports=function(){
         pageModel:require("./page/page.model.server")(),
         widgetModel:require("./widget/widget.model.server")(),
         todoModel:require("./widget/todo.model.server")(),
-        BUserModel:require("./bostonTripApp/Buser.model.server")()
+        BUserModel:require("./bostonTripApp/Buser.model.server")(),
+        BLikeAttractionModel:require("./bostonTripApp/BLikeAttraction.model.server.js")()
     };
     return models;
 };

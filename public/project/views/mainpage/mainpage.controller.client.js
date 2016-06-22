@@ -10,8 +10,10 @@
         var vm=this;
         vm.userId=$routeParams.uid;
         vm.attractionId=$routeParams.aid;
+
         function init(){
             var attractionId=$routeParams.aid;
+            var userId=$routeParams.uid;
 
             MainpageService.findAttractions()
                 .then(
@@ -48,6 +50,27 @@
                         vm.hotels=hotels;
                     }
                 );
+            function likeAttraction(attractionId,attractionName){
+                // console.log(attractionId);
+                // console.log(attractionName)
+                var userId=$routeParams.uid;
+                MainpageService.likeAttraction(attractionId,attractionName,userId)
+                    .then(
+                        function(response){
+                            vm.attractionSuccess="Successfully Added!";
+                        },
+                        function(err){
+                            vm.existAttraction=err.data;
+                        }
+                    );
+            }
+            vm.likeAttraction=likeAttraction;
+
+            MainpageService.findLikeAttractions(userId)
+                .then(function(response){
+                    var likeAttractions=response.data;
+                    vm.likeAttractions=likeAttractions;
+                });
         }
         init();
     }

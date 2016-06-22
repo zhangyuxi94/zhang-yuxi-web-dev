@@ -11,7 +11,9 @@
             findGuide:findGuide,
             findEat:findEat,
             findHotels:findHotels,
-            findAttractionsById:findAttractionsById
+            findAttractionsById:findAttractionsById,
+            likeAttraction:likeAttraction,
+            findLikeAttractions:findLikeAttractions
         };
         return api;
         
@@ -36,6 +38,20 @@
 
         function findHotels() {
             var url="/BostonTrip/api/hotels";
+            return $http.get(url);
+        }
+
+        function likeAttraction(attractionId,name,userId){
+            var attraction={
+                favoriteId:attractionId,
+                favoriteName:name,
+                userId:userId
+            };
+            return $http.post("/BostonTrip/api/likeAttraction",attraction);
+        }
+
+        function findLikeAttractions(userId){
+            var url="/BostonTrip/api/"+userId+"/like/attractions";
             return $http.get(url);
         }
     }

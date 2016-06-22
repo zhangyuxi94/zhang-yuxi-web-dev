@@ -1,7 +1,8 @@
 /**
  * Created by zhangyuxi on 2016/6/13.
  */
-module.exports=function(app){
+module.exports=function(app,models){
+    var BLikeAttractionModel=models.BLikeAttractionModel;
     var attraction=[
         { _id: "1",
             type:"1",
@@ -365,7 +366,9 @@ module.exports=function(app){
     app.get("/BostonTrip/api/guide",findGuide);
     app.get("/BostonTrip/api/eat",findEat);
     app.get("/BostonTrip/api/hotels",findHotels);
+    app.get("/BostonTrip/api/:userId/like/attractions",findLikeAttractions);
     app.get("/BostonTrip/api/attraction/:attractionId",findAttractionsById);
+    app.post("/BostonTrip/api/likeAttraction",likeAttraction);
 
     function findAttraction(req,res){
         res.send(attraction);
@@ -388,4 +391,63 @@ module.exports=function(app){
         }
         // return null;
         }
+    function likeAttraction(req,res){
+        var attraction=req.body;
+        var favoriteId=attraction.favoriteId;
+        var userId=attraction.userId;
+
+        BLikeAttractionModel
+            .findLikeAttractionsById(favoriteId,userId)
+            .then(
+                function(attractionExist){
+                    if(attractionExist&&attractionExist.userId===attraction.userId){
+                        res.status(404).send("Already Exists!");
+                        return;
+                    }
+                    else{
+                        return BLikeAttractionModel
+                            .likeAttraction(attraction);
+                    }
+                }
+            )
+            .then(
+                function(attractions){
+                    res.json(attractions);
+                },
+                function(error){
+                    res.send(400);
+                }
+            );
+        //
+        // BLikeAttractionModel.likeAttraction(attraction)
+        //     .then(
+        //         function(attractions){
+        //             res.json(attractions);
+        //         },
+        //         function(error){
+        //             res.send(400);
+        //         }
+        //     );
+    }
+
+    function findLikeAttractions(req,res){
+        var userId=req.params.userId;
+        var userAttractions=[];
+        BLikeAttractionModel
+            .findLikeAttractions(userId)
+            .then(
+                function(attractions){
+                    // console.log(attractions);
+                    for(var a in attractions){
+                        for(var i in attraction){
+                            if(attraction[i]._id===attractions[a].favoriteId){
+                                // test=attraction[i];
+                                userAttractions.push(attraction[i]);
+                            }
+                        }
+                    }
+                    res.send(userAttractions);
+                }
+            );
+    }
 };
