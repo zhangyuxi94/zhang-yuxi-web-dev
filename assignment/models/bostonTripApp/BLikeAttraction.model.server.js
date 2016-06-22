@@ -9,7 +9,8 @@ module.exports=function(){
     var api={
         findLikeAttractionsById:findLikeAttractionsById,
         likeAttraction:likeAttraction,
-        findLikeAttractions:findLikeAttractions
+        findLikeAttractions:findLikeAttractions,
+        dislikeAttractions:dislikeAttractions
     };
     return api;
 
@@ -22,6 +23,10 @@ module.exports=function(){
 
     function findLikeAttractions(userId){
         return BLikeAttraction.find({"userId":userId})
+    }
+
+    function dislikeAttractions(favoriteId,userId){
+        return BLikeAttraction.remove({"favoriteId": favoriteId,"userId":userId});
     }
 
 

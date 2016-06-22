@@ -369,6 +369,7 @@ module.exports=function(app,models){
     app.get("/BostonTrip/api/:userId/like/attractions",findLikeAttractions);
     app.get("/BostonTrip/api/attraction/:attractionId",findAttractionsById);
     app.post("/BostonTrip/api/likeAttraction",likeAttraction);
+    app.delete("/BostonTrip/api/:userId/dislike/attractions/:attractionId",dislikeAttraction);
 
     function findAttraction(req,res){
         res.send(attraction);
@@ -428,6 +429,21 @@ module.exports=function(app,models){
         //             res.send(400);
         //         }
         //     );
+    }
+
+    function dislikeAttraction(req,res){
+        var favoriteId=req.params.attractionId;
+        var userId=req.params.userId;
+        BLikeAttractionModel
+            .dislikeAttractions(favoriteId,userId)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
     }
 
     function findLikeAttractions(req,res){

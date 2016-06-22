@@ -13,7 +13,8 @@
             findHotels:findHotels,
             findAttractionsById:findAttractionsById,
             likeAttraction:likeAttraction,
-            findLikeAttractions:findLikeAttractions
+            findLikeAttractions:findLikeAttractions,
+            dislikeAttraction:dislikeAttraction
         };
         return api;
         
@@ -53,6 +54,11 @@
         function findLikeAttractions(userId){
             var url="/BostonTrip/api/"+userId+"/like/attractions";
             return $http.get(url);
+        }
+
+        function dislikeAttraction(attractionId,userId){
+            var url="/BostonTrip/api/"+userId+"/dislike/attractions/"+attractionId;
+            return $http.delete(url);
         }
     }
 })();

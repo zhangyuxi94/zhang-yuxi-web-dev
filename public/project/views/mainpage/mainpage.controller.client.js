@@ -3,10 +3,12 @@
  */
 (function(){
     angular.module("MainpageApp")
+        .controller("findAttractionsController",findAttractionsController)
         .controller("userMainpageController",userMainpageController)
         .controller('TabsDemoCtrl',TabsDemoCtrl);
 
-    function userMainpageController($routeParams,MainpageService){
+
+    function userMainpageController($location,$route,$routeParams,MainpageService){
         var vm=this;
         vm.userId=$routeParams.uid;
         vm.attractionId=$routeParams.aid;
@@ -20,13 +22,6 @@
                     function(response){
                         var attraction=response.data;
                         vm.attraction=attraction;
-                    }
-                );
-            MainpageService.findAttractionsById(attractionId)
-                .then(
-                    function(response){
-                        var attraction=response.data;
-                        vm.eachAttraction=attraction;
                     }
                 );
             MainpageService.findGuide()
@@ -48,6 +43,55 @@
                     function(response){
                         var hotels=response.data;
                         vm.hotels=hotels;
+                    }
+                );
+            function likeAttraction(attractionId,attractionName){
+                var userId=$routeParams.uid;
+                MainpageService.likeAttraction(attractionId,attractionName,userId)
+                    .then(
+                        function(response){
+                            vm.attractionSuccess="Successfully Added!";
+                        },
+                        function(err){
+                            vm.existAttraction=err.data;
+                        }
+                    );
+            }
+            vm.likeAttraction=likeAttraction;
+
+            MainpageService.findLikeAttractions(userId)
+                .then(function(response){
+                    var likeAttractions=response.data;
+                    vm.likeAttractions=likeAttractions;
+                });
+
+            function unlikeAttraction(attraction){
+                MainpageService
+                    .dislikeAttraction(attraction,userId)
+                    .then(
+                        function(response){
+                            $route.reload();
+                        }
+                    );
+            }
+            vm.unlikeAttraction=unlikeAttraction;
+        }
+        init();
+    }
+
+    function findAttractionsController($routeParams,MainpageService){
+        var vm=this;
+        vm.attractionId=$routeParams.aid;
+
+        function init(){
+            var attractionId=$routeParams.aid;
+            var userId=$routeParams.uid;
+
+            MainpageService.findAttractionsById(attractionId)
+                .then(
+                    function(response){
+                        var attraction=response.data;
+                        vm.eachAttraction=attraction;
                     }
                 );
             function likeAttraction(attractionId,attractionName){
