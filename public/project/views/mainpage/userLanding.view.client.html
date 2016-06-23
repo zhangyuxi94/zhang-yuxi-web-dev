@@ -129,46 +129,17 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <a href="guide/guide1.html">
+            <div class="col-md-4" ng-repeat="guide in model.guides">
+                <a href="#/{{model.userId}}/guide/{{guide._id}}">
                     <div class="hoverwrapper">
-                        <img src="image/guide1.jpg" alt="1">
+                        <img ng-src={{guide.image}}>
                         <div class="hovershow">
-                            <div class="hoverauthor"><img src="image/marina-k.jpg"></div>
-                            <h3>3 Days in Boston</h3>
-                            <p>By Marina K</p>
-                            <p class="hoverhidden">From loads of history to delicious eating, Boston is packed with "must-sees". Here are the highlights that will give you a good taste of Boston in just three days.</p>
+                            <div class="hoverauthor"><img ng-src={{guide.userPhoto}}></div>
+                            <h3>{{guide.name}}</h3>
+                            <p>By {{guide.userName}}</p>
+                            <p class="hoverhidden">{{guide.description}}</p>
                         </div>
                     </div>
-
-
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="guide/guide2.html">
-                    <div class="hoverwrapper">
-                        <img src="image/guideoutdoor.jpg" alt="2">
-                        <div class="hovershow">
-                            <div class="hoverauthor"><img src="image/vincent-m.jpg"></div>
-                            <h3>Guide to Boston Outdoors</h3>
-                            <p>By Vincent M</p>
-                            <p class="hoverhidden">Hiking, biking, kayaking, walking... Boston is a great city for exploring the great outdoors. Here are some of my favorite "fresh-air spots" in the city and the surrounding areas.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4">
-                <a href="guide/guide3.html">
-                    <div class="hoverwrapper">
-                        <img src="image/guide3.jpg" alt="3">
-                        <div class="hovershow">
-                            <div class="hoverauthor"><img src="image/kevin-r.jpg"></div>
-                            <h3>Afternoon Tour of Boston</h3>
-                            <p>By Kevin R</p>
-                            <p class="hoverhidden">Hopefully this guide will help find some cool things to do while in the city for the day and help you see what Boston is all about.</p>
-                        </div>
-                    </div>
-
                 </a>
             </div>
         </div>
