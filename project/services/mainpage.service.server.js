@@ -407,6 +407,8 @@ module.exports=function(app,models){
     app.get("/BostonTrip/api/:userId/like/guides",findLikeGuides);
     app.post("/BostonTrip/api/likeGuide",likeGuide);
     app.delete("/BostonTrip/api/:userId/dislike/guides/:attractionId",dislikeGuides);
+    app.get("/BostonTrip/api/guide/:guideId",findGuidesById);
+
 
 
     function findAttraction(req,res){
@@ -695,5 +697,14 @@ module.exports=function(app,models){
                     res.statusCode(404).send(error);
                 }
             );
+    }
+
+    function findGuidesById(req,res){
+        var guideId=req.params.guideId;
+        for(var i in guide){
+            if(guide[i]._id===guideId){
+                res.send(guide[i]);
+            }
+        }
     }
 };

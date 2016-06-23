@@ -4,6 +4,7 @@
 (function(){
     angular.module("MainpageApp")
         .controller("findAttractionsController",findAttractionsController)
+        .controller("findGuidesController",findGuidesController)
         .controller("userMainpageController",userMainpageController)
         .controller('TabsDemoCtrl',TabsDemoCtrl);
 
@@ -210,6 +211,45 @@
                 .then(function(response){
                     var likeEats=response.data;
                     vm.likeEats=likeEats;
+                });
+        }
+        init();
+    }
+
+    function findGuidesController($routeParams,MainpageService){
+        var vm=this;
+        vm.guideId=$routeParams.gid;
+
+        function init(){
+            var guideId=$routeParams.gid;
+            var userId=$routeParams.uid;
+
+            MainpageService.findGuidesById(guideId)
+                .then(
+                    function(response){
+                        var guide=response.data;
+                        vm.eachGuide=guide;
+                    }
+                );
+
+            function likeGuide(attractionId,attractionName){
+                var userId=$routeParams.uid;
+                MainpageService.likeGuide(attractionId,attractionName,userId)
+                    .then(
+                        function(response){
+                            vm.guideSuccess="Successfully Added!";
+                        },
+                        function(err){
+                            vm.existGuide=err.data;
+                        }
+                    );
+            }
+            vm.likeGuide=likeGuide;
+
+            MainpageService.findLikeGuides(userId)
+                .then(function(response){
+                    var likeGuides=response.data;
+                    vm.likeGuides=likeGuides;
                 });
         }
         init();

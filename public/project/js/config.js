@@ -89,6 +89,18 @@
                     controllerAs:"model"
                 })
             .when(
+                "/guide/:gid",{
+                    templateUrl:"views/guide/eachGuide.view.visitor.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
+                "/:uid/guide/:gid",{
+                    templateUrl:"views/guide/eachGuide.view.user.html",
+                    controller:"userMainpageController",
+                    controllerAs:"model"
+                })
+            .when(
                 "/live",{
                     templateUrl:"views/live/live.view.visitor.html",
                     controller:"userMainpageController",

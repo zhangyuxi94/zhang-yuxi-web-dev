@@ -313,6 +313,40 @@ html {
     /*background-color: white;*/
 /*}*/
 
+/*===================================guides===================================*/
+.page-header h1{
+    color:#de5556;
+    font-size: 24px;
+}
+
+.guideContext h3{
+    color:#de5556;
+}
+
+.guideContext h4{
+    color: #828282;
+    font-weight: 800;
+}
+
+.guideContext .alert-success{
+    font-size: 20px;
+}
+.guideDescription{
+    font-size: 20px;
+}
+
+.commentPart .panel-title span{
+    font-size: 18px;
+    padding: 10px;
+    color: #de5556;
+}
+
+@media(min-width:767px){
+    .page-header h1{
+        color:#de5556;
+        font-size: 34px;
+    }
+}
     /*==================================fixed bottom=====================================*/
 .navbar-fixed-bottom{
     /*background-color: rgba(255, 255, 255, 0.89);*/

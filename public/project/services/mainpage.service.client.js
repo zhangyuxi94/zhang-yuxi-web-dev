@@ -23,7 +23,8 @@
             dislikeEats:dislikeEats,
             likeGuide:likeGuide,
             findLikeGuides:findLikeGuides,
-            dislikeGuides:dislikeGuides
+            dislikeGuides:dislikeGuides,
+            findGuidesById:findGuidesById
         };
         return api;
         
@@ -125,6 +126,11 @@
         function dislikeGuides(attractionId,userId){
             var url="/BostonTrip/api/"+userId+"/dislike/guides/"+attractionId;
             return $http.delete(url);
+        }
+
+        function findGuidesById(guideId){
+            var url="/BostonTrip/api/guide/"+guideId;
+            return $http.get(url);
         }
     }
 })();

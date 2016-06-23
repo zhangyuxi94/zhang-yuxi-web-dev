@@ -39,15 +39,40 @@
     </div>
 </nav>
 <section class="profileBackground"></section>
-<section id="profileMain">
-    <div class="container">
-        <div class="myProfile">
-            <div class="col-lg-12">
-                <div class="introtitle">
-                    <span class="glyphicon glyphicon-road pull-left"></span>
-                    <h3>Travel Guide</h3>
-                    <div></div>
+<br>
+<div class="container">
+    <div class="row" ng-controller="findGuidesController as model">
+        <div class="col-sm-8" style="border-right:1px #eeeeee solid; padding: 0 30px">
+            <div class="page-header">
+                <h1><span class="glyphicon glyphicon-road pull-left"></span>&nbsp;&nbsp;{{model.eachGuide.name}}<small> | <a href="#" style="color: #828282">{{model.eachGuide.userName}}</a></small></h1>
+            </div>
+            <p>"{{model.eachGuide.description}}"</p>
+            <div class="guideContext">
+                <div
+                        ng-switch on="model.eachGuide._id">
+                    <div ng-switch-when="1">
+                        <ng-include
+                                src="'views/guide/guide1.html'">
+                        </ng-include>
+                    </div>
+                    <div ng-switch-when="2">
+                        <ng-include
+                                src="'views/guide/guide2.html'">
+                        </ng-include>
+                    </div>
+                    <div ng-switch-when="3">
+                        <ng-include
+                                src="'views/guide/guide3.html'">
+                        </ng-include>
+                    </div>
+                    <div ng-switch-default>Page not found.</div>
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-4 commentPart">
+            <br>
+            <br>
+            <div class="panel panel-default">
                 <div ng-if="model.existGuide" class="alert alert-warning alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     {{model.existGuide}}
@@ -56,26 +81,35 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     {{model.guideSuccess}}
                 </div>
-                <div class="allGuides" ng-repeat="guide in model.guides">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="jga-widget-tool">
-                                <a ng-click="model.likeGuide(guide._id,guide.name)">
-                                    <span class="glyphicon glyphicon-heart"></span>
-                                </a>
-                            </div>
-                            <img ng-src={{guide.image}}>
-                        </div>
-                        <a href="#/{{model.userId}}/guide/{{guide._id}}"><div class="col-sm-9">
-                            <h4>{{guide.name}} <span class="author">| By {{guide.userName}}</span></h4>
-                            <p>{{guide.description}}</p>
-                        </div></a>
-                    </div>
+                <div class="panel-heading">
+                    <a ng-click="model.likeGuide(model.eachGuide._id,model.eachGuide.name)" style="color: black;cursor: pointer"><h3 class="panel-title">ADD TO FAVORITE:<span class="glyphicon glyphicon-heart"></span></h3></a>
                 </div>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a href="#" style="color: black"><h3 class="panel-title" style="text-transform: uppercase">FOLLOW THIS USER:<span class="glyphicon glyphicon-ok-circle"></span></h3></a>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">COMMENT:</h3>
+                </div>
+                <div class="panel-body">
+                    <textarea class="form-control"></textarea>
+                    <button type="submit" class="btn btn-primary pull-right" style="margin-top: 10px">Submit</button>
+                </div>
+            </div>
+
+
         </div>
     </div>
-</section>
+</div>
+<br>
+<br>
+<br>
+<br>
 <nav class="navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="pull-left">
