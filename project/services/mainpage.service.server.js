@@ -4,6 +4,7 @@
 module.exports=function(app,models){
     var BLikeAttractionModel=models.BLikeAttractionModel;
     var BLikeHotelModel=models.BLikeHotelModel;
+    var BLikeEatModel=models.BLikeEatModel;
     var attraction=[
         { _id: "1",
             type:"1",
@@ -158,6 +159,7 @@ module.exports=function(app,models){
             "style": "Italian",
             "price": "$$",
             "stars":"5",
+            "url":"http://www.yelp.com/biz/giacomos-ristorante-boston",
             "address":"355 Hanover St."
         },
         { "_id": "2",
@@ -167,6 +169,7 @@ module.exports=function(app,models){
             "style": "Seafood",
             "price": "$$",
             "stars":"5",
+            "url":"http://www.yelp.com/biz/neptune-oyster-boston",
             "address":"63 Salem St."
         },
         { "_id": "3",
@@ -176,6 +179,7 @@ module.exports=function(app,models){
             "style": "Japanese",
             "price": "$$$$",
             "stars":"5",
+            "url":"http://www.yelp.com/biz/o-ya-boston",
             "address":"9 East St. Pl"
         },
         { "_id": "4",
@@ -185,78 +189,87 @@ module.exports=function(app,models){
             "style": "Seafood",
             "price": "$$",
             "stars":"4",
+            "url":"http://www.yelp.com/biz/james-hook-and-co-boston",
             "address":"440 Atlantic Ave"
         },
-        { "_id": "1",
+        { "_id": "5",
             "type": "2" ,
             "image":"./image/dessert1.jpg",
             "name": "Mike's Pastry",
             "style": "Ice Cream",
             "price": "$",
             "stars":"4",
+            "url":"http://www.yelp.com/biz/mikes-pastry-boston",
             "address":"300 Hanover St."
         },
-        { "_id": "2",
+        { "_id": "6",
             "type": "2" ,
             "image":"./image/dessert2.jpg",
             "name": "Picco",
             "style": "Ice Cream",
             "price": "$$",
             "stars":"4",
+            "url":"http://www.yelp.com/biz/picco-boston-2",
             "address":"513 Tremont St."
         },
-        { "_id": "3",
+        { "_id": "7",
             "type": "2" ,
             "image":"./image/dessert3.jpg",
             "name": "Cafe Madeleine",
             "style": "Bakery",
             "price": "$",
             "stars":"5",
+            "url":"http://www.yelp.com/biz/cafe-madeleine-boston-2",
             "address":"517 Columbus Ave"
         },
-        { "_id": "4",
+        { "_id": "8",
             "type": "2" ,
             "image":"./image/dessert4.jpg",
             "name": "Modern Pastry Shop",
             "style": "Bakery",
             "price": "$",
             "stars":"4",
+            "url":"http://www.yelp.com/biz/modern-pastry-shop-boston",
             "address":"257 Hanover St."
         },
-        { "_id": "1",
+        { "_id": "9",
             "type": "3" ,
             "image":"./image/fast1.jpg",
             "name": "Uburger",
             "style": "Burgers",
             "price": "$",
             "stars":"4",
+            "url":"http://www.yelp.com/biz/uburger-boston-9",
             "address":"Kenmore Sq 636 Beacon St."
         },
-        { "_id": "2",
+        { "_id": "10",
             "type": "3" ,
             "image":"./image/fast2.jpg",
             "name": "Shake Shack",
             "style": "Hot Dogs",
             "price": "$$",
             "stars":"3",
+            "url":"http://www.yelp.com/biz/shake-shack-boston?osq=Shake+Shack",
             "address":"234 Newbury St."
         },
-        { "_id": "3",
+        { "_id": "11",
             "type": "3" ,
             "image":"./image/fast3.jpg",
             "name": "Chicken Lou's",
             "style": "Sandwiches",
             "price": "$",
             "stars":"4",
+            "url":"http://www.yelp.com/search?find_desc=Chicken+Lou%27s&find_loc=Boston%2C+MA&ns=1",
             "address":"50 Forsyth St."
         },
-        { "_id": "4",
+        { "_id": "12",
             "type": "3" ,
             "image":"./image/fast4.jpg",
             "name": "Beta Burger",
             "style": "Burgers",
             "price": "$",
             "stars":"5",
+            "url":"http://www.yelp.com/biz/beta-burger-boston",
             "address":"1437 Tremont St."
         }
     ];
@@ -385,6 +398,10 @@ module.exports=function(app,models){
     app.get("/BostonTrip/api/:userId/like/hotels",findLikeHotels);
     app.post("/BostonTrip/api/likeHotel",likeHotel);
     app.delete("/BostonTrip/api/:userId/dislike/hotels/:attractionId",dislikeHotel);
+
+    app.get("/BostonTrip/api/:userId/like/eats",findLikeEats);
+    app.post("/BostonTrip/api/likeEat",likeEat);
+    app.delete("/BostonTrip/api/:userId/dislike/eats/:attractionId",dislikeEats);
 
 
     function findAttraction(req,res){
@@ -542,6 +559,67 @@ module.exports=function(app,models){
         var favoriteId=req.params.attractionId;
         var userId=req.params.userId;
         BLikeHotelModel
+            .dislikeAttractions(favoriteId,userId)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+
+    function likeEat(req,res){
+        var attraction=req.body;
+        var favoriteId=attraction.favoriteId;
+        var userId=attraction.userId;
+
+        BLikeEatModel
+            .findLikeAttractionsById(favoriteId,userId)
+            .then(
+                function(attractionExist){
+                    if(attractionExist&&attractionExist.userId===attraction.userId){
+                        res.status(404).send("Already Exists!");
+                        return;
+                    }
+                    else{
+                        return BLikeEatModel
+                            .likeAttraction(attraction);
+                    }
+                }
+            )
+            .then(
+                function(attractions){
+                    res.json(attractions);
+                },
+                function(error){
+                    res.send(400);
+                }
+            );
+    }
+    function findLikeEats(req,res){
+        var userId=req.params.userId;
+        var userEats=[];
+        BLikeEatModel
+            .findLikeAttractions(userId)
+            .then(
+                function(attractions){
+                    for(var a in attractions){
+                        for(var i in eat){
+                            if(eat[i]._id===attractions[a].favoriteId){
+                                userEats.push(eat[i]);
+                            }
+                        }
+                    }
+                    res.send(userEats);
+                }
+            );
+    }
+    function dislikeEats(req,res){
+        var favoriteId=req.params.attractionId;
+        var userId=req.params.userId;
+        BLikeEatModel
             .dislikeAttractions(favoriteId,userId)
             .then(
                 function(stats){

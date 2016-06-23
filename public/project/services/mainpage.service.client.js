@@ -17,7 +17,10 @@
             dislikeAttraction:dislikeAttraction,
             likeHotel:likeHotel,
             findLikeHotels:findLikeHotels,
-            dislikeHotel:dislikeHotel
+            dislikeHotel:dislikeHotel,
+            likeEat:likeEat,
+            findLikeEats:findLikeEats,
+            dislikeEats:dislikeEats
         };
         return api;
         
@@ -82,6 +85,24 @@
             var url="/BostonTrip/api/"+userId+"/dislike/hotels/"+attractionId;
             return $http.delete(url);
         }
-        
+
+        function likeEat(attractionId,name,userId){
+            var eat={
+                favoriteId:attractionId,
+                favoriteName:name,
+                userId:userId
+            };
+            return $http.post("/BostonTrip/api/likeEat",eat);
+        }
+
+        function findLikeEats(userId){
+            var url="/BostonTrip/api/"+userId+"/like/eats";
+            return $http.get(url);
+        }
+
+        function dislikeEats(attractionId,userId){
+            var url="/BostonTrip/api/"+userId+"/dislike/eats/"+attractionId;
+            return $http.delete(url);
+        }
     }
 })();

@@ -109,6 +109,37 @@
                     );
             }
             vm.unlikeHotel=unlikeHotel;
+
+            function likeEat(attractionId,attractionName){
+                var userId=$routeParams.uid;
+                MainpageService.likeEat(attractionId,attractionName,userId)
+                    .then(
+                        function(response){
+                            vm.eatSuccess="Successfully Added!";
+                        },
+                        function(err){
+                            vm.existEat=err.data;
+                        }
+                    );
+            }
+            vm.likeEat=likeEat;
+
+            MainpageService.findLikeEats(userId)
+                .then(function(response){
+                    var likeEats=response.data;
+                    vm.likeEats=likeEats;
+                });
+
+            function unlikeEat(attraction){
+                MainpageService
+                    .dislikeEats(attraction,userId)
+                    .then(
+                        function(response){
+                            $route.reload();
+                        }
+                    );
+            }
+            vm.unlikeEat=unlikeEat;
         }
         init();
     }
@@ -146,8 +177,8 @@
 
             MainpageService.findLikeAttractions(userId)
                 .then(function(response){
-                    var likeAttractions=response.data;
-                    vm.likeAttractions=likeAttractions;
+                    var likeEats=response.data;
+                    vm.likeEats=likeEats;
                 });
         }
         init();
