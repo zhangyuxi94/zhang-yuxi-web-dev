@@ -20,7 +20,10 @@
             dislikeHotel:dislikeHotel,
             likeEat:likeEat,
             findLikeEats:findLikeEats,
-            dislikeEats:dislikeEats
+            dislikeEats:dislikeEats,
+            likeGuide:likeGuide,
+            findLikeGuides:findLikeGuides,
+            dislikeGuides:dislikeGuides
         };
         return api;
         
@@ -102,6 +105,25 @@
 
         function dislikeEats(attractionId,userId){
             var url="/BostonTrip/api/"+userId+"/dislike/eats/"+attractionId;
+            return $http.delete(url);
+        }
+
+        function likeGuide(attractionId,name,userId){
+            var guide={
+                favoriteId:attractionId,
+                favoriteName:name,
+                userId:userId
+            };
+            return $http.post("/BostonTrip/api/likeGuide",guide);
+        }
+
+        function findLikeGuides(userId){
+            var url="/BostonTrip/api/"+userId+"/like/guides";
+            return $http.get(url);
+        }
+
+        function dislikeGuides(attractionId,userId){
+            var url="/BostonTrip/api/"+userId+"/dislike/guides/"+attractionId;
             return $http.delete(url);
         }
     }

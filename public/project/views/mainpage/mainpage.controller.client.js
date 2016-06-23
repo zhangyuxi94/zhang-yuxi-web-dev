@@ -140,6 +140,37 @@
                     );
             }
             vm.unlikeEat=unlikeEat;
+
+            function likeGuide(attractionId,attractionName){
+                var userId=$routeParams.uid;
+                MainpageService.likeGuide(attractionId,attractionName,userId)
+                    .then(
+                        function(response){
+                            vm.guideSuccess="Successfully Added!";
+                        },
+                        function(err){
+                            vm.existGuide=err.data;
+                        }
+                    );
+            }
+            vm.likeGuide=likeGuide;
+
+            MainpageService.findLikeGuides(userId)
+                .then(function(response){
+                    var likeGuides=response.data;
+                    vm.likeGuides=likeGuides;
+                });
+
+            function unlikeGuide(attraction){
+                MainpageService
+                    .dislikeGuides(attraction,userId)
+                    .then(
+                        function(response){
+                            $route.reload();
+                        }
+                    );
+            }
+            vm.unlikeGuide=unlikeGuide;
         }
         init();
     }

@@ -5,6 +5,7 @@ module.exports=function(app,models){
     var BLikeAttractionModel=models.BLikeAttractionModel;
     var BLikeHotelModel=models.BLikeHotelModel;
     var BLikeEatModel=models.BLikeEatModel;
+    var BLikeGuideModel=models.BLikeGuideModel;
     var attraction=[
         { _id: "1",
             type:"1",
@@ -403,6 +404,10 @@ module.exports=function(app,models){
     app.post("/BostonTrip/api/likeEat",likeEat);
     app.delete("/BostonTrip/api/:userId/dislike/eats/:attractionId",dislikeEats);
 
+    app.get("/BostonTrip/api/:userId/like/guides",findLikeGuides);
+    app.post("/BostonTrip/api/likeGuide",likeGuide);
+    app.delete("/BostonTrip/api/:userId/dislike/guides/:attractionId",dislikeGuides);
+
 
     function findAttraction(req,res){
         res.send(attraction);
@@ -620,6 +625,67 @@ module.exports=function(app,models){
         var favoriteId=req.params.attractionId;
         var userId=req.params.userId;
         BLikeEatModel
+            .dislikeAttractions(favoriteId,userId)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+
+    function likeGuide(req,res){
+        var attraction=req.body;
+        var favoriteId=attraction.favoriteId;
+        var userId=attraction.userId;
+
+        BLikeGuideModel
+            .findLikeAttractionsById(favoriteId,userId)
+            .then(
+                function(attractionExist){
+                    if(attractionExist&&attractionExist.userId===attraction.userId){
+                        res.status(404).send("Already Exists!");
+                        return;
+                    }
+                    else{
+                        return BLikeGuideModel
+                            .likeAttraction(attraction);
+                    }
+                }
+            )
+            .then(
+                function(attractions){
+                    res.json(attractions);
+                },
+                function(error){
+                    res.send(400);
+                }
+            );
+    }
+    function findLikeGuides(req,res){
+        var userId=req.params.userId;
+        var userGuides=[];
+        BLikeGuideModel
+            .findLikeAttractions(userId)
+            .then(
+                function(attractions){
+                    for(var a in attractions){
+                        for(var i in guide){
+                            if(guide[i]._id===attractions[a].favoriteId){
+                                userGuides.push(guide[i]);
+                            }
+                        }
+                    }
+                    res.send(userGuides);
+                }
+            );
+    }
+    function dislikeGuides(req,res){
+        var favoriteId=req.params.attractionId;
+        var userId=req.params.userId;
+        BLikeGuideModel
             .dislikeAttractions(favoriteId,userId)
             .then(
                 function(stats){
