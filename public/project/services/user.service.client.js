@@ -13,6 +13,9 @@
             findUserByCredentials:findUserByCredentials,
             createUser:createUser,
             findUserById:findUserById
+            // login:login,
+            // loggedIn:loggedIn,
+            // logout:logout
         };
         return api;
         function findUserByCredentials(email,password){
@@ -33,6 +36,24 @@
         function findUserById(userId){
             var url="/BostonTrip/api/user/"+userId;
             return $http.get(url);
+        }
+
+        function login(email,password){
+            var user={
+                username:email,
+                password:password
+            };
+            if(user.username&&user.password){
+                return $http.post("/BostonTrip/api/login",user);
+            }
+        }
+
+        function loggedIn(){
+            return $http.get("/BostonTrip/api/loggedIn");
+        }
+
+        function logout(){
+            return $http.post("/BostonTrip/api/logout");
         }
     }
 })();

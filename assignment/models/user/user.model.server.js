@@ -10,7 +10,7 @@ module.exports=function(){
     var User=mongoose.model("User",UserSchema);
 
   var api={
-      findFacebookUser:findFacebookUser,
+      // findFacebookUser:findFacebookUser,
       createUser:createUser,
       findUserById:findUserById,
       findUserByCredentials:findUserByCredentials,
@@ -19,10 +19,10 @@ module.exports=function(){
       updateUser:updateUser
   };
 return api;
-
-    function findFacebookUser(id){
-        return User.findOne({"facebook.id":id})
-    }
+    //
+    // function findFacebookUser(id){
+    //     return User.findOne({"facebook.id":id})
+    // }
 
     function findUserByCredentials(username, password) {
         return User.findOne({username: username, password: password});

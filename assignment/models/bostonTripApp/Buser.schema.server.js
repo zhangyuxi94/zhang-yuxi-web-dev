@@ -7,6 +7,11 @@ module.exports=function(){
     var BUserSchema=mongoose.Schema({
             username:String,
             password:String,
+            facebook:{
+                token:String,
+                id:String,
+                displayName:String
+            },
             email:String,
             dateCreated:{type:Date,default:Date.now}
         },

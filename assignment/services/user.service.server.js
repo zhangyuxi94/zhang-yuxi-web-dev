@@ -3,18 +3,18 @@
  */
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
+// var FacebookStrategy = require('passport-facebook').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 
 
 module.exports=function(app,models){
     var userModel=models.userModel;
 
-    app.get("/auth/facebook",passport.authenticate('facebook'));
-    app.get("/auth/facebook/callback", passport.authenticate('facebook', {
-        successRedirect: '/assignment/#/user',
-        failureRedirect: '/assignment/#/login'
-    }));
+    // app.get("/auth/facebook",passport.authenticate('facebook'));
+    // app.get("/auth/facebook/callback", passport.authenticate('facebook', {
+    //     successRedirect: '/assignment/#/user',
+    //     failureRedirect: '/assignment/#/login'
+    // }));
     app.get("/api/user",getUsers);
     app.get("/api/user/:userId",findUserById);
     app.get("/api/loggedIn",loggedIn);
@@ -34,13 +34,13 @@ module.exports=function(app,models){
     //     clientSecret : "512650dc75de693ed05f8dbb48ff2bb1",
     //     callbackURL  : "http://127.0.0.1:8080/auth/facebook/callback"
     // };
-    var facebookConfig = {
-        clientID     : process.env.FACEBOOK_CLIENT_ID,
-        clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL  : process.env.FACEBOOK_CALLBACK_URL
-    };
-    
-    passport.use('facebook',new FacebookStrategy(facebookConfig,facebookLogin));
+    // var facebookConfig = {
+    //     clientID     : process.env.FACEBOOK_CLIENT_ID,
+    //     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    //     callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+    // };
+    //
+    // passport.use('facebook',new FacebookStrategy(facebookConfig,facebookLogin));
 
 
     function localStrategy(username, password, done) {
@@ -91,34 +91,34 @@ module.exports=function(app,models){
         }
     }
 
-    function facebookLogin(token, refreshToken, profile, done){
-        userModel
-            .findFacebookUser(profile.id)
-            .then(
-                function(facebookUser){
-                    if(facebookUser){
-                        return done(null,facebookUser);
-                    }
-                    else{
-                        facebookUser={
-                            username:profile.displayName.replace(/ /g,''),
-                            facebook:{
-                                token:token,
-                                id:profile.id,
-                                displayName:profile.displayName
-                            }
-                        };
-                        userModel
-                            .createUser(facebookUser)
-                            .then(
-                                function(user) {
-                                    done(null, user);
-                                }
-                            );
-                    }
-                }
-            );
-    }
+    // function facebookLogin(token, refreshToken, profile, done){
+    //     userModel
+    //         .findFacebookUser(profile.id)
+    //         .then(
+    //             function(facebookUser){
+    //                 if(facebookUser){
+    //                     return done(null,facebookUser);
+    //                 }
+    //                 else{
+    //                     facebookUser={
+    //                         username:profile.displayName.replace(/ /g,''),
+    //                         facebook:{
+    //                             token:token,
+    //                             id:profile.id,
+    //                             displayName:profile.displayName
+    //                         }
+    //                     };
+    //                     userModel
+    //                         .createUser(facebookUser)
+    //                         .then(
+    //                             function(user) {
+    //                                 done(null, user);
+    //                             }
+    //                         );
+    //                 }
+    //             }
+    //         );
+    // }
 
     function loggedIn(req,res){
         if(req.isAuthenticated()){

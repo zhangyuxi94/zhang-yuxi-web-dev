@@ -7,6 +7,7 @@ module.exports=function(){
     var BUser=mongoose.model("BUser",BUserSchema);
 
     var api={
+        findFacebookUser:findFacebookUser,
         findUserByCredentials:findUserByCredentials,
         createUser:createUser,
         findUserById:findUserById,
@@ -14,12 +15,16 @@ module.exports=function(){
     };
     return api;
 
+    function findFacebookUser(id){
+        return BUser.findOne({"facebook.id":id})
+    }
+
     function findUserByCredentials(email, password) {
         return BUser.findOne({email: email, password: password});
     }
 
-    function findUserByEmail(username){
-        return BUser.findById({email: username});
+    function findUserByEmail(email){
+        return BUser.findOne({email: email});
     }
 
     function findUserById(userId) {

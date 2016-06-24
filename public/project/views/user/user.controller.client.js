@@ -56,9 +56,10 @@
         }
     }
 
-    function ProfileController($routeParams,UserService){
+    function ProfileController($rootScope,$location,$routeParams,UserService){
         var vm=this;
         var userId=$routeParams.uid;
+        // var userId=$rootScope.currentUser._id;
         vm.userId=userId;
         function init(){
             UserService
@@ -67,6 +68,18 @@
                     var user=response.data;
                     vm.user=user;
                 });
+
+            function logout(){
+                UserService
+                    .logout()
+                    .then(
+                        function(response){
+                            $rootScope.currentUser = null;
+                            $location.url("/login");
+                        }
+                    )
+            }
+            vm.logout=logout;
         }
         init();
     }
