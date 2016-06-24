@@ -9,6 +9,10 @@
     function ConfigMainpage($routeProvider){
         $routeProvider
             .when(
+                "/test",{
+                    templateUrl:"index.html"
+                })
+            .when(
                 "/landingPage",{
                     templateUrl:"views/mainpage/landing.view.client.html",
                     controller:"userMainpageController",
