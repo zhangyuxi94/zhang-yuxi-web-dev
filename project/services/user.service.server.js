@@ -10,8 +10,8 @@ module.exports=function(app,models){
 
     app.get("/auth/facebook",passport.authenticate('facebook'));
     app.get("/auth/facebook/callback", passport.authenticate('facebook', {
-        successRedirect: '/project/BostonTrip.html#/profile',
-        failureRedirect: '/project/BostonTrip.html#/login'
+        successRedirect: '/project/index.html#/profile',
+        failureRedirect: '/project/index.html#/login'
     }));
 
     app.get("/BostonTrip/api/user",getUsers);
