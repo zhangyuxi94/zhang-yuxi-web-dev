@@ -9,8 +9,8 @@
     function ConfigMainpage($routeProvider){
         $routeProvider
             .when(
-                "/test",{
-                    templateUrl:"index.html"
+                "/search",{
+                    templateUrl:"searchResult.html"
                 })
             .when(
                 "/landingPage",{
