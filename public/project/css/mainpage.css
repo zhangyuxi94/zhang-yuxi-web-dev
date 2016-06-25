@@ -77,7 +77,7 @@ html {
     background-size: cover;
 }
 
-.section1 #mainboston{
+.section1 #tipue_search_input{
     left: 50%;
     width: 60%;
     top: 35%;
@@ -115,7 +115,7 @@ html {
         padding: 0;
     }
 
-    .section1 #mainboston{
+    .section1 #tipue_search_input{
         display: block;
     }
 }
