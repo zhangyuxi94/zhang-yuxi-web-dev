@@ -77,18 +77,25 @@ html {
     background-size: cover;
 }
 
-.section1 #tipue_search_input{
+#mainpage1 form{
     left: 50%;
-    width: 60%;
-    top: 35%;
-    margin-left: -30%;
+    width: 90%;
+    top: 14%;
+    margin-left: -45%;
     margin-top: -15px;
-    background-color: white;
-    position: absolute;
-    padding: 24px;
-    font-size: 22px;
     z-index: 10;
-    display: none;
+    position: absolute;
+}
+
+#mainpage1 form button{
+    padding: 10px;
+}
+
+#mainpage1 form input{
+    background-color: white;
+    padding: 20px;
+    font-size: 18px;
+    /*display: none;*/
 }
 
 @media(min-width:767px) {
@@ -107,17 +114,26 @@ html {
         margin: 6px 0 0 3px;
     }
 
-    .navbar .col-xs-6 input{
-        display: none;
-    }
+    /*.navbar .col-xs-6 input{*/
+        /*display: none;*/
+    /*}*/
 
     .top-nav-collapse {
         padding: 0;
     }
 
-    .section1 #tipue_search_input{
-        display: block;
+    #mainpage1 form{
+        left: 50%;
+        width: 60%;
+        top: 35%;
+        margin-left: -30%;
+        margin-top: -15px;
+        z-index: 10;
+        position: absolute;
     }
+    /*.section1 #tipue_search_input{*/
+        /*display: block;*/
+    /*}*/
 }
 
 

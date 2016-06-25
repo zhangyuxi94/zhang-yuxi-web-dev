@@ -6,9 +6,7 @@
                     <a class="page-scroll" href="#landingPage">BostonTrip</a>
                 </div>
             </div>
-            <div class="col-xs-6">
-                <input type="text" placeholder="Search..">
-            </div>
+            <div class="col-xs-6"></div>
             <div class="col-xs-2">
                 <button type="button"  class="navbar-toggle"  data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="glyphicon glyphicon-th-list"></span>
@@ -38,11 +36,16 @@
 
 <section id="mainpage1" class="section1">
     <form action="#/search">
-        <input type="text" name="q"
-               id="tipue_search_input"
-               placeholder="Search Attractions/Hotels/Restaurants..."
-               class="form-control"
-               autocomplete="off" required>
+        <div class="input-group">
+            <input type="text" name="q"
+                   id="tipue_search_input"
+                   placeholder="Attractions/Hotels/Restaurants..."
+                   class="form-control"
+                   autocomplete="off" required>
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">SEARCH</button>
+            </span>
+        </div>
     </form>
 </section>
 
