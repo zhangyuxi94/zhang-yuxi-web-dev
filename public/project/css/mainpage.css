@@ -89,6 +89,9 @@ html {
 
 #mainpage1 form button{
     padding: 10px;
+    background-color: #de5556;
+    border-color: transparent;
+    color: white;
 }
 
 #mainpage1 form input{
@@ -114,10 +117,6 @@ html {
         margin: 6px 0 0 3px;
     }
 
-    /*.navbar .col-xs-6 input{*/
-        /*display: none;*/
-    /*}*/
-
     .top-nav-collapse {
         padding: 0;
     }
@@ -131,9 +130,6 @@ html {
         z-index: 10;
         position: absolute;
     }
-    /*.section1 #tipue_search_input{*/
-        /*display: block;*/
-    /*}*/
 }
 
 

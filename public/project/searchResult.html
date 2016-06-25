@@ -24,12 +24,25 @@
             <h3>Search Result</h3>
             <div></div>
         </div>
+        
         <form action="#/search">
             <input
-                    placeholder="Search Attractions/Hotels/Restaurants..."
+                    placeholder="Boston Attractions/Hotels/Restaurants..."
                     class="form-control"
+                    list="search"
                     type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+
         </form>
+        <datalist id="search">
+            <option>Attractions</option>
+            <option>Restaurants</option>
+            <option>Hotels</option>
+            <option>Guides</option>
+            <option>Harvard University</option>
+            <option>Freedom Trail</option>
+            <option>MIT</option>
+        </datalist>
+
         <div id="tipue_search_content"></div>
     </div>
 </div>
@@ -37,9 +50,10 @@
 <script>
     $(document).ready(function() {
         $('#tipue_search_input').tipuesearch({
-            'show': 3,
+            'show': 5,
             'newWindow': true,
-            'minimumLength':1
+            'minimumLength':1,
+            'highlightEveryTerm':true
         });
     });
 </script>

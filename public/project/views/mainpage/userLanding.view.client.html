@@ -42,13 +42,23 @@
         <div class="input-group">
             <input type="text" name="q"
                    id="tipue_search_input"
-                   placeholder="Attractions/Hotels/Restaurants..."
+                   list="search"
+                   placeholder="Boston Attractions/Hotels/Restaurants..."
                    class="form-control"
                    autocomplete="off" required>
             <span class="input-group-btn">
                 <button class="btn btn-default" type="submit">SEARCH</button>
             </span>
         </div>
+        <datalist id="search">
+            <option>Attractions</option>
+            <option>Restaurants</option>
+            <option>Hotels</option>
+            <option>Guides</option>
+            <option>Harvard University</option>
+            <option>Freedom Trail</option>
+            <option>MIT</option>
+        </datalist>
     </form>
 </section>
 
