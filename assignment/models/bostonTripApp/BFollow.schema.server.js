@@ -6,7 +6,9 @@ module.exports=function(){
 
     var BFollowSchema=mongoose.Schema({
         follow:String,
+        followName:String,
         follower:String,
+        followerName:String,
         dateCreated:{type:Date,default:Date.now}
         },
         {collection:"assignment.bfollow"}

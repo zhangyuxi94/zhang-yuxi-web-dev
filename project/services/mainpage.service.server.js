@@ -416,9 +416,10 @@ module.exports=function(app,models){
     app.get("/BostonTrip/api/guide/:guideId/comments",findCommentsByGid);
 
     app.post("/BostonTrip/api/followOther",followOther);
-
-
-
+    app.get("/BostonTrip/api/:userId/follows",findFollowsByUserId);
+    app.get("/BostonTrip/api/:userId/followers",findFollowersByUserId);
+    app.delete("/BostonTrip/api/:userId/unFollow/:followId",unFollow);
+    app.delete("/BostonTrip/api/comment/delete/:commentId",deleteComment);
 
 
     function findAttraction(req,res){
@@ -721,7 +722,6 @@ module.exports=function(app,models){
     function createComment(req,res){
         var comment = req.body;
         var userId=comment.userId;
-        // console.log(userId);
         BUserModel
             .findUserById(userId)
             .then(
@@ -765,10 +765,6 @@ module.exports=function(app,models){
         var follow=req.body;
         var followId=follow.follow;
         var followerId=follow.follower;
-        // console.log(follow);
-        // console.log(followId);
-        // console.log(followerId);
-
         BFollowModel
             .findFollowsById(followId,followerId)
             .then(
@@ -778,8 +774,23 @@ module.exports=function(app,models){
                         return;
                     }
                     else{
-                        return BFollowModel
-                            .followUser(follow);
+                        BUserModel
+                            .findUserById(followerId)
+                            .then(
+                                function(user){
+                                    var username=user.username;
+                                    var plusUsername={
+                                        follow:follow.follow,
+                                        followName:follow.followName,
+                                        follower:follow.follower,
+                                        followerName:username
+                                    };
+                                    return BFollowModel
+                                        .followUser(plusUsername);
+                                }
+
+                            )
+
                     }
                 }
             )
@@ -789,6 +800,61 @@ module.exports=function(app,models){
                 },
                 function(error){
                     res.send(400);
+                }
+            );
+    }
+
+    function findFollowsByUserId(req,res){
+        var userId=req.params.userId;
+        BFollowModel
+            .findFollowsByUserId(userId)
+            .then(
+                function(follows){
+                    res.send(follows);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+    function findFollowersByUserId(req,res){
+        var userId=req.params.userId;
+        BFollowModel
+            .findFollowersByUserId(userId)
+            .then(
+                function(follows){
+                    res.send(follows);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+
+    function unFollow(req,res){
+        var followId=req.params.followId;
+        var userId=req.params.userId;
+        BFollowModel
+            .unFollowUser(followId,userId)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+    function deleteComment(req,res){
+        var commentId=req.params.commentId;
+        BCommentModel
+            .deleteComments(commentId)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
                 }
             );
     }

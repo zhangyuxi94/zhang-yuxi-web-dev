@@ -74,11 +74,11 @@
             <br>
             <div class="panel panel-default">
                 <div ng-if="model.existGuide" class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button ng-click="model.alertClose()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     {{model.existGuide}}
                 </div>
                 <div ng-if="model.guideSuccess" class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button ng-click="model.alertClose()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     {{model.guideSuccess}}
                 </div>
                 <div class="panel-heading">
@@ -97,7 +97,7 @@
                     <h3 class="panel-title">COMMENT:</h3>
                 </div>
                 <div ng-if="model.invalidComment" class="alert alert-danger alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button ng-click="model.alertClose()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     {{model.invalidComment}}
                 </div>
 
@@ -116,21 +116,30 @@
                     <h3 class="panel-title">USER COMMENTS:</h3>
                 </div>
                 <div ng-if="model.AlreadyFollowed" class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button ng-click="model.alertClose()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     {{model.AlreadyFollowed}}
                 </div>
                 <div ng-if="model.followSuccess" class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button ng-click="model.alertClose()" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     {{model.followSuccess}}
                 </div>
-                <div class="panel-body userComment" ng-repeat="comment in model.comments">
+                <div class="panel-body userComment" ng-repeat="comment in model.othersComments">
                     <div>
                         <span>{{comment.userName}}</span>:&nbsp;
                         <p>{{comment.userComment}}</p>
                     </div>
                     <div>
-                        <!--{{comment.userId}}-->
-                        <a style="color: #de5556;text-decoration: underline;cursor: pointer" ng-click="model.followOther(comment.userId)" class="pull-left">Follow this user</a>
+                        <a style="color: #de5556;text-decoration: underline;cursor: pointer" ng-click="model.followOther(comment.userId,comment.userName)" class="pull-left">Follow this user</a>
+                        <p class="pull-right">{{comment.date}}</p>
+                    </div>
+                </div>
+                <div class="panel-body userComment" ng-repeat="comment in model.myComments">
+                    <div>
+                        <span>{{comment.userName}}</span>:&nbsp;
+                        <p>{{comment.userComment}}</p>
+                    </div>
+                    <div>
+                        <a style="color: #de5556;text-decoration: underline;cursor: pointer" ng-click="model.deleteComment(comment._id)" class="pull-left">Delete</a>
                         <p class="pull-right">{{comment.date}}</p>
                     </div>
                 </div>

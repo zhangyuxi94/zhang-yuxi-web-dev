@@ -169,11 +169,41 @@
                     );
             }
             vm.unlikeGuide=unlikeGuide;
+
+            function alertClose(){
+                $route.reload();
+            }
+            vm.alertClose=alertClose;
+
+            MainpageService.findFollowsByUserId(userId)
+                .then(function(response){
+                    var follows=response.data;
+                    vm.followsNumber=follows.length;
+                    vm.follows=follows;
+                });
+
+            MainpageService.findFollowersByUserId(userId)
+                .then(function(response){
+                    var followers=response.data;
+                    vm.followersNumber=followers.length;
+                    vm.followers=followers;
+                });
+
+            function unFollow(followId){
+                MainpageService
+                    .unFollow(followId,userId)
+                    .then(
+                        function(response){
+                            $route.reload();
+                        }
+                    );
+            }
+            vm.unFollow=unFollow;
         }
         init();
     }
 
-    function findAttractionsController($routeParams,MainpageService){
+    function findAttractionsController($route,$routeParams,MainpageService){
         var vm=this;
         vm.attractionId=$routeParams.aid;
 
@@ -189,8 +219,6 @@
                     }
                 );
             function likeAttraction(attractionId,attractionName){
-                // console.log(attractionId);
-                // console.log(attractionName)
                 var userId=$routeParams.uid;
                 MainpageService.likeAttraction(attractionId,attractionName,userId)
                     .then(
@@ -209,6 +237,11 @@
                     var likeEats=response.data;
                     vm.likeEats=likeEats;
                 });
+
+            function alertClose(){
+                $route.reload();
+            }
+            vm.alertClose=alertClose;
         }
         init();
     }
@@ -271,17 +304,40 @@
             MainpageService.findCommentsByGid(guideId)
                 .then(function(response){
                     var comments=response.data;
+                    var myComments=[];
+                    var othersComments=[];
+
                     for(var i in comments){
                         var time=comments[i].dateCreated;
-                        var date=new Date(time).toLocaleDateString();
-                        comments[i].date=date;
+                        var oriHour=new Date(time).getHours();
+                        oriHour= oriHour < 10 ? '0'+oriHour : oriHour;
+                        var oriMinute=new Date(time).getMinutes();
+                        oriMinute= oriMinute < 10 ? '0'+oriMinute : oriMinute;
+
+                        var year=(new Date(time).getFullYear()).toString();
+                        var month=(new Date(time).getMonth()+1).toString();
+                        var date=(new Date(time).getDate()).toString();
+                        var hour=oriHour.toString();
+                        var minute=oriMinute.toString();
+
+                        comments[i].date=year+"/"+month+"/"+date+" "+hour+":"+minute;
+                    }
+                    for(var a in comments){
+                        if(comments[a].userId===userId){
+                            myComments.push(comments[a]);
+                        }
+                        else if(comments[a].userId!==userId){
+                            othersComments.push(comments[a]);
+                        }
                     }
                     vm.comments=comments;
+                    vm.myComments=myComments;
+                    vm.othersComments=othersComments;
                 });
 
-            function followOther(followId) {
+            function followOther(followId,username) {
                     MainpageService
-                        .followOther(followId,userId)
+                        .followOther(followId,userId,username)
                         .then(
                             function(response){
                                 vm.followSuccess="Successfully Followed!";
@@ -289,10 +345,25 @@
                             function(error){
                                 vm.AlreadyFollowed=error.data;
                             }
-
                         );
             }
             vm.followOther=followOther;
+
+            function alertClose(){
+                $route.reload();
+            }
+            vm.alertClose=alertClose;
+
+            function deleteComment(commentId){
+                MainpageService
+                    .deleteComment(commentId)
+                    .then(
+                        function(response){
+                            $route.reload();
+                        }
+                    );
+            }
+            vm.deleteComment=deleteComment;
         }
         init();
     }

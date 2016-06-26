@@ -9,7 +9,10 @@ module.exports=function(){
     var api={
         // findLikeAttractionsById:findLikeAttractionsById,
         findFollowsById:findFollowsById,
-        followUser:followUser
+        followUser:followUser,
+        findFollowsByUserId:findFollowsByUserId,
+        findFollowersByUserId:findFollowersByUserId,
+        unFollowUser:unFollowUser
         // findLikeAttractions:findLikeAttractions,
         // dislikeAttractions:dislikeAttractions
     };
@@ -22,13 +25,15 @@ module.exports=function(){
         return BFollow.create(follow);
     }
 
-    // function findLikeAttractions(userId){
-    //     return BLikeAttraction.find({"userId":userId})
-    // }
-    //
-    // function dislikeAttractions(favoriteId,userId){
-    //     return BLikeAttraction.remove({"favoriteId": favoriteId,"userId":userId});
-    // }
+    function findFollowsByUserId(userId){
+        return BFollow.find({"follower":userId})
+    }
+    function findFollowersByUserId(userId){
+        return BFollow.find({"follow":userId})
+    }
 
+    function unFollowUser(followId,userId){
+        return BFollow.remove({"follow": followId,"follower":userId});
+    }
 
 };

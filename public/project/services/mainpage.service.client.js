@@ -27,7 +27,11 @@
             findGuidesById:findGuidesById,
             createComment:createComment,
             findCommentsByGid:findCommentsByGid,
-            followOther:followOther
+            followOther:followOther,
+            findFollowsByUserId:findFollowsByUserId,
+            findFollowersByUserId:findFollowersByUserId,
+            unFollow:unFollow,
+            deleteComment:deleteComment
         };
         return api;
         
@@ -150,12 +154,32 @@
             return $http.get(url);
         }
 
-        function followOther(followId,userId){
+        function followOther(followId,userId,followName){
             var follow={
                 follow:followId,
+                followName:followName,
                 follower:userId
             };
             return $http.post("/BostonTrip/api/followOther",follow);
+        }
+
+        function findFollowsByUserId(userId){
+            var url="/BostonTrip/api/"+userId+"/follows";
+            return $http.get(url);
+        }
+        function findFollowersByUserId(userId){
+            var url="/BostonTrip/api/"+userId+"/followers";
+            return $http.get(url);
+        }
+
+        function unFollow(followId,userId){
+            var url="/BostonTrip/api/"+userId+"/unFollow/"+followId;
+            return $http.delete(url);
+        }
+
+        function deleteComment(commentId){
+            var url="/BostonTrip/api/comment/delete/"+commentId;
+            return $http.delete(url);
         }
 
     }
