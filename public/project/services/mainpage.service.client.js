@@ -24,7 +24,10 @@
             likeGuide:likeGuide,
             findLikeGuides:findLikeGuides,
             dislikeGuides:dislikeGuides,
-            findGuidesById:findGuidesById
+            findGuidesById:findGuidesById,
+            createComment:createComment,
+            findCommentsByGid:findCommentsByGid,
+            followOther:followOther
         };
         return api;
         
@@ -132,5 +135,28 @@
             var url="/BostonTrip/api/guide/"+guideId;
             return $http.get(url);
         }
+
+        function createComment(comment,userId,guideId){
+            var comment={
+                userComment:comment,
+                userId:userId,
+                guideId:guideId
+            };
+            return $http.post("/BostonTrip/api/comment",comment);
+        }
+
+        function findCommentsByGid(guideId){
+            var url="/BostonTrip/api/guide/"+guideId+"/comments";
+            return $http.get(url);
+        }
+
+        function followOther(followId,userId){
+            var follow={
+                follow:followId,
+                follower:userId
+            };
+            return $http.post("/BostonTrip/api/followOther",follow);
+        }
+
     }
 })();

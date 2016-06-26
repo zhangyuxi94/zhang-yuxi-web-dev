@@ -26,7 +26,9 @@ module.exports=function(){
         BLikeAttractionModel:require("./bostonTripApp/BLikeAttraction.model.server.js")(),
         BLikeHotelModel:require("./bostonTripApp/BLikeHotel.model.server.js")(),
         BLikeEatModel:require("./bostonTripApp/BLikeEat.model.server.js")(),
-        BLikeGuideModel:require("./bostonTripApp/BLikeGuide.model.server.js")()
+        BLikeGuideModel:require("./bostonTripApp/BLikeGuide.model.server.js")(),
+        BCommentModel:require("./bostonTripApp/BComment.model.server.js")(),
+        BFollowModel:require("./bostonTripApp/BFollow.model.server.js")()
     };
     return models;
 };

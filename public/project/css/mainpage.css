@@ -353,6 +353,15 @@ html {
     color: #de5556;
 }
 
+.userComment{
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.userComment span{
+    font-size: 22px;
+    color: #de5556;
+}
+
 @media(min-width:767px){
     .page-header h1{
         color:#de5556;

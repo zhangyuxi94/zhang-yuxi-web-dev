@@ -78,9 +78,6 @@
             vm.unlikeAttraction=unlikeAttraction;
 
             function likeHotel(attractionId,attractionName){
-                // console.log(attractionId);
-                // console.log(attractionName);
-
                 var userId=$routeParams.uid;
                 MainpageService.likeHotel(attractionId,attractionName,userId)
                     .then(
@@ -216,7 +213,7 @@
         init();
     }
 
-    function findGuidesController($routeParams,MainpageService){
+    function findGuidesController($routeParams,MainpageService,$route){
         var vm=this;
         vm.guideId=$routeParams.gid;
 
@@ -251,6 +248,51 @@
                     var likeGuides=response.data;
                     vm.likeGuides=likeGuides;
                 });
+
+            function submitComment(comment) {
+                if(comment!==undefined){
+                    MainpageService
+                        .createComment(comment,userId,guideId)
+                        .then( 
+                            function(response){
+                                var user=response.data;
+                                $route.reload();
+                                // console.log(user);
+                            }
+                        );
+                }
+                else{
+                    vm.invalidComment="Null values not allowed!";
+                }
+
+            }
+            vm.submitComment=submitComment;
+
+            MainpageService.findCommentsByGid(guideId)
+                .then(function(response){
+                    var comments=response.data;
+                    for(var i in comments){
+                        var time=comments[i].dateCreated;
+                        var date=new Date(time).toLocaleDateString();
+                        comments[i].date=date;
+                    }
+                    vm.comments=comments;
+                });
+
+            function followOther(followId) {
+                    MainpageService
+                        .followOther(followId,userId)
+                        .then(
+                            function(response){
+                                vm.followSuccess="Successfully Followed!";
+                            },
+                            function(error){
+                                vm.AlreadyFollowed=error.data;
+                            }
+
+                        );
+            }
+            vm.followOther=followOther;
         }
         init();
     }

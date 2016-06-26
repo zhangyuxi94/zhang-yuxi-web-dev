@@ -74,13 +74,13 @@
             <br>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="#" style="color: black"><h3 class="panel-title">ADD TO FAVORITE:<span class="glyphicon glyphicon-heart"></span></h3></a>
+                    <a href="#login" style="color: black"><h3 class="panel-title">ADD TO FAVORITE:<span class="glyphicon glyphicon-heart"></span></h3></a>
                 </div>
             </div>
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="#" style="color: black"><h3 class="panel-title" style="text-transform: uppercase">FOLLOW THIS USER:<span class="glyphicon glyphicon-ok-circle"></span></h3></a>
+                    <a href="#login" style="color: black"><h3 class="panel-title" style="text-transform: uppercase">FOLLOW THIS USER:<span class="glyphicon glyphicon-ok-circle"></span></h3></a>
                 </div>
             </div>
 
@@ -89,12 +89,28 @@
                     <h3 class="panel-title">COMMENT:</h3>
                 </div>
                 <div class="panel-body">
-                    <textarea class="form-control"></textarea>
-                    <button type="submit" class="btn btn-primary pull-right" style="margin-top: 10px">Submit</button>
+                    <textarea class="form-control" disabled
+                              rows="4"
+                              placeholder="Please login first..."></textarea>
+                    <a href="#login"><button type="submit" class="btn btn-primary pull-right" style="margin-top: 10px">Login Here</button></a>
                 </div>
             </div>
 
-
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">USER COMMENTS:</h3>
+                </div>
+                <div class="panel-body userComment" ng-repeat="comment in model.comments">
+                    <div>
+                        <span>{{comment.userName}}:</span>
+                        <p>{{comment.userComment}}</p>
+                    </div>
+                    <div>
+                        <a style="color: #de5556;text-decoration: underline;cursor: pointer" href="#login" class="pull-left">Follow this user</a>
+                        <p class="pull-right">{{comment.date}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

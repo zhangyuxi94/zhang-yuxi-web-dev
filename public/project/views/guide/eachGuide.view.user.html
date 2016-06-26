@@ -67,6 +67,7 @@
                     <div ng-switch-default>Page not found.</div>
                 </div>
             </div>
+
         </div>
         <div class="col-sm-4 commentPart">
             <br>
@@ -95,13 +96,45 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">COMMENT:</h3>
                 </div>
+                <div ng-if="model.invalidComment" class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{model.invalidComment}}
+                </div>
+
                 <div class="panel-body">
-                    <textarea class="form-control"></textarea>
-                    <button type="submit" class="btn btn-primary pull-right" style="margin-top: 10px">Submit</button>
+                    <textarea
+                            rows="4"
+                            class="form-control"
+                            ng-model="comment"
+                            placeholder="Leave your comment here..."></textarea>
+                    <a ng-click="model.submitComment(comment)"><button class="btn btn-primary pull-right" style="margin-top: 10px">Submit</button></a>
                 </div>
             </div>
 
-
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">USER COMMENTS:</h3>
+                </div>
+                <div ng-if="model.AlreadyFollowed" class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{model.AlreadyFollowed}}
+                </div>
+                <div ng-if="model.followSuccess" class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{model.followSuccess}}
+                </div>
+                <div class="panel-body userComment" ng-repeat="comment in model.comments">
+                    <div>
+                        <span>{{comment.userName}}</span>:&nbsp;
+                        <p>{{comment.userComment}}</p>
+                    </div>
+                    <div>
+                        <!--{{comment.userId}}-->
+                        <a style="color: #de5556;text-decoration: underline;cursor: pointer" ng-click="model.followOther(comment.userId)" class="pull-left">Follow this user</a>
+                        <p class="pull-right">{{comment.date}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

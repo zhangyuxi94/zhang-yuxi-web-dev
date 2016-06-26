@@ -6,6 +6,9 @@ module.exports=function(app,models){
     var BLikeHotelModel=models.BLikeHotelModel;
     var BLikeEatModel=models.BLikeEatModel;
     var BLikeGuideModel=models.BLikeGuideModel;
+    var BCommentModel=models.BCommentModel;
+    var BUserModel=models.BUserModel;
+    var BFollowModel=models.BFollowModel;
     var attraction=[
         { _id: "1",
             type:"1",
@@ -409,6 +412,13 @@ module.exports=function(app,models){
     app.delete("/BostonTrip/api/:userId/dislike/guides/:attractionId",dislikeGuides);
     app.get("/BostonTrip/api/guide/:guideId",findGuidesById);
 
+    app.post("/BostonTrip/api/comment",createComment);
+    app.get("/BostonTrip/api/guide/:guideId/comments",findCommentsByGid);
+
+    app.post("/BostonTrip/api/followOther",followOther);
+
+
+
 
 
     function findAttraction(req,res){
@@ -706,5 +716,80 @@ module.exports=function(app,models){
                 res.send(guide[i]);
             }
         }
+    }
+
+    function createComment(req,res){
+        var comment = req.body;
+        var userId=comment.userId;
+        // console.log(userId);
+        BUserModel
+            .findUserById(userId)
+            .then(
+                function(user){
+                    var username=user.username;
+                    var plusUsername={
+                        userName:username,
+                        userComment:comment.userComment,
+                        userId:comment.userId,
+                        guideId:comment.guideId
+                    };
+                    BCommentModel
+                        .createComment(plusUsername)
+                        .then(
+                            function(comment){
+                                res.json(comment);
+                            },
+                            function(error){
+                                res.send(400);
+                            }
+                        );
+                }
+            )
+    }
+
+    function findCommentsByGid(req,res){
+        var guideId=req.params.guideId;
+        BCommentModel
+            .findGuideComments(guideId)
+            .then(
+                function(comments){
+                    res.send(comments);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+
+    function followOther(req,res){
+        var follow=req.body;
+        var followId=follow.follow;
+        var followerId=follow.follower;
+        // console.log(follow);
+        // console.log(followId);
+        // console.log(followerId);
+
+        BFollowModel
+            .findFollowsById(followId,followerId)
+            .then(
+                function(followExist){
+                    if(followExist&&followExist.follower===follow.follower){
+                        res.status(404).send("Already Followed!");
+                        return;
+                    }
+                    else{
+                        return BFollowModel
+                            .followUser(follow);
+                    }
+                }
+            )
+            .then(
+                function(follows){
+                    res.json(follows);
+                },
+                function(error){
+                    res.send(400);
+                }
+            );
     }
 };
