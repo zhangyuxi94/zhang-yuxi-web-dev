@@ -75,7 +75,7 @@ a{
 @media(min-width:767px) {
     .login{
         padding: 100px 0;
-        height: auto;
+        height: 100%;
     }
 
     .loginpage{
