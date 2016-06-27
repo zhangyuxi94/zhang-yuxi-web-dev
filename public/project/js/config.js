@@ -43,6 +43,12 @@
                     controllerAs:"model"
                 })
             .when(
+                "/:uid/otherProfile/:otherid",{
+                    templateUrl:"views/user/othersProfile.view.client.html",
+                    controller:"OtherProfileController",
+                    controllerAs:"model"
+                })
+            .when(
                 "/about",{
                     templateUrl:"views/about/about.view.visitor.html",
                     controller:"userMainpageController",

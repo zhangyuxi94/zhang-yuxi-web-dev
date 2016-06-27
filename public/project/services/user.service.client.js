@@ -12,7 +12,9 @@
         var api = {
             findUserByCredentials:findUserByCredentials,
             createUser:createUser,
-            findUserById:findUserById
+            findUserById:findUserById,
+            updateUser:updateUser,
+            deleteUser:deleteUser
             // login:login,
             // loggedIn:loggedIn,
             // logout:logout
@@ -54,6 +56,16 @@
 
         function logout(){
             return $http.post("/BostonTrip/api/logout");
+        }
+
+        function updateUser(userId,newUser){
+            var url="/BostonTrip/api/user/"+userId;
+            return $http.put(url,newUser);
+        }
+
+        function deleteUser(userId){
+            var url="/BostonTrip/api/user/"+userId;
+            return $http.delete(url);
         }
     }
 })();

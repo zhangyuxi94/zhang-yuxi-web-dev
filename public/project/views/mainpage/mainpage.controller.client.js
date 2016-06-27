@@ -13,10 +13,11 @@
         var vm=this;
         vm.userId=$routeParams.uid;
         vm.attractionId=$routeParams.aid;
-
+        
         function init(){
             var attractionId=$routeParams.aid;
             var userId=$routeParams.uid;
+            var otherId=$routeParams.otherid;
 
             MainpageService.findAttractions()
                 .then(
@@ -199,6 +200,30 @@
                     );
             }
             vm.unFollow=unFollow;
+
+            MainpageService.findLikeAttractions(otherId)
+                .then(function(response){
+                    var likeAttractions=response.data;
+                    vm.otherAttractions=likeAttractions;
+                });
+
+            MainpageService.findLikeHotels(otherId)
+                .then(function(response){
+                    var likeHotels=response.data;
+                    vm.otherHotels=likeHotels;
+                });
+
+            MainpageService.findLikeEats(otherId)
+                .then(function(response){
+                    var likeEats=response.data;
+                    vm.otherEats=likeEats;
+                });
+
+            MainpageService.findLikeGuides(otherId)
+                .then(function(response){
+                    var likeGuides=response.data;
+                    vm.otherGuides=likeGuides;
+                });
         }
         init();
     }

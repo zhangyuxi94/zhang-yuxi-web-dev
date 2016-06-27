@@ -18,6 +18,9 @@ module.exports=function(app,models){
     app.get("/BostonTrip/api/loggedIn",loggedIn);
     app.post("/BostonTrip/api/logout",logout);
     app.post("/BostonTrip/api/user",createUser);
+    app.put("/BostonTrip/api/user/:userId",updateUser);
+    app.delete("/BostonTrip/api/user/:userId",deleteUser);
+
     app.get("/BostonTrip/api/user/:userId",findUserById);
     app.post("/BostonTrip/api/login",passport.authenticate('project'),login);
 
@@ -133,31 +136,28 @@ module.exports=function(app,models){
             );
     }
     function createUser(req,res){
-        var user = req.body;
-        BUserModel.createUser(user)
+        var newUser = req.body;
+        BUserModel.findUserByEmail(newUser.email)
             .then(
                 function(user){
-                    res.json(user);
-                },
-                function(error){
-                    res.send(400);
+                    if(user){
+                        res.send("0");
+                    }
+                    else if(!user){
+                        BUserModel.createUser(newUser)
+                            .then(
+                                function(user){
+                                    res.json(user);
+                                },
+                                function(error){
+                                    res.send(400);
+                                }
+                            );
+                    }
                 }
-            );
-        
-      //   if(user.email&&user.username&&user.password){
-      //       if(user.password===user.verifyPassword){
-      //           user._id=(new Date()).getTime()+"";
-      //           users.push(user);
-      //           res.send(user);
-      //       }
-      //       else{
-      //           res.send(400);
-      //       }
-      //   }
-      // else{
-      //       res.send(400);
-      //   }
+            )
     }
+
     function facebookLogin(token, refreshToken, profile, done){
         BUserModel
             .findFacebookUser(profile.id)
@@ -201,30 +201,32 @@ module.exports=function(app,models){
         req.logout();
         res.send(200);
     }
-    // function updateUser(req,res){
-    //     var userId=req.params.userId;
-    //     var user=req.body;
-    //     for(var i in users){
-    //         if(users[i]._id===userId){
-    //             users[i].email=user.email;
-    //             users[i].firstName=user.firstName;
-    //             users[i].lastName=user.lastName;
-    //             res.send(200);
-    //             return;
-    //         }
-    //     }
-    //     res.send(400);
-    // }
-    //
-    // function deleteUser(req,res){
-    //     var id=req.params.userId;
-    //     for(var i in users){
-    //         if(users[i]._id===id){
-    //             users.splice(i,1);
-    //             res.send(200);
-    //             return;
-    //         }
-    //     }
-    //     res.send(400);
-    // }
+    function updateUser(req,res){
+        var userId=req.params.userId;
+        var user=req.body;
+        BUserModel
+            .updateUser(userId,user)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+
+    function deleteUser(req,res){
+        var id=req.params.userId;
+        BUserModel
+            .deleteUser(id)
+            .then(
+                function(stats){
+                    res.send(200);
+                },
+                function(error){
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
 };

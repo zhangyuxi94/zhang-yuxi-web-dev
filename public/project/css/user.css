@@ -132,6 +132,10 @@ a{
     color: #080808;
 }
 
+.profileDetail .right .input-group{
+    width: 100%;
+}
+
 @media(min-width:767px) {
     .profileBackground{
         padding: 110px 0;
@@ -146,6 +150,10 @@ a{
 
     .myProfile{
         font-size: 20px;
+    }
+
+    .profileDetail .right .input-group{
+        width: 40%;
     }
 }
 /*===================================detailShow===================================*/
@@ -239,6 +247,7 @@ a{
 #myFavorites .detailShow .col-sm-3:nth-child(4n+1){
     clear: both;
 }
+
 
 @media(min-width:767px) {
     #myFavorites h4{

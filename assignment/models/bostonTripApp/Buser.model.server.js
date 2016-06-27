@@ -11,7 +11,9 @@ module.exports=function(){
         findUserByCredentials:findUserByCredentials,
         createUser:createUser,
         findUserById:findUserById,
-        findUserByEmail:findUserByEmail
+        findUserByEmail:findUserByEmail,
+        updateUser:updateUser,
+        deleteUser:deleteUser
     };
     return api;
 
@@ -33,5 +35,18 @@ module.exports=function(){
 
     function createUser(user){
         return BUser.create(user);
+    }
+    function updateUser(userId,user){
+        delete user._id;
+        return BUser
+            .update({_id:userId},{
+                $set:{
+                    username:user.username
+                }
+            });
+    }
+
+    function deleteUser(userId){
+        return BUser.remove({_id:userId});
     }
 };

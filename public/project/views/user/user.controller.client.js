@@ -7,9 +7,10 @@
         .module("MainpageApp")
         .controller("LoginController",LoginController)
         .controller("RegisterController",RegisterController)
-        .controller("ProfileController",ProfileController);
+        .controller("ProfileController",ProfileController)
+        .controller("OtherProfileController",OtherProfileController);
 
-    function LoginController($location,UserService){
+    function LoginController($route,$location,UserService){
         var vm=this;
         vm.login=login;
         function login(email,password){
@@ -29,8 +30,13 @@
                     }
                 );
         }
+
+        function alertClose(){
+            $route.reload();
+        }
+        vm.alertClose=alertClose;
     }
-    function RegisterController($location,UserService){
+    function RegisterController($location,UserService,$route){
         var vm=this;
         vm.register=register;
         function register(email,username,password,verifyPassword){
@@ -44,9 +50,13 @@
                     .then(
                         function(response){
                             var user=response.data;
-                            if(user){
+                            if(user==="0"){
+                                vm.error="This Email has been registered!"
+                            }
+                            else if(user!=="0"){
                                 $location.url("/profile/"+user._id);
                             }
+
                         },
                         function(error){
                             vm.error="Please check your enter!"
@@ -54,11 +64,18 @@
                     );
             }
         }
+
+        function alertClose(){
+            $route.reload();
+        }
+        vm.alertClose=alertClose;
     }
 
-    function ProfileController($rootScope,$location,$routeParams,UserService){
+    function ProfileController($rootScope,$route,$location,$routeParams,UserService){
         var vm=this;
         var userId=$routeParams.uid;
+        var otherId=$routeParams.otherid;
+        
         // var userId=$rootScope.currentUser._id;
         vm.userId=userId;
         function init(){
@@ -80,6 +97,64 @@
                     )
             }
             vm.logout=logout;
+
+            function updateUser(newUser){
+                UserService
+                    .updateUser(userId,newUser)
+                    .then(
+                        function(response){
+                            vm.updateProfile="Success! Your profile was saved."
+                        },
+                        function (error) {
+                            vm.updateProfile="Unable to update"
+                        });
+            }
+            vm.updateUser=updateUser;
+
+            function deleteUser(){
+                UserService
+                    .deleteUser(userId)
+                    .then(
+                        function(response){
+                            $location.url("/landingPage");
+                        },
+                        function(error){
+                            vm.updateProfile="Unable to remove user"
+                        }
+                    );
+            }
+            vm.deleteUser=deleteUser;
+
+
+            function alertClose(){
+                $route.reload();
+            }
+            vm.alertClose=alertClose;
+        }
+        init();
+    }
+
+    function OtherProfileController($routeParams,UserService){
+        var vm=this;
+        var userId=$routeParams.uid;
+        var otherId=$routeParams.otherid;
+
+        // var userId=$rootScope.currentUser._id;
+        vm.userId=userId;
+        function init(){
+            UserService
+                .findUserById(userId)
+                .then(function (response) {
+                    var user=response.data;
+                    vm.user=user;
+                });
+
+            UserService
+                .findUserById(otherId)
+                .then(function (response) {
+                    var user=response.data;
+                    vm.otheruser=user;
+                });
         }
         init();
     }
