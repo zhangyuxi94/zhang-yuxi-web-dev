@@ -199,7 +199,7 @@ module.exports=function(app,models){
                     res.statusCode(404).send(error);
                 }
             );
-        res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+        res.redirect("/WebsiteMaker/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
 
     }
 
@@ -222,7 +222,7 @@ module.exports=function(app,models){
         var mimetype      = myFile.mimetype;
 
                 widgets[0].url="/uploads/"+filename;
-        res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/new/"+widgetTypeId);
+        res.redirect("/WebsiteMaker/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/new/"+widgetTypeId);
     }
 
 };

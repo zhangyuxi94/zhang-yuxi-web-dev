@@ -10,8 +10,8 @@ module.exports=function(app,models){
 
     app.get("/auth/facebook",passport.authenticate('facebook'));
     app.get("/auth/facebook/callback", passport.authenticate('facebook', {
-        successRedirect: '/project/index.html#/profile',
-        failureRedirect: '/project/index.html#/login'
+        successRedirect: '/BostonTrip/index.html#/profile',
+        failureRedirect: '/BostonTrip/index.html#/login'
     }));
 
     app.get("/BostonTrip/api/user",getUsers);
@@ -22,13 +22,13 @@ module.exports=function(app,models){
     app.delete("/BostonTrip/api/user/:userId",deleteUser);
 
     app.get("/BostonTrip/api/user/:userId",findUserById);
-    app.post("/BostonTrip/api/login",passport.authenticate('project'),login);
+    app.post("/BostonTrip/api/login",passport.authenticate('BostonTrip'),login);
 
 
     // app.put("/api/user/:userId",updateUser);
     // app.delete("/api/user/:userId",deleteUser);
 
-    passport.use('project',new LocalStrategy(localStrategy));
+    passport.use('BostonTrip',new LocalStrategy(localStrategy));
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
 
